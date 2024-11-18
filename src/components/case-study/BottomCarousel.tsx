@@ -2,12 +2,11 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import { Autoplay } from 'swiper/modules';
-import "swiper/css";
-
+import 'swiper/css';
 
 SwiperCore.use([Autoplay]);
 
-const BottomCarousel:React.FC = () => {
+const BottomCarousel: React.FC = () => {
   const images = [
     '/case-study/carousel/Rectangle 370.png',
     '/case-study/carousel/Rectangle 373.png',
