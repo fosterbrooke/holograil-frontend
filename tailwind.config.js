@@ -9,10 +9,12 @@ export default {
       colors: {
         primary: '#2B4099', // Custom Primary Color
         secondary: '#15357D', // Custom Secondary Color
+        dark: '#1D2130',
         'dark-gray': '#595959',
         'warm-gray': '#F8F8ED',
         'dark-blue': '#043873',
         gray: '#D9D9D9',
+        'custom-gray': '#ABB1BB',
         'custom-blue': '#89CAFF', // Custom color 2
         'custom-light-blue': '#CAE4F9',
         'custom-pink': '#DB92D4', // Custom color 1
