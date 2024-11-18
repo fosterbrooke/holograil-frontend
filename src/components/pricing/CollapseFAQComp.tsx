@@ -5,7 +5,10 @@ interface CollapsibleFAQCompProps {
   answer: string;
 }
 
-const CollapsibleFAQComp: React.FC<CollapsibleFAQCompProps> = ({ question, answer }) => {
+const CollapsibleFAQComp: React.FC<CollapsibleFAQCompProps> = ({
+  question,
+  answer,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleCollapse = () => {
@@ -14,7 +17,10 @@ const CollapsibleFAQComp: React.FC<CollapsibleFAQCompProps> = ({ question, answe
 
   return (
     <div className="mb-4 px-[60px] py-[52px] bg-white rounded-[24px]">
-      <div className="flex justify-between items-center cursor-pointer p-4" onClick={toggleCollapse}>
+      <div
+        className="flex justify-between items-center cursor-pointer p-4"
+        onClick={toggleCollapse}
+      >
         <div className="font-bold text-[24px] text-dark">{question}</div>
         <div className="flex items-center justify-center">
           {isOpen ? (
