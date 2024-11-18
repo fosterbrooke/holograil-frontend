@@ -15,7 +15,7 @@ const CustomRing: React.FC<CustomRingProps> = ({
   arcSmall = 76.6,
   color = '#add8e6', // Default light blue color in hex format
   blurAmount = 3,
-  className = ''
+  className = '',
 }) => {
   const radius = diameter / 2;
   const bigRadius = (radius * arcBig) / 100;
@@ -48,7 +48,7 @@ const CustomRing: React.FC<CustomRingProps> = ({
           fill="white" // Fill with white to create a ring effect
         />
       </svg>
-    </div >
+    </div>
   );
 };
 

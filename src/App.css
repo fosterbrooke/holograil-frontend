@@ -1,0 +1,49 @@
+.slide-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  flex-direction: column;
+  background-color: #f8f8ed;
+}
+
+.card-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.App-header {
+  position: fixed; /* Fixes the header at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; /* Ensures it stays above other content */
+  background-color: #1a2b5d; /* Match the background color */
+  padding: 10px 64px; /* Adjust padding as needed */
+  display: flex;
+  width: calc(100vw - 128px);
+  border-bottom: 2px solid #f8f8ed;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-download {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2b4099; /* Change to your desired color */
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 1rem; /* Responsive font size */
+  margin-top: 20px;
+}
+
+.app-download:hover {
+  background-color: #1a2b5d; /* Darker shade for hover effect */
+}

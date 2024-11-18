@@ -1,0 +1,24 @@
+.slide-pricing, .slide-video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  flex-direction: column;
+  background-color: #f8f8ed;
+}
+
+/* Add this CSS to your styles */
+.responsive-iframe {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.responsive-iframe iframe {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+}

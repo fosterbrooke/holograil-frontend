@@ -8,25 +8,30 @@ interface NubmerShowProps {
   color: string;
 }
 
-const NumberShow: React.FC<NubmerShowProps> = ({ number, content, isApproximate = false, color }) => {
+const NumberShow: React.FC<NubmerShowProps> = ({
+  number,
+  content,
+  isApproximate = false,
+  color,
+}) => {
   const formattedNumber = number.toLocaleString();
 
   return (
-    <div className='flex flex-col space-y-[10px] items-center justify-center'>
+    <div className="flex flex-col space-y-[10px] items-center">
       <CustomRing
         diameter={39}
         arcBig={100}
         arcSmall={76.6}
         color={color}
-        className='absolute z-0'
+        className="absolute z-0 pt-4"
       />
-      <span className='font-semibold text-black text-[34px] z-10'>
+      <span className="font-semibold text-black text-[34px] z-10">
         {formattedNumber}
         {isApproximate && '+'}
       </span>
-      <span className='text-dark-gray'>{content}</span>
+      <span>{content}</span>
     </div>
-  )
-}
+  );
+};
 
 export default NumberShow;

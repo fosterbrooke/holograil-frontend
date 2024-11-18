@@ -1,18 +1,19 @@
+import React from 'react';
 import { HeaderItem, headerItems } from '../utils/headerItems';
 import { setSelectedItem, setUser } from '../redux/userSlice';
 import { RootState } from '../redux/store';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const HeaderBar = () => {
+const HeaderBar: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const selectedItem = useSelector(
     (state: RootState) => state.user.selectedItem
   );
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -35,10 +36,10 @@ const HeaderBar = () => {
     setIsMenuOpen(false);
   };
 
-  const handleSignOut = () => {};
+  // const handleSignOut = () => {};
 
   return (
-    <header className="flex fixed top-0 left-0 w-full items-center px-6 lg:px-[10%] md:px-[6%] py-6 bg-white/50 backdrop-blur-lg z-50 space-x-4">
+    <header className="flex fixed top-0 left-0 w-full items-center px-6 lg:px-[10%] md:px-[6%] py-6 bg-white/50 backdrop-blur-lg z-50 space-x-4 font-inter">
       {/* Logo */}
       <img
         src="/logo.png"
