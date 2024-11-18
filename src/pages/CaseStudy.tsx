@@ -7,7 +7,7 @@ import ResilienceReboundSlide from '../components/case-study/ResilienceReboundSl
 import Footer from '../components/Footer';
 import HeaderBar from '../components/HeaderBar';
 
-const CaseStudy:React.FC = () => {
+const CaseStudy: React.FC = () => {
   return (
     <div className="font-poppins">
       <HeaderBar />

@@ -2,7 +2,7 @@ import React from 'react';
 import NumberShow2 from './NumberShow2';
 import RoundButton from './RoundButton';
 
-const WhyChooseSlide:React.FC = () => {
+const WhyChooseSlide: React.FC = () => {
   const content = [
     {
       number: '01',

@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import HeaderBar from '../components/HeaderBar';
 import PricingMainSlide from '../components/pricing/PricingMainSlide';
 
-const Pricing:React.FC = () => {
+const Pricing: React.FC = () => {
   return (
     <div>
       <HeaderBar />

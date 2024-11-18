@@ -2,7 +2,7 @@ import React from 'react';
 import NumberShow from './NumberShow';
 import RoundButton from './RoundButton';
 
-const GetMoreSlide:React.FC = () => {
+const GetMoreSlide: React.FC = () => {
   const active_users_number = 15890;
   const total_download_number = 1980;
   const customers_number = 600;

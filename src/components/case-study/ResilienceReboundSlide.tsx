@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ResilienceReboundSlide:React.FC = () => {
+const ResilienceReboundSlide: React.FC = () => {
   return (
     <div className="mt-[117px]">
       <div className="text-center flex flex-col items-center">

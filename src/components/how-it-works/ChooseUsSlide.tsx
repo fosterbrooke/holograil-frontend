@@ -1,7 +1,7 @@
 import React from 'react';
 import ImageCardComp from './ImageCardComp';
 
-const ChooseUsSlide:React.FC = () => {
+const ChooseUsSlide: React.FC = () => {
   return (
     <div className="mt-[375px] mb-[369px]">
       <div className="font-bold text-[64px] text-primary text-center">

@@ -5,7 +5,10 @@ import reportWebVitals from './reportWebVitals';
 import AppWrapper from './App';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import '@fontsource/poppins';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
 
 // Ensure that the root element is of type HTMLElement
 const rootElement = document.getElementById('root') as HTMLElement;

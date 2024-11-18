@@ -1,7 +1,7 @@
 import React from 'react';
 import RoundButton from '../RoundButton';
 
-const HowMainSlide:React.FC = () => {
+const HowMainSlide: React.FC = () => {
   return (
     <div className="">
       <img src="/how-it-works/Rectangle 3.png" className="relative" />

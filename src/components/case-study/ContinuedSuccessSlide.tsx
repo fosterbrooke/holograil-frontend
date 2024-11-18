@@ -1,7 +1,7 @@
 import React from 'react';
 import BottomCarousel from './BottomCarousel';
 
-const ContinuedSuccessSlide:React.FC = () => {
+const ContinuedSuccessSlide: React.FC = () => {
   return (
     <div className="mt-[149px]">
       <div className="text-center flex flex-col items-center mb-[117px]">

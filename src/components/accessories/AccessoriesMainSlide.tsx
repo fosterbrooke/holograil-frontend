@@ -1,7 +1,7 @@
 import React from 'react';
 import InfoComp from '../InfoComp';
 
-const AccessoriesMainSlide:React.FC = () => {
+const AccessoriesMainSlide: React.FC = () => {
   return (
     <div className="">
       <img src="/accessories/Rectangle 3.png" />

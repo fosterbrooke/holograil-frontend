@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EnteringMarketSlide:React.FC = () => {
+const EnteringMarketSlide: React.FC = () => {
   return (
     <div className="relative flex items-center justify-center mt-[89px]">
       <img

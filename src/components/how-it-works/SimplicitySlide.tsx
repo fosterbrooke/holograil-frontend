@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 // import { ReactComponent as DragClickIcon } from './assets/';
 
-const SimplicitySlide:React.FC = () => {
+const SimplicitySlide: React.FC = () => {
   const [isCard1Visible, setIsCard1Visible] = useState(false);
   const [isCard2Visible, setIsCard2Visible] = useState(false);
   const [isCard3Visible, setIsCard3Visible] = useState(false);

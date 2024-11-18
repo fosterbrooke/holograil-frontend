@@ -7,7 +7,7 @@ import HowMainSlide from '../components/how-it-works/HowMainSlide';
 import SimplicitySlide from '../components/how-it-works/SimplicitySlide';
 import VideoPlayer from '../components/VideoPlayer';
 
-const HowItWorks:React.FC = () => {
+const HowItWorks: React.FC = () => {
   // const navigate = useNavigate();
   return (
     <div className="text-dark-gray">

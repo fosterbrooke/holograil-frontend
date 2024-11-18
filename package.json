@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . --ignore-pattern \"dist/**\"",
     "lint:fix": "eslint . --fix --ext .ts,.tsx",
     "prettier": "prettier --check \"src/**/*.{ts,tsx}\"",
     "prettier:fix": "prettier --write \"src/**/*.{ts,tsx}\"",

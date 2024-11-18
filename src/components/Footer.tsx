@@ -4,7 +4,7 @@ import IconLink from './IconLink';
 // import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 // import { AiFillInstagram } from 'react-icons/ai';
 
-const Footer:React.FC = () => {
+const Footer: React.FC = () => {
   const items = [
     {
       // iconClass: <FaMapMarkerAlt size={30} />,

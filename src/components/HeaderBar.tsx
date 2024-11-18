@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const HeaderBar:React.FC = () => {
+const HeaderBar: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const selectedItem = useSelector(

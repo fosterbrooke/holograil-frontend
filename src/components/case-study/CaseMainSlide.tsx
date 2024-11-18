@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CaseMainSlide:React.FC = () => {
+const CaseMainSlide: React.FC = () => {
   return (
     <div>
       <div className="relative">

@@ -1,7 +1,7 @@
 import React from 'react';
 import RoundButton from './RoundButton';
 
-const BenefitSlide:React.FC = () => {
+const BenefitSlide: React.FC = () => {
   return (
     <div className="flex justify-center mb-[61px]">
       <div className="mt-6 flex flex-col space-y-[51px] w-[67%]">
