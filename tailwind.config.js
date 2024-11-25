@@ -15,6 +15,8 @@ export default {
         'dark-blue': '#043873',
         gray: '#D9D9D9',
         'custom-gray': '#ABB1BB',
+        'custom-gray2': '#AAB2C8',  // Custom color for Account Settings page
+        'custom-white': '#F5F6FA', // Custom background color for Account Settings page
         'custom-blue': '#89CAFF', // Custom color 2
         'custom-light-blue': '#CAE4F9',
         'custom-pink': '#DB92D4', // Custom color 1
@@ -26,6 +28,16 @@ export default {
       },
       boxShadow: {
         'custom-image-card': '0 0 124px rgba(178, 191, 248, 1)',
+        'custom-item': `
+          0 0 5px rgba(178, 191, 248, .2),
+          0 0 10px rgba(178, 191, 248, .2),
+          0 0 15px rgba(178, 191, 248, .2)
+        `,
+        'custom-item2': `
+          0 0 10px rgba(178, 191, 248, .3),
+          0 0 20px rgba(178, 191, 248, .4),
+          0 0 30px rgba(178, 191, 248, .5)
+        `,
         custom: '0 50px 25px -24px rgb(0 0 0 / 0.3)',
         'custom-multiple': `
           0 0 50px rgba(0, 0, 0, .1),
@@ -36,6 +48,10 @@ export default {
           0 0 40px rgba(0, 0, 0, .1),
           0 0 60px rgba(0, 0, 0, .1),
           0 0 80px rgba(0, 0, 0, .1)
+        `,
+        'custom-testimonial': `
+          0 2px 4px rgba(0, 0, 0, 0.1),
+          0 4px 12px rgba(0, 0, 0, 0.2)
         `,
       },
     },

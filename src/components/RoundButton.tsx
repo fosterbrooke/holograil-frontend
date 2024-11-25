@@ -12,13 +12,11 @@ const RoundButton: React.FC<RoundButtonProps> = ({
   className = '',
 }) => {
   return (
-    <div>
-      <button
-        className={`transform duration-200 hover:scale-105 rounded-[7px] px-[29px] border-2 border-primary py-[16px] ${isMain ? 'text-white bg-primary' : 'text-primary bg-white'} ${className}`}
-      >
-        {text}
-      </button>
-    </div>
+    <button
+      className={`sm:text-[16px] text-[11px] sm:leading-[19px] sm:leading-[13px] sm:py-[16px] font-semibold transform duration-200 hover:scale-105 px-[29px] border-2 border-primary ${isMain ? 'text-white bg-primary' : 'text-primary bg-white'} ${className} py-[11px]`}
+    >
+      {text}
+    </button>
   );
 };
 

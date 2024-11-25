@@ -8,49 +8,54 @@ const GetMoreSlide: React.FC = () => {
   const customers_number = 600;
 
   return (
-    <div className="flex w-full h-screen">
-      <div className="relative w-[39%] md:block hidden">
-        <img
-          className="bg-transparent w-full max-w-[701px]"
-          src="/get_more_slide2.png"
-          alt="image1"
-        />
-        <img
-          className="absolute top-0 left-0 bg-transparent w-[90%] max-w-[630px]"
-          src="/get_more_slide1.png"
-        />
-      </div>
-      <div className="flex flex-col justify-center ml-[216px] mt-[100px]">
-        <div className="text-primary w-[585px] text-[64px] font-bold">
-          Get More Done with The Grail
-        </div>
-        <div className="mt-[35px] w-[500px] xl:w-[600px]">
-          The Grail’s lenticular photo booth software is a cutting-edge solution
-          that enables you to create 3D, dynamic lenticular prints seamlessly.
-          It’s designed to elevate event experiences with unique visual effects
-          and is easily integrated into your existing photo booth setup.
-        </div>
-        <div className="mt-[39px] flex space-x-[52px]">
-          <RoundButton text="Get Started" />
-          <RoundButton text="Contact Us" isMain={false} />
-        </div>
-        <div className="mt-[79px] flex space-x-[64px] py-[8.5px]">
-          <NumberShow
-            number={active_users_number}
-            content="Active Users"
-            color="#DB92D4"
-          />
-          <NumberShow
-            number={total_download_number}
-            content="Total Download"
-            color="#89CAFF"
-          />
-          <NumberShow
-            number={customers_number}
-            content="Customers"
-            isApproximate={true}
-            color="#FD9330"
-          />
+    <div className="flex lg:flex-row flex-col w-full justify-space">
+      <div
+        className="lg:w-1/2 lg:max-w-[630px] lg:rounded-b-[350px] lg:pt-[48%] pt-[41.7%] h-0 lg:bg-contain bg-cover w-full shadow-custom-card bg-center relative z-10 h-[930px]"
+        style={{ backgroundImage: 'url(/main_slide1.png)' }}
+      ></div>
+      <img
+        className="lg:block hidden absolute inset-0 z-0 bg-transparent w-[36%] max-w-[701px]"
+        src="/get_more_slide2.png"
+        alt="image1"
+      />
+      <div className="flex flex-col items-center w-full sm:mt-[140px] mt-[38px] px-[46px]">
+        <div className="lg:w-1/2 w-full sm:w-[585px] lg:w-[585px] w-full flex flex-col lg:items-normal items-center">
+          <div className="text-primary lg:text-left text-center sm:text-[64px] text-[37px] font-bold ">
+            Get More Done with The Grail
+          </div>
+          <div className="sm:text-[20px] text-[12px] sm:mt-[35px] mt-[30px]">
+            The Grail’s lenticular photo booth software is a cutting-edge
+            solution that enables you to create 3D, dynamic lenticular prints
+            seamlessly. It’s designed to elevate event experiences with unique
+            visual effects and is easily integrated into your existing photo
+            booth setup.
+          </div>
+          <div className="mt-[40px] flex w-full lg:justify-start justify-center space-x-[52px]">
+            <RoundButton text="Get Started" className="rounded-[7px]" />
+            <RoundButton
+              text="Contact Us"
+              isMain={false}
+              className="rounded-[7px]"
+            />
+          </div>
+          <div className="mt-[79px] flex w-full lg:justify-normal justify-center space-x-[64px] py-[8.5px]">
+            <NumberShow
+              number={active_users_number}
+              content="Active Users"
+              color="#DB92D4"
+            />
+            <NumberShow
+              number={total_download_number}
+              content="Total Download"
+              color="#89CAFF"
+            />
+            <NumberShow
+              number={customers_number}
+              content="Customers"
+              isApproximate={true}
+              color="#FD9330"
+            />
+          </div>
         </div>
       </div>
     </div>

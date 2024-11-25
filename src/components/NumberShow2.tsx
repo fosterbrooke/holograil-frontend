@@ -16,13 +16,13 @@ const NumberShow2: React.FC<NumberShow2Props> = ({
   const radius = diameter / 2; // Calculate the radius from the diameter
 
   return (
-    <div className="relative flex items-center justify-center mt-[-14px]">
+    <div className="relative flex items-center justify-center lg:mt-[-14px] mt-0">
       {/* SVG Circle with blur effect */}
       <svg
         width={diameter}
         height={diameter}
         style={{ filter: `blur(${blurAmount}px)` }} // Apply blur using inline style
-        className="absolute z-0 mt-[-32px] ml-[-8px]"
+        className="absolute z-0 lg:mt-[-32px] mt-0 ml-[-8px]"
       >
         {/* Solid Circle */}
         <circle
@@ -34,7 +34,7 @@ const NumberShow2: React.FC<NumberShow2Props> = ({
       </svg>
 
       {/* Number display */}
-      <span className="font-semibold text-primary text-[52px] z-10">
+      <span className="font-semibold text-primary sm:text-[52px] text-[20px] z-10">
         {numberStr}
       </span>
     </div>

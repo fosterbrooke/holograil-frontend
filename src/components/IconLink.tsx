@@ -23,7 +23,7 @@ const IconLink: React.FC<IconLinkInterface> = ({
       className={`flex justify-start items-center ${className}`}
     >
       {/* {iconClass} */}
-      <img src={imgUrl} className="w-[40px] h-[40px]" />
+      <img src={imgUrl} className="sm:w-[40px] w-[20px]" />
       <span className="text-white ml-[17px] w-[240px]">{label}</span>
     </a>
   );
