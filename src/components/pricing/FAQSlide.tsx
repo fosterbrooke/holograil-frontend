@@ -1,7 +1,7 @@
 import React from 'react';
 import CollapsibleFAQComp from './CollapseFAQComp';
 
-const FaqSlide: React.FC = () => {
+const FAQSlide: React.FC = () => {
   const qaList = [
     {
       question: 'Do I need specific hardware to use the software? ',
@@ -51,4 +51,4 @@ const FaqSlide: React.FC = () => {
   );
 };
 
-export default FaqSlide;
+export default FAQSlide;
