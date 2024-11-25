@@ -17,15 +17,15 @@ const NumberShow: React.FC<NubmerShowProps> = ({
   const formattedNumber = number.toLocaleString();
 
   return (
-    <div className="flex flex-col space-y-[10px] items-center">
+    <div className="flex flex-col sm:space-y-[10px] space-y-[22px] items-center relative">
       <CustomRing
         diameter={39}
         arcBig={100}
         arcSmall={76.6}
         color={color}
-        className="absolute z-0 pt-4"
+        className="absolute z-0 pt-[14px]"
       />
-      <span className="font-semibold text-black text-[34px] z-10">
+      <span className="font-semibold text-black sm:text-[34px] text-[15px] z-10">
         {formattedNumber}
         {isApproximate && '+'}
       </span>

@@ -2,14 +2,14 @@ import React from 'react';
 import Footer from '../components/Footer';
 import HeaderBar from '../components/HeaderBar';
 import PricingMainSlide from '../components/pricing/PricingMainSlide';
-import FAQSlide from '../components/pricing/FAQSlide';
+import FaqSlide from '../components/pricing/FaqSlide';
 
 const Pricing: React.FC = () => {
   return (
     <div>
       <HeaderBar />
       <PricingMainSlide />
-      <FAQSlide />
+      <FaqSlide />
       <Footer />
     </div>
   );

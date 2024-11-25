@@ -32,9 +32,9 @@ const Footer: React.FC = () => {
     },
   ];
   return (
-    <footer className="bg-secondary text-white text-[18px] pt-[85px] pl-[104px] pb-[67px] font-iter">
-      <img src="/logo2.png" />
-      <div className="mt-[63px] ml-[66px] flex flex-col space-y-[25px]">
+    <footer className="bg-secondary text-white sm:text-[18px] text-[10px] md:py-[85px] py-[17px] md:px-[104px] px-[28px] font-iter">
+      <img src="/logo2.png" className="md:block hidden" />
+      <div className="md:mt-[63px] mt-0 sm:ml-[66px] ml-0 flex flex-col sm:space-y-[25px] space-y-[19px]">
         {items.map((item) => (
           <IconLink
             // iconClass={item.iconClass}

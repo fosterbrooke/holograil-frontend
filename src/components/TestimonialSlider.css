@@ -1,0 +1,16 @@
+.custom-pagination {
+  position: absolute; /* Adjust positioning as needed */
+  bottom: -30px; /* Move it below the slider */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.swiper-pagination-bullet {
+  width: 12px; /* Adjust bullet size */
+  height: 12px;
+  background-color: gray; /* Default color */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: blue; /* Active bullet color */
+}

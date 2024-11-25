@@ -12,7 +12,7 @@ const HowMainSlide: React.FC = () => {
               Discover the Seamless Process of Creating Stunning Lenticular
               Prints with Our User-Friendly Software
             </div>
-            <RoundButton text="Learn More" />
+            <RoundButton text="Learn More" className="rounded-[7px]" />
           </div>
           <div className="text-primary text-[64px] max-w-[584px] font-bold leading-auto tracking-[-0.02em]">
             How It Works: Capture the Magic with Ease!
