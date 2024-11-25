@@ -22,7 +22,7 @@ const Accounts: React.FC = () => {
     <AccountLayout
       isOpen={isModalOpen}
       onClose={handleCloseModal}
-      title="Account Settings"
+      // title="Account Settings"
     >
       <Routes>
         <Route path="/" element={<p>Please select a section to view.</p>} />

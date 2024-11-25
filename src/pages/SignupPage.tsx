@@ -12,9 +12,9 @@ import { setUser } from '../redux/userSlice';
 const SignupPage: React.FC = () => {
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  // const [username, setUsername] = useState<string>('');
-  // const [email, setEmail] = useState<string>('');
-  // const [password, setPassword] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -105,7 +105,10 @@ const SignupPage: React.FC = () => {
                   placeholder="User Name"
                   type="text"
                   id="username"
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                    console.log(username);
+                  }}
                   required
                   className="mt-2 w-full h-[32px] border border-[#BCBEC0] rounded-[5px] p-2 px-[16px]"
                 />
@@ -118,7 +121,10 @@ const SignupPage: React.FC = () => {
                   placeholder="username@gmail.com"
                   type="email"
                   id="email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    console.log(email);
+                  }}
                   required
                   className="mt-2 w-full h-[32px] border border-[#BCBEC0] rounded-[5px] p-2 px-[16px]"
                 />
@@ -134,7 +140,10 @@ const SignupPage: React.FC = () => {
                     type={showPassword ? 'text' : 'password'} // Toggle between text and password
                     id="password"
                     placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      console.log(password);
+                    }}
                     required
                     className="mt-2 w-full h-[32px] border border-[#BCBEC0] rounded-[5px] p-2 px-[16px] relative" // Add padding to avoid overlap with icon
                   />
