@@ -36,7 +36,7 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
   className = '',
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   const handleSlideChange = (swiper: SwiperType) => {
     setActiveIndex(swiper.activeIndex);
@@ -44,19 +44,21 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
 
   const scrollToPrev = () => {
     if (swiperRef.current) {
-      swiperRef.current.swiper.slidePrev();
+      swiperRef.current.slidePrev();
     }
   };
   const scrollToNext = () => {
     if (swiperRef.current) {
-      swiperRef.current.swiper.slideNext();
+      swiperRef.current.slideNext();
     }
   };
 
   return (
     <div className={`relative w-full max-w-xl mx-auto ${className}`}>
       <Swiper
-        ref={swiperRef}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
         modules={[Navigation, Pagination, Keyboard, EffectCards]}
         spaceBetween={30}
         slidesPerView={1}

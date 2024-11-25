@@ -132,9 +132,8 @@ const SubscriptionTabs: React.FC = () => {
               <div>
                 <div className="mt-[31px]">
                   {currentData.devices.map((device, index) => (
-                    <div>
+                    <div key={index}>
                       <div
-                        key={index}
                         className={`flex items-center justify-between space-x-[15px] rounded-[10px] text-[16px] py-[23px] px-[28px] ${index % 2 == 0 ? 'text-white bg-primary' : 'text-black bg-custom-white'}`}
                       >
                         <img
@@ -169,6 +168,7 @@ const SubscriptionTabs: React.FC = () => {
             <div>
               {currentData.payments.map((payment, index) => (
                 <div
+                  key={index}
                   className={`flex items-center space-x-[19px] ${index % 2 == 1 ? 'bg-custom-white rounded-[12px]' : 'bg-white'}`}
                 >
                   <div
@@ -190,13 +190,18 @@ const SubscriptionTabs: React.FC = () => {
             </div>
           </div>
         )}
-
       </div>
       {currentData.devices.length === 0 && (
-        <div className='flex flex-col items-center justify-center mt-[100px]'>
+        <div className="flex flex-col items-center justify-center mt-[100px]">
           <img src="/accounts/overview/no_data.png" />
-          <div className='mt-[22px] max-w-[610px] text-center text-custom-gray2 text-[20px]'>Currently you don’t have any subscriptions linked to your account. Get started on a plan today!</div>
-          <RoundButton text="Subscribe Now" className='mt-[44px] rounded-[10px] max-w-[282px] w-full'/>
+          <div className="mt-[22px] max-w-[610px] text-center text-custom-gray2 text-[20px]">
+            Currently you don’t have any subscriptions linked to your account.
+            Get started on a plan today!
+          </div>
+          <RoundButton
+            text="Subscribe Now"
+            className="mt-[44px] rounded-[10px] max-w-[282px] w-full"
+          />
         </div>
       )}
     </div>

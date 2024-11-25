@@ -12,9 +12,9 @@ import { setUser } from '../redux/userSlice';
 const SignupPage: React.FC = () => {
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [username, setUsername] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  // const [username, setUsername] = useState<string>('');
+  // const [email, setEmail] = useState<string>('');
+  // const [password, setPassword] = useState<string>('');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,9 +40,9 @@ const SignupPage: React.FC = () => {
       const firebaseUser = result.user;
 
       // Prepare user data for backend
-      const userName = encodeURIComponent(firebaseUser.displayName || '');
-      const userEmail = encodeURIComponent(firebaseUser.email || '');
-      const userProfilePic = encodeURIComponent(firebaseUser.photoURL || '');
+      // const userName = encodeURIComponent(firebaseUser.displayName || '');
+      // const userEmail = encodeURIComponent(firebaseUser.email || '');
+      // const userProfilePic = encodeURIComponent(firebaseUser.photoURL || '');
 
       // Send data to your backend for further processing
       // const response = await fetch(
@@ -59,19 +59,20 @@ const SignupPage: React.FC = () => {
 
       // Validate that the response matches the User interface
       // if (response.ok) {
-      if (true) {
-        // Store user data and get the fetched user object from the backend
-        const fetchedUser = storeUserData(firebaseUser);
+      // if (true) {
+      // Store user data and get the fetched user object from the backend
+      const fetchedUser = storeUserData(firebaseUser);
 
-        // Dispatch to state management
-        dispatch(setUser(fetchedUser));
+      // Dispatch to state management
+      dispatch(setUser(fetchedUser));
 
-        // Navigate after successful sign-in
-        navigate('/accounts/overview');
-      } else {
-        // console.error(data.detail);
-        // alert('Failed to sign in: ' + data.detail);
-      }
+      // Navigate after successful sign-in
+      navigate('/accounts/overview');
+      // } else {
+
+      // console.error(data.detail);
+      // alert('Failed to sign in: ' + data.detail);
+      //}
     } catch (error) {
       console.error('Error during Google Sign-Up:', error);
     }

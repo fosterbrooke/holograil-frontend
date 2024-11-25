@@ -1,6 +1,5 @@
 import { User as FirebaseUser } from 'firebase/auth';
 import { User } from '../types/User';
-import { setUser } from '../redux/userSlice';
 
 export const storeUserData = (firebaseUser: FirebaseUser) => {
   const user: User = {

@@ -3,11 +3,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import './LoginPage.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import {
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../utils/firebaseConfig';
 import { FirebaseError } from 'firebase/app';
 import { useDispatch } from 'react-redux';
@@ -44,11 +40,11 @@ const LoginPage: React.FC = () => {
       //   throw new Error('CAPTCHA verification failed');
       // }
 
-      const result = await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
 
       // alert('Form submission successful!');
       // console.log('Form submitted with CAPTCHA value:', captchaValue);
-    } catch (error: any) {
+    } catch (error) {
       if (error instanceof FirebaseError) {
         console.error(error);
         const errorCode = error.code;

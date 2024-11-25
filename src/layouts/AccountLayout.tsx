@@ -1,19 +1,19 @@
 // AccountLayout.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Sidebar from '../components/accounts/Sidebar';
 import Toolbar from '../components/accounts/Toolbar';
 
 interface AccountLayoutProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string;
+  // title?: string;
   children: React.ReactNode; // This will hold the specific content for eac
 }
 
 const AccountLayout: React.FC<AccountLayoutProps> = ({
   isOpen,
   onClose,
-  title = 'This is a test page',
+  // title = 'This is a test page',
   children,
 }) => {
   // if (!isOpen) return null;
