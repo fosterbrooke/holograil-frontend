@@ -1,7 +1,11 @@
 import React from 'react';
 
 const AccountResources: React.FC = () => {
-  return <h1>Account Resources</h1>;
+  return (
+    <div>
+      <div></div>
+    </div>
+  );
 };
 
 export default AccountResources;
