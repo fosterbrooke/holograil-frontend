@@ -1,5 +1,5 @@
 import React from 'react';
-import PurchasePlansComp from './Plans/PurcasePlansComp';
+import PurchasePlansComp from './plans/PurchasePlansComp';
 
 const AccountPlans: React.FC = () => {
   const subscriptions = [

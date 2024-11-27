@@ -19,7 +19,10 @@ const Toolbar: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center ml-[55px]">
-        <img src="/accounts/shopping_cart.png" className="w-[25px] h-[25px]" />
+        <img
+          src="/accounts/shopping_cart.png"
+          className="w-[25px] h-[25px] cursor-pointer hover:scale-105"
+        />
         <img
           src="/accounts/alert.svg"
           className="w-[20px] h-[20px] ml-[17px] mr-[40px]"
