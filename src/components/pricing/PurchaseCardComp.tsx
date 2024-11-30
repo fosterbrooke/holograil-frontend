@@ -20,10 +20,8 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
 }) => {
   const formattedNumber = price.toLocaleString();
   return (
-    <div>
-      <div
-        className={`${className} sm:flex hidden text-center flex-col items-center space-y-[30px] shadow-custom-multiple rounded-[12px] min-h-[700px] max-w-[400px] px-[20px]`}
-      >
+    <div className={`${className}`}>
+      <div className="sm:flex hidden text-center flex-col items-center space-y-[30px] shadow-custom-multiple rounded-[12px] min-h-[700px] h-full max-w-[400px] px-[20px]">
         <div className={`${bgColor} h-[23px] w-[65%] rounded-[7px]`}></div>
         <div className="w-[180px] text-[#000022] font-semibold text-[30px]">
           {title}

@@ -16,7 +16,7 @@ const PricingMainSlide: React.FC = () => {
             Discover the Seamless Process of Creating Stunning Lenticular Prints
             with Our User-Friendly Software
           </div>
-          <RoundButton text="Learn More" className="rounded-[7px] w-full" />
+          <RoundButton text="Learn More" className="rounded-[7px]" />
         </div>
       </div>
     </div>
