@@ -66,8 +66,17 @@ const SignupPage: React.FC = () => {
       // Dispatch to state management
       dispatch(setUser(fetchedUser));
 
-      // Navigate after successful sign-in
-      navigate('/accounts/overview');
+      // Retrieve selected item from local storage
+      const storedSelectedAccountsItem = localStorage.getItem(
+        'selectedAccountsItem'
+      );
+
+      // Navigate based on the stored item or default to overview
+      if (storedSelectedAccountsItem) {
+        navigate(`/accounts/${storedSelectedAccountsItem}`);
+      } else {
+        navigate('/accounts/overview');
+      }
       // } else {
 
       // console.error(data.detail);

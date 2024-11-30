@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface PurchaseCardCompProps {
+interface PurchasePlansCompProps {
   title: string;
   price: number;
   period: string;
@@ -9,7 +9,7 @@ interface PurchaseCardCompProps {
   className?: string;
 }
 
-const PurchasePlansComp: React.FC<PurchaseCardCompProps> = ({
+const PurchasePlansComp: React.FC<PurchasePlansCompProps> = ({
   title,
   price,
   period,

@@ -24,6 +24,7 @@ import Accounts from './pages/Accounts';
 import ProtectedRoute from './components/ProtectedRoute';
 import { useDispatch } from 'react-redux';
 import { setSelectedItem, setUser } from './redux/userSlice';
+import ShippingBillingPage from './pages/ShippingBillingPage';
 
 function App() {
   return (
@@ -90,7 +91,14 @@ const AppWrapper: React.FC = () => {
             element={<Navigate to="/accounts/overview" replace />}
           />
           {/* <Route path="/member-access" element={<MemberAccess />} /> */}
-          {/* <Route path="/member-exclusive" element={<MemberExclusive />} /> */}
+          <Route
+            path="/shipping"
+            element={
+              <ProtectedRoute>
+                <ShippingBillingPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/case-study" element={<CaseStudy />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/accessories" element={<Accessories />} />

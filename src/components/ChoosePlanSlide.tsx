@@ -55,7 +55,7 @@ const ChoosePlanSlide: React.FC = () => {
 
   return (
     <div className="relative pt-[120px] mb-[80px]">
-      <div className="pt-[140px] sm:pb-[70px] pb-[20px] mx-[110px]">
+      <div className="pt-[140px] sm:pb-[70px] pb-[20px] sm:mx-[110px] mx-[20px]">
         <div className="text-secondary font-bold sm:text-[58px] md:text-[72px] text-[32px]">
           Choose Your Plan
         </div>

@@ -14,10 +14,7 @@ const AccountOverview: React.FC = () => {
             View, progress and manage subscription efficiently
           </div>
         </div>
-        <RoundButton
-          text="+Add Subscription"
-          className="rounded-[70px] h-full"
-        />
+        <RoundButton text="+Add Subscription" className="rounded-[70px]" />
       </div>
       <SubscriptionTabs />
     </div>

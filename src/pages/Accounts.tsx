@@ -16,7 +16,6 @@ const Accounts: React.FC = () => {
     setTimeout(() => {
       navigate('/');
     }, 500);
-    // navigate(-1); // Navigate back when closing modal
   };
   return (
     <AccountLayout

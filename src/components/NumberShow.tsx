@@ -29,7 +29,7 @@ const NumberShow: React.FC<NubmerShowProps> = ({
         {formattedNumber}
         {isApproximate && '+'}
       </span>
-      <span>{content}</span>
+      <span className="text-center">{content}</span>
     </div>
   );
 };

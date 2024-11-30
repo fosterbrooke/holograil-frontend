@@ -126,7 +126,7 @@ const SubscriptionTabs: React.FC = () => {
                   className={`w-[130px] h-[2px] rounded-t-[2px] ${activeTab === 'past' ? 'bg-primary' : 'bg-custom-white'} mt-[24px]`}
                 />
               </button>
-              <div className="bg-custom-white max-w-[542px] h-[2px] mt-[-2px]" />
+              <div className="bg-custom-white w-[542px] h-[2px] mt-[-2px]" />
             </div>
             {currentData.devices.length > 0 && (
               <div>

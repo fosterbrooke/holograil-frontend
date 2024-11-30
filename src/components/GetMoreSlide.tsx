@@ -38,7 +38,7 @@ const GetMoreSlide: React.FC = () => {
               className="rounded-[7px]"
             />
           </div>
-          <div className="mt-[79px] flex w-full lg:justify-normal justify-center space-x-[64px] py-[8.5px]">
+          <div className="mt-[79px] flex w-full lg:justify-normal justify-center sm:space-x-[64px] space-x-[20px] py-[8.5px]">
             <NumberShow
               number={active_users_number}
               content="Active Users"
