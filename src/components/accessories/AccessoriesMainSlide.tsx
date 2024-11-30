@@ -24,7 +24,7 @@ const AccessoriesMainSlide: React.FC = () => {
         <InfoComp
           title="Shipping Information"
           text="Please note that due to logistical constraints and varying port restrictions, we are unable to provide a shipping rate upfront. After you place your order for our accessories, we will reach out via email with a customized shipping and delivery quote, as well as the finalized total price. Thank you for your understanding."
-          className="mt-[250px]"
+          className="mt-[250px] max-w-[700px]"
         />
       </div>
     </div>

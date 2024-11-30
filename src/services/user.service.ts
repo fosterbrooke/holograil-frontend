@@ -12,7 +12,6 @@ export const storeUserData = (firebaseUser: FirebaseUser) => {
     user: user,
     accecss_token: '',
   };
-  console.log(fetchedUser);
 
   // Store user in local storage
   localStorage.setItem('user', JSON.stringify(fetchedUser));

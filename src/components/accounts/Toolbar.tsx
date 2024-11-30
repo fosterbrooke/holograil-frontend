@@ -1,8 +1,11 @@
 import React from 'react';
 import { FaRegCalendarMinus, FaSearch } from 'react-icons/fa';
 import Avatar from './Avatar';
+import { useNavigate } from 'react-router-dom';
 
 const Toolbar: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex text-custom-gray2">
       <div className="flex w-full">
@@ -22,6 +25,7 @@ const Toolbar: React.FC = () => {
         <img
           src="/accounts/shopping_cart.png"
           className="w-[25px] h-[25px] cursor-pointer hover:scale-105"
+          onClick={() => navigate('/shipping')}
         />
         <img
           src="/accounts/alert.svg"
