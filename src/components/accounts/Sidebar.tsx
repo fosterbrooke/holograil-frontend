@@ -1,39 +1,21 @@
-import React, { useEffect } from 'react';
-import { HeaderItem, settingsHeaderItems } from '../../types/HeaderItem';
+import React from 'react';
+import { HeaderItem, accountsHeaderItems } from '../../types/HeaderItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../redux/store';
-// import { User } from '../../types/User';
-import { setSelectedAccountsItem, setUser } from '../../redux/userSlice';
+import { setSelectedAccountsItem } from '../../redux/userSlice';
 
 interface SidebarProps {
+  onClose: () => void;
   className?: string;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
+const Sidebar: React.FC<SidebarProps> = ({ onClose, className = '' }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const selectedAccountsItem = useSelector(
     (state: RootState) => state.user.selectedAccountsItem
   );
-  // const user = useSelector(
-  //   (state: RootState) => state.user.user
-  // ) as User | null;
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    const storedSelectedAccountsItem = localStorage.getItem(
-      'selectedAccountsItem'
-    );
-
-    if (storedUser) {
-      dispatch(setUser(JSON.parse(storedUser)));
-    }
-
-    if (storedSelectedAccountsItem) {
-      dispatch(setSelectedAccountsItem(storedSelectedAccountsItem));
-    }
-  }, [dispatch]);
 
   const handleItemClick = (item: HeaderItem) => {
     dispatch(setSelectedAccountsItem(item.name));
@@ -46,9 +28,13 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
     <div
       className={`flex flex-col w-[320px] bg-custom-white items-center space-y-[100px] ${className}`}
     >
-      <img src="/logo.png" className="mt-[77px] mx-auto" />
+      <img
+        src="/logo.png"
+        className="mt-[77px] mx-auto hover:cursor-pointer"
+        onClick={onClose}
+      />
       <div className="flex flex-col w-full space-y-[10px] ">
-        {settingsHeaderItems.map((item) => (
+        {accountsHeaderItems.map((item) => (
           <div
             className={`h-[50px] flex w-[268px] justify-space space-x-[32px] ${selectedAccountsItem === item.name ? 'text-white' : 'text-custom-gray2'}`}
             key={item.name}

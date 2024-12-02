@@ -1,13 +1,10 @@
 import React from 'react';
 import AccessoriesMainSlide from '../components/accessories/AccessoriesMainSlide';
-import Footer from '../components/Footer';
-import HeaderBar from '../components/HeaderBar';
 import AccecssoriesDemoComp from '../components/accessories/AccessoriesDemoComp';
 
 const Accessories: React.FC = () => {
   return (
     <div>
-      <HeaderBar />
       <AccessoriesMainSlide />
       <div className="mt-[200px] my-[400px]">
         <AccecssoriesDemoComp>
@@ -139,7 +136,6 @@ const Accessories: React.FC = () => {
           </div>
         </AccecssoriesDemoComp>
       </div>
-      <Footer />
     </div>
   );
 };

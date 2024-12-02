@@ -10,12 +10,12 @@ const GetMoreSlide: React.FC = () => {
   return (
     <div className="flex lg:flex-row flex-col w-full justify-space">
       <div
-        className="lg:w-1/2 lg:max-w-[630px] lg:rounded-b-[350px] lg:pt-[48%] pt-[41.7%] h-0 lg:bg-contain bg-cover w-full shadow-custom-card bg-center relative z-10 h-[930px]"
+        className="lg:w-1/2 lg:max-w-[630px] lg:rounded-b-[350px] lg:pt-[48.5%] pt-[41.7%] h-0 lg:bg-contain bg-cover w-full shadow-custom-card bg-center relative z-10"
         style={{ backgroundImage: 'url(/main_slide1.png)' }}
       ></div>
       <img
         className="lg:block hidden absolute inset-0 z-0 bg-transparent w-[36%] max-w-[701px]"
-        src="/get_more_slide2.png"
+        src="/get_more_slide2.svg"
         alt="image1"
       />
       <div className="flex flex-col items-center w-full sm:mt-[140px] mt-[38px] px-[46px]">

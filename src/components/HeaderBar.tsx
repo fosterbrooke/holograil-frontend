@@ -1,13 +1,11 @@
 import React from 'react';
 import { HeaderItem, headerItems } from '../types/HeaderItem';
-import { clearUser, setSelectedItem, setUser } from '../redux/userSlice';
+import { setSelectedItem } from '../redux/userSlice';
 import { RootState } from '../redux/store';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { RxAvatar } from 'react-icons/rx';
-import { FaSignOutAlt } from 'react-icons/fa';
+import { useState } from 'react';
 import Logo from './Logo';
 import { User } from '../types/User';
 import Avatar from './accounts/Avatar';
@@ -23,19 +21,6 @@ const HeaderBar: React.FC = () => {
     (state: RootState) => state.user.user
   ) as User | null;
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    const storedSelectedItem = localStorage.getItem('selectedItem');
-
-    if (storedUser) {
-      dispatch(setUser(JSON.parse(storedUser)));
-    }
-
-    if (storedSelectedItem) {
-      dispatch(setSelectedItem(storedSelectedItem));
-    }
-  }, [dispatch]);
-
   const handleItemClick = (item: HeaderItem) => {
     dispatch(setSelectedItem(item.name));
     localStorage.setItem('selectedItem', item.name);
@@ -44,18 +29,8 @@ const HeaderBar: React.FC = () => {
     setIsMenuOpen(false);
   };
 
-  const handleSettingsClick = () => {
-    navigate('/accounts');
-  };
-
-  const handleSignOut = () => {
-    dispatch(clearUser());
-    localStorage.removeItem('user');
-    navigate('/login');
-  };
-
   return (
-    <header className="flex fixed top-0 left-0 w-full items-center justify-between px-6 lg:px-[10%] md:px-[6%] py-6 md:bg-white/50 bg-primary backdrop-blur-lg z-50 space-x-4 font-inter">
+    <header className="flex fixed top-0 left-0 w-full items-center md:justify-between px-6 lg:px-[10%] md:px-[6%] py-6 md:bg-white/50 bg-primary backdrop-blur-lg z-50 space-x-4 font-inter">
       {/* Logo */}
       <Logo />
 
@@ -76,15 +51,8 @@ const HeaderBar: React.FC = () => {
 
       {/* Login and Sign Up Buttons */}
       {user ? (
-        <div className="flex items-center">
-          <button onClick={handleSettingsClick}>
-            <Avatar />
-          </button>
-          <FaSignOutAlt
-            color=""
-            className="ml-4 cursor-pointer"
-            onClick={handleSignOut}
-          />
+        <div className="flex items-center md:w-auto w-full md:justify-normal justify-end">
+          <Avatar />
         </div>
       ) : (
         <div className="hidden md:flex space-x-2 lg:space-x-6">
@@ -102,20 +70,6 @@ const HeaderBar: React.FC = () => {
           </Link>
         </div>
       )}
-
-      {/* Sign Out Functionality */}
-      <div className="flex items-center hidden">
-        <RxAvatar
-          color="white"
-          size={28}
-          className="bg-primary/50 rounded-[20px]"
-        />
-        <FaSignOutAlt
-          color="white"
-          className="ml-4 cursor-pointer bg-primary/50 rounded-[20px]"
-          onClick={handleSignOut}
-        />
-      </div>
 
       <div className="md:hidden text-white relative">
         <button

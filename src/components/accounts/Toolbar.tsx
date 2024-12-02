@@ -2,9 +2,12 @@ import React from 'react';
 import { FaRegCalendarMinus, FaSearch } from 'react-icons/fa';
 import Avatar from './Avatar';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { hideHeader } from '../../redux/userSlice';
 
 const Toolbar: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <div className="flex text-custom-gray2">
@@ -25,14 +28,16 @@ const Toolbar: React.FC = () => {
         <img
           src="/accounts/shopping_cart.png"
           className="w-[25px] h-[25px] cursor-pointer hover:scale-105"
-          onClick={() => navigate('/shipping')}
+          onClick={() => {
+            dispatch(hideHeader());
+            navigate('/shipping');
+          }}
         />
         <img
           src="/accounts/alert.svg"
           className="w-[20px] h-[20px] ml-[17px] mr-[40px]"
         />
         <Avatar />
-        <img src="/accounts/dots.svg" className="h-[18px] ml-[10px]" />
       </div>
     </div>
   );
