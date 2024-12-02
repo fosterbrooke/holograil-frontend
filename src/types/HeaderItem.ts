@@ -12,10 +12,24 @@ export const headerItems: HeaderItem[] = [
   { name: 'Accessories', link: '/accessories' },
 ];
 
-export const settingsHeaderItems: HeaderItem[] = [
+export const accountsHeaderItems: HeaderItem[] = [
   { name: 'Overview', link: '/accounts/overview', icon: 'overview.svg' },
   { name: 'Resources', link: '/accounts/resources', icon: 'resources.svg' },
   { name: 'Plans', link: '/accounts/plans', icon: 'plans.svg' },
   { name: 'Products', link: '/accounts/products', icon: 'products.svg' },
   { name: 'Settings', link: '/accounts/settings', icon: 'settings.svg' },
+];
+
+export const settingsSubItems: HeaderItem[] = [
+  {
+    name: 'Subscriptions',
+    link: '/accounts/settings/subscriptions',
+    icon: 'subscriptions.svg',
+  },
+  { name: 'Invoice', link: '/accounts/settings/invoice', icon: 'invoice.svg' },
+  {
+    name: 'User Management',
+    link: '/accounts/settings/management',
+    icon: 'management.svg',
+  },
 ];

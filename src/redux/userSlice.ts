@@ -7,6 +7,8 @@ interface UserState {
   loading: boolean; // Add loading state
   selectedItem: string | null;
   selectedAccountsItem: string | null;
+  selectedSettingsSubItem: string | null;
+  headerVisible: boolean;
 }
 
 const initialState: UserState = {
@@ -15,6 +17,8 @@ const initialState: UserState = {
   loading: true, // Start in loading state
   selectedItem: null,
   selectedAccountsItem: null,
+  selectedSettingsSubItem: null,
+  headerVisible: true,
 };
 
 const userSlice = createSlice({
@@ -37,8 +41,17 @@ const userSlice = createSlice({
     setSelectedAccountsItem: (state, action) => {
       state.selectedAccountsItem = action.payload;
     },
+    setSelectedSettingsSubItem: (state, action) => {
+      state.selectedSettingsSubItem = action.payload;
+    },
     setLoading: (state, action) => {
       state.loading = action.payload;
+    },
+    showHeader: (state) => {
+      state.headerVisible = true;
+    },
+    hideHeader: (state) => {
+      state.headerVisible = false;
     },
   },
 });
@@ -48,7 +61,10 @@ export const {
   clearUser,
   setSelectedItem,
   setSelectedAccountsItem,
+  setSelectedSettingsSubItem,
   setLoading,
+  showHeader,
+  hideHeader,
 } = userSlice.actions;
 
 export default userSlice.reducer;

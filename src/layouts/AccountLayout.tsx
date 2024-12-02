@@ -35,7 +35,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
       className={`flex flex-grow min-h-screen bg-custom-white transition-opacity transition-transform duration-500 ease-in-out ${isOpen ? 'scale-100 opacity-100' : 'scale-105 opacity-50'}`}
     >
       <div className="flex justify-end flex-grow flex-shrink-0 basis-[320px]">
-        <Sidebar />
+        <Sidebar onClose={onClose} />
       </div>
       <div className="flex flex-grow flex-shrink-1 basis-[1120px] bg-white">
         <div className="py-[89px] px-[76px] flex flex-col w-full max-w-[1120px] items-stretch flex-grow ">
