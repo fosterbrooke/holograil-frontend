@@ -9,7 +9,6 @@ import { updateCurrentSelection, updateHeaderVisibility } from './headerUtils';
 
 export const initializeLocalStorage = (dispatch: AppDispatch) => {
   const currentPath = window.location.pathname; // Get current path
-  console.log(currentPath);
 
   try {
     const storedUser = localStorage.getItem('user');
@@ -42,6 +41,4 @@ export const initializeLocalStorage = (dispatch: AppDispatch) => {
   }
 
   updateHeaderVisibility(currentPath, dispatch);
-
-  return currentPath;
 };

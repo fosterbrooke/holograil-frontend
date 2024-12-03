@@ -50,7 +50,7 @@ const AppWrapper: React.FC = () => {
   );
 
   useEffect(() => {
-    console.log(initializeLocalStorage(dispatch));
+    initializeLocalStorage(dispatch);
     setLoading(false);
 
     // Handling popstate events (history back forward events capture)
