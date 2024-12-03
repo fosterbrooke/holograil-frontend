@@ -46,7 +46,6 @@ const LoginPage: React.FC = () => {
       // console.log('Form submitted with CAPTCHA value:', captchaValue);
     } catch (error) {
       if (error instanceof FirebaseError) {
-        console.error(error);
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
@@ -65,7 +64,6 @@ const LoginPage: React.FC = () => {
             break;
         }
       } else {
-        console.error('Unexpected error:', error);
         alert('An unexpected error occurred.');
       }
     }

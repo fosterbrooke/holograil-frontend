@@ -10,13 +10,14 @@ interface ProtectedRouteProps {
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const user = useSelector((state: RootState) => state.user.user); // Get user from Redux store
   const loading = useSelector((state: RootState) => state.user.loading);
-  if (loading) {
-    return <div>Loading...</div>; // Or return null
-  }
 
   if (!user) {
     // If user is not logged in, redirect to login page
     return <Navigate to="/login" replace />;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>; // Or return null
   }
 
   return <>{children}</>; // Render children if authenticated

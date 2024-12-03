@@ -30,8 +30,6 @@ const SignupPage: React.FC = () => {
       alert('Please complete the CAPTCHA');
       return;
     }
-    // Proceed with form submission
-    console.log('Form submitted with CAPTCHA value:', captchaValue);
   };
 
   const handleGoogleSignIn = async () => {

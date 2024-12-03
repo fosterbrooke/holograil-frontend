@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeaderItem, headerItems } from '../types/HeaderItem';
-import { setSelectedItem } from '../redux/userSlice';
+import { hideHeader, setSelectedItem } from '../redux/userSlice';
 import { RootState } from '../redux/store';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -59,12 +59,14 @@ const HeaderBar: React.FC = () => {
           <Link
             className="bg-warm-gray flex items-center justify-center text-sm lg:text-base px-4 py-2 lg:px-6 lg:py-3 text-dark-blue rounded-md hover:scale-[102%] duration-100"
             to="/login"
+            onClick={() => dispatch(hideHeader())}
           >
             Login
           </Link>
           <Link
             className="bg-primary flex items-center justify-center text-white text-sm lg:text-base px-4 py-2 lg:px-6 lg:py-3 rounded-md shadow-sm hover:shadow-lg transform hover:scale-105 transition-all duration-200"
             to="/signup"
+            onClick={() => dispatch(hideHeader())}
           >
             Sign Up
           </Link>

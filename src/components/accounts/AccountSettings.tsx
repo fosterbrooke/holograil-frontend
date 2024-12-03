@@ -13,7 +13,10 @@ const AccountSettings: React.FC = () => {
         <Route path="/" element={<div />} />
         <Route path="subscriptions" element={<SubscriptionsSettingsPage />} />
         <Route path="invoice" element={<InvoiceSettingsPage />} />
-        <Route path="management" element={<UserManagementSettingsPage />} />
+        <Route
+          path="user-management"
+          element={<UserManagementSettingsPage />}
+        />
       </Routes>
     </SettingsLayout>
   );
