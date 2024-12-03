@@ -10,6 +10,7 @@ import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // Ensure that the root element is of type HTMLElement
 const rootElement = document.getElementById('root') as HTMLElement;
@@ -18,7 +19,9 @@ const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <AppWrapper />
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <AppWrapper />
+      </Router>
       <SpeedInsights />
     </Provider>
   </React.StrictMode>

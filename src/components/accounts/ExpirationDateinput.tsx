@@ -6,7 +6,6 @@ const ExpirationDateInput: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
-    console.log(value);
     let formattedValue = '';
 
     if (value.length > 0) {

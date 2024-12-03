@@ -1,60 +1,44 @@
+import { AppDispatch } from '../redux/store';
 import {
-  hideHeader,
   setSelectedAccountsItem,
   setSelectedItem,
   setSelectedSettingsSubItem,
   setUser,
-  showHeader,
 } from '../redux/userSlice';
-import { accountsHeaderItems, settingsSubItems } from '../types/HeaderItem';
-import { AppDispatch } from '../redux/store';
+import { updateCurrentSelection, updateHeaderVisibility } from './headerUtils';
 
 export const initializeLocalStorage = (dispatch: AppDispatch) => {
-  const currentPath = location.pathname; // Get current path
-  const noHeaderFooterRoutes = ['/accounts', '/login', '/signup'];
-  const storedUser = localStorage.getItem('user');
-  const storedSelectedItem = localStorage.getItem('selectedItem');
-  const storedSelectedAccountsItem = localStorage.getItem(
-    'selectedAccountsItem'
-  );
-  const storedSelectedSettingsSubItem = localStorage.getItem(
-    'selectedSettingsSubItem'
-  );
+  const currentPath = window.location.pathname; // Get current path
 
-  if (storedUser) {
-    dispatch(setUser(JSON.parse(storedUser)));
+  try {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      dispatch(setUser(JSON.parse(storedUser)));
+    }
+
+    const storedSelectedItem = localStorage.getItem('selectedItem');
+    if (storedSelectedItem) {
+      dispatch(setSelectedItem(storedSelectedItem));
+    }
+
+    const storedSelectedAccountsItem = localStorage.getItem(
+      'selectedAccountsItem'
+    );
+    if (storedSelectedAccountsItem) {
+      dispatch(setSelectedAccountsItem(storedSelectedAccountsItem));
+    }
+
+    const storedSelectedSettingsSubItem = localStorage.getItem(
+      'selectedSettingsSubItem'
+    );
+    if (storedSelectedSettingsSubItem) {
+      dispatch(setSelectedSettingsSubItem(storedSelectedSettingsSubItem));
+    }
+
+    updateCurrentSelection(dispatch, currentPath);
+  } catch (error) {
+    console.error('Error retrieving data from localStorage', error);
   }
 
-  if (storedSelectedItem) {
-    dispatch(setSelectedItem(storedSelectedItem));
-  }
-
-  if (storedSelectedAccountsItem) {
-    dispatch(setSelectedAccountsItem(storedSelectedAccountsItem));
-  }
-
-  if (storedSelectedSettingsSubItem) {
-    dispatch(setSelectedSettingsSubItem(storedSelectedSettingsSubItem));
-  }
-
-  let currentItem = settingsSubItems.find((item) => item.link === currentPath);
-  if (currentItem) {
-    dispatch(setSelectedSettingsSubItem(currentItem.name));
-    localStorage.setItem('selectedSettingsSubItem', currentItem.name);
-  }
-
-  currentItem = accountsHeaderItems.find((item) => item.link === currentPath);
-  if (currentItem) {
-    dispatch(setSelectedAccountsItem(currentItem.name));
-    localStorage.setItem('selectedAccountsItem', currentItem.name);
-  }
-
-  const shouldHideHeaderFooter = noHeaderFooterRoutes.some((route) =>
-    currentPath.startsWith(route)
-  );
-  if (shouldHideHeaderFooter) {
-    dispatch(hideHeader());
-  } else {
-    dispatch(showHeader());
-  }
+  updateHeaderVisibility(currentPath, dispatch);
 };

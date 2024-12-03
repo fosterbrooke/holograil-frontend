@@ -29,7 +29,7 @@ export const settingsSubItems: HeaderItem[] = [
   { name: 'Invoice', link: '/accounts/settings/invoice', icon: 'invoice.svg' },
   {
     name: 'User Management',
-    link: '/accounts/settings/management',
+    link: '/accounts/settings/user-management',
     icon: 'management.svg',
   },
 ];
