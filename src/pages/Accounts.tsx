@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import AccountLayout from '../layouts/AccountLayout';
-import {
-  Routes,
-  Route,
-  useNavigate,
-  Navigate,
-} from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import AccountOverview from '../components/accounts/AccountOverview';
 import AccountResources from '../components/accounts/AccountResources';
 import AccountPlans from '../components/accounts/AccountPlans';
@@ -35,7 +30,7 @@ const Accounts: React.FC = () => {
     <AccountLayout
       isOpen={isModalOpen}
       onClose={handleCloseModal}
-    // title="Account Settings"
+      // title="Account Settings"
     >
       <Routes>
         <Route path="/" element={<div />} />

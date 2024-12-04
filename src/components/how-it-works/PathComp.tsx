@@ -112,7 +112,7 @@ const PathComp: React.FC<PathCompProps> = ({
         y1={circleYPositions[1] + circleRadius}
         x2="100"
         y2={circleYPositions[2] - circleRadius}
-        stroke="#11B26F"
+        stroke="#FF39EB"
         strokeWidth={1.5}
         strokeDasharray="5,5"
       />

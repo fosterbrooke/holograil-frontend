@@ -4,17 +4,22 @@ import RoundButton from '../RoundButton';
 const HowMainSlide: React.FC = () => {
   return (
     <div className="">
-      <img src="/how-it-works/Rectangle 3.png" className="relative" />
-      <div className="absolute inset-0 flex items-end justify-end">
-        <div className="flex w-[65%] space-x-[42px]">
-          <div className="flex flex-col items-end space-y-[32px] mt-[56px] font-poppins">
-            <div className="text-[20px] leading-[174%] tracking-[0.05em] text-right ">
+      <div className="2xl:mb-[-550px] xl:mb-[-400px] lg:mb-[-300px] md:mb-[-250px] sm:mb-[-80px] mb-[-40px]">
+        <img src="/how-it-works/Rectangle 3.png" />
+      </div>
+      <div className="flex items-end md:justify-end justify-center md:mx-0 mx-[45px] 2xl:mb-[193px] md:mb-[75px] mb-0">
+        <div className="flex md:flex-row flex-col-reverse md:w-[65%] w-full md:space-x-[42px] pt-1 rounded-[50px]">
+          <div className="flex flex-col md:items-end space-y-[32px] md:mt-[56px] mt-[27px] font-poppins">
+            <div className="2xl:text-[20px] lg:text-[16px] text-[12px] leading-[174%] tracking-[0.05em] md:text-right ">
               Discover the Seamless Process of Creating Stunning Lenticular
               Prints with Our User-Friendly Software
             </div>
-            <RoundButton text="Learn More" className="rounded-[7px]" />
+            <RoundButton
+              text="Learn More"
+              className="rounded-[7px] xl:scale-[100%] lg:scale-[90%] scale-[80%]"
+            />
           </div>
-          <div className="text-primary text-[64px] max-w-[584px] font-bold leading-auto tracking-[-0.02em]">
+          <div className="text-primary font-semibold text-[32px] lg:text-[48px] 2xl:font-bold 2xl:text-[64px] md:max-w-[584px] leading-auto tracking-[-0.02em]">
             How It Works: Capture the Magic with Ease!
           </div>
         </div>

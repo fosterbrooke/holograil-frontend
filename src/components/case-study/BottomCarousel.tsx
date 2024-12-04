@@ -19,15 +19,15 @@ const BottomCarousel: React.FC = () => {
   ];
 
   return (
-    <div className="relative">
+    <div className="relative md:mb-0 mb-[123px]">
       {[0, 1].map((_time, index) => (
         <Swiper
-          spaceBetween={58} // Space between images
+          spaceBetween={28} // Space between images
           slidesPerView={4} // Automatically adjust number of slides per view
           loop={true}
           modules={[Autoplay]}
           autoplay={{ delay: _time * 1000, disableOnInteraction: false }} // Adjust delay as needed
-          className="h-[330px] mb-[60px]"
+          className="2xl:h-[330px] xl:h-[200px] sm:h-[120px] h-[88px] md:mb-[60px] mb-[27px]"
           speed={2000}
           key={index}
           freeMode={true}
@@ -36,12 +36,11 @@ const BottomCarousel: React.FC = () => {
         >
           {images.concat(images).map((image, index) => (
             <SwiperSlide key={index} style={{ width: 'auto' }}>
-              {' '}
               {/* Set width to auto for each slide */}
               <img
                 src={image}
                 alt={`Row 1 Slide ${index}`}
-                className="h-[330px] w-auto object-cover rounded-lg"
+                className="2xl:h-[330px] xl:h-[200px] sm:h-[120px] h-[88px] w-auto object-cover rounded-lg"
               />
             </SwiperSlide>
           ))}

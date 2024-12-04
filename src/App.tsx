@@ -1,9 +1,4 @@
-import {
-  Routes,
-  Route,
-  Navigate,
-  useLocation,
-} from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import GetMoreSlide from './components/GetMoreSlide';
 import BenefitSlide from './components/BenefitSlide';
 import WhyChooseSlide from './components/WhyChooseSlide';
