@@ -3,25 +3,25 @@ import ImageCardComp from './ImageCardComp';
 
 const ChooseUsSlide: React.FC = () => {
   return (
-    <div className="mt-[375px] mb-[369px]">
-      <div className="font-bold text-[64px] text-primary text-center">
+    <div className="md:mt-[375px] mt-[77px] md:mb-[369px] mb-[88px] flex flex-col items-center">
+      <div className="md:font-bold font-semibold md:text-[64px] text-[32px] text-primary text-center">
         Why Choose Us?
       </div>
-      <div className="flex justify-evenly">
+      <div className="flex md:flex-row flex-col justify-evenly md:w-full">
         <ImageCardComp
           text="Unmatched Clarity"
           bgColor="bg-secondary"
-          className="mt-[165px]"
+          className="md:mt-[165px] mt-[94px]"
         />
         <ImageCardComp
           text="Top In The Game"
           bgColor="bg-primary"
-          className="mt-[365px]"
+          className="md:mt-[365px] mt-[94px]"
         />
         <ImageCardComp
           text="Affordable Pricing"
           bgColor="bg-custom-light-blue"
-          className="mt-[509px]"
+          className="md:mt-[509px] mt-[94px]"
         />
       </div>
     </div>

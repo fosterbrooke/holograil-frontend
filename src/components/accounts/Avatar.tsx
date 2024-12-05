@@ -71,14 +71,14 @@ const Avatar: React.FC<AvatarProps> = ({ className = '' }) => {
         className={`rounded-[10px] h-[68px] shadow-custom-testimonial absolute right-0 top-[52px] hover:cursor-pointer bg-white duration-200 ease-in ${isVisible ? 'w-[136px]' : 'opacity-0 w-0'}`}
       >
         <div
-          className="flex w-full space-x-[10px] pl-[10px] pt-[10px] pb-[7px] hover:bg-custom-white rounded-t-[10px]"
+          className={`flex w-full space-x-[10px] pl-[10px] pt-[10px] pb-[7px] hover:bg-custom-white rounded-t-[10px] ${isVisible ? '' : 'hidden'}`}
           onClick={handleSettingsClick}
         >
           <img src="/accounts/settings_icon.svg" />
           <div className="text-[12px] text-black">Settings</div>
         </div>
         <div
-          className="flex space-x-[10px] pl-[10px] pt-[7px] pb-[8px] w-full hover:bg-custom-white rounded-b-[10px]"
+          className={`flex space-x-[10px] pl-[10px] pt-[7px] pb-[8px] w-full hover:bg-custom-white rounded-b-[10px] ${isVisible ? '' : 'hidden'}`}
           onClick={handleSignOut}
         >
           <img src="/accounts/logout_icon.svg" />

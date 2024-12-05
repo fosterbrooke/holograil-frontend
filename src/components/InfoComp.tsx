@@ -15,17 +15,17 @@ const InfoComp: React.FC<InfoCompProps> = ({
 }) => {
   return (
     <div
-      className={`${className} h-full bg-secondary rounded-[15px] text-white p-[24px] flex items-start space-x-[24px]`}
+      className={`${className} h-full bg-secondary rounded-[15px] text-white p-[24px] flex items-start sm:space-x-[24px] space-x-[9px]`}
     >
-      <img src="/information_icon.png" className="w-[32px] h-[32px]" />
-      <div>
+      <img src="/information_icon.png" className="md:w-[32px] w-[20px]" />
+      <div className="flex-grow flex-shrink-1">
         <div
-          className={`font-semibold ${isSmall ? 'text-[24px]' : 'text-[32px]'} leading-[120%] tracking-[-0.02em]`}
+          className={`font-semibold ${isSmall ? 'text-[24px]' : '2xl:text-[32px] lg:text-[20px] text-[11px]'} leading-[120%] tracking-[-0.02em]`}
         >
           {title}
         </div>
         <div
-          className={`mt-[8px] ${isSmall ? 'text-[15px]' : 'text-[20px]'} leading-[140%]`}
+          className={`mt-[8px] ${isSmall ? 'text-[15px]' : '2xl:text-[20px] lg:text-[14px] text-[10px]'} leading-[140%]`}
         >
           {text}
         </div>

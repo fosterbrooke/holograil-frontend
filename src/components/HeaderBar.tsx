@@ -30,7 +30,7 @@ const HeaderBar: React.FC = () => {
   };
 
   return (
-    <header className="flex fixed top-0 left-0 w-full items-center md:justify-between px-6 lg:px-[10%] md:px-[6%] py-6 md:bg-white/50 bg-primary backdrop-blur-lg z-50 space-x-4 font-inter">
+    <header className="flex md:fixed sticky top-0 left-0 w-full items-center md:justify-between px-6 lg:px-[10%] md:px-[6%] py-6 md:bg-white/50 bg-primary backdrop-blur-lg z-50 space-x-4 font-inter">
       {/* Logo */}
       <Logo />
 
@@ -87,7 +87,7 @@ const HeaderBar: React.FC = () => {
             <li
               key={item.name}
               onClick={() => handleItemClick(item)}
-              className={`cursor-pointer m-2 ${item.name === selectedItem ? 'font-poppins font-bold' : ''}`}
+              className={`cursor-pointer m-2 ${item.name === selectedItem ? 'font-poppins font-bold' : ''} ${!isMenuOpen ? 'hidden' : ''}`}
             >
               {item.name}
             </li>
