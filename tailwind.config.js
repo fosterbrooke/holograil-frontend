@@ -6,6 +6,10 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      padding: {
+        '1/2': '50%',
+        full: '100%',
+      },
       colors: {
         primary: '#2B4099', // Custom Primary Color
         secondary: '#15357D', // Custom Secondary Color
@@ -20,6 +24,7 @@ export default {
         'custom-blue': '#89CAFF', // Custom color 2
         'custom-light-blue': '#CAE4F9',
         'custom-pink': '#DB92D4', // Custom color 1
+        'custom-purple': '#7E58FC',
         'custom-orange': '#FD9330', // Custom color 3
       },
       fontFamily: {

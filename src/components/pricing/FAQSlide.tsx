@@ -27,25 +27,27 @@ const FAQSlide: React.FC = () => {
   ];
 
   return (
-    <div className="bg-primary rounded-[24px] py-[84px] px-[96px] flex space-x-[48px]">
-      <div className="text-white w-2/5">
-        <div className="text-[48px] font-bold leading-[120%]">
-          Frequently Asked Questions
+    <div className="flex items-center justify-center">
+      <div className="lg:w-full sm:w-[80%] w-[100%] bg-primary 2xl:rounded-[24px] sm:rounded-[16px] rounded-0 2xl:py-[84px] lg:py-[60px] py-[41px] 2xl:px-[96px] lg:px-[50px] px-[26px] flex md:mb-[194px] mb-[144px] md:mt-[194px] mt-[107px] lg:flex-row lg:space-x-[48px] lg:space-x-0 flex-col">
+        <div className="text-white lg:w-2/5 w-full">
+          <div className="2xl:text-[48px] lg:text-[30px] text-[16px] md:font-bold font-semibold leading-[120%]">
+            Frequently Asked Questions
+          </div>
+          <br />
+          <div className="2xl:text-[20px] lg:text-[14px] text-[10px] leading-[150%]">
+            Your Questions, Answered! Everything you need to know about The
+            Grail’s software and subscription plans.
+          </div>
         </div>
-        <br />
-        <div className="text-[20px] leading-[150%]">
-          Your Questions, Answered! Everything you need to know about The
-          Grail’s software and subscription plans.
+        <div className="lg:w-3/5 w-full mt-[30px] lg:mt-0">
+          {qaList.map((item, index) => (
+            <CollapsibleFAQComp
+              question={item.question}
+              answer={item.answer}
+              key={index}
+            />
+          ))}
         </div>
-      </div>
-      <div className="w-3/5">
-        {qaList.map((item, index) => (
-          <CollapsibleFAQComp
-            question={item.question}
-            answer={item.answer}
-            key={index}
-          />
-        ))}
       </div>
     </div>
   );

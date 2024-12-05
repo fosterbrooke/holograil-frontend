@@ -18,6 +18,10 @@ export default [
         },
       },
     },
+    rules: {
+      'react/react-in-jsx-scope': 'off', // Disable the rule requiring React to be in scope
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // Ignore unused vars that start with _
+    },
   },
   {
     settings: {

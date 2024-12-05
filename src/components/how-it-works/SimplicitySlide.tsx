@@ -120,10 +120,10 @@ const SimplicitySlide: React.FC = () => {
             <div className="flex justify-center items-center w-full md:hidden block">
               <svg width="2" height="37">
                 <line
-                  x1="0"      // Starting x position
-                  y1="0"       // Starting y position
-                  x2="0"      // Ending x position (same as x1 for vertical line)
-                  y2="37"     // Ending y position (length of the line)
+                  x1="0" // Starting x position
+                  y1="0" // Starting y position
+                  x2="0" // Ending x position (same as x1 for vertical line)
+                  y2="37" // Ending y position (length of the line)
                   stroke="#F9A526" // Color of the line
                   strokeWidth={1.5} // Width of the line
                   strokeDasharray="5,5" // Dashed line pattern
@@ -147,10 +147,10 @@ const SimplicitySlide: React.FC = () => {
               <div className="flex justify-center items-center w-full md:hidden block">
                 <svg width="2" height="37">
                   <line
-                    x1="0"      // Starting x position
-                    y1="0"       // Starting y position
-                    x2="0"      // Ending x position (same as x1 for vertical line)
-                    y2="37"     // Ending y position (length of the line)
+                    x1="0" // Starting x position
+                    y1="0" // Starting y position
+                    x2="0" // Ending x position (same as x1 for vertical line)
+                    y2="37" // Ending y position (length of the line)
                     stroke="#F9A526" // Color of the line
                     strokeWidth={1.5} // Width of the line
                     strokeDasharray="5,5" // Dashed line pattern
@@ -166,10 +166,10 @@ const SimplicitySlide: React.FC = () => {
             <div className="flex justify-center items-center w-full md:hidden block">
               <svg width="2" height="37">
                 <line
-                  x1="0"      // Starting x position
-                  y1="0"       // Starting y position
-                  x2="0"      // Ending x position (same as x1 for vertical line)
-                  y2="37"     // Ending y position (length of the line)
+                  x1="0" // Starting x position
+                  y1="0" // Starting y position
+                  x2="0" // Ending x position (same as x1 for vertical line)
+                  y2="37" // Ending y position (length of the line)
                   stroke="#FF39EB" // Color of the line
                   strokeWidth={1.5} // Width of the line
                   strokeDasharray="5,5" // Dashed line pattern
@@ -184,10 +184,10 @@ const SimplicitySlide: React.FC = () => {
               <div className="flex justify-center items-center w-full md:hidden block">
                 <svg width="2" height="37">
                   <line
-                    x1="0"      // Starting x position
-                    y1="0"       // Starting y position
-                    x2="0"      // Ending x position (same as x1 for vertical line)
-                    y2="37"     // Ending y position (length of the line)
+                    x1="0" // Starting x position
+                    y1="0" // Starting y position
+                    x2="0" // Ending x position (same as x1 for vertical line)
+                    y2="37" // Ending y position (length of the line)
                     stroke="#FF39EB" // Color of the line
                     strokeWidth={1.5} // Width of the line
                     strokeDasharray="5,5" // Dashed line pattern

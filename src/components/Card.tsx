@@ -1,10 +1,14 @@
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 
 interface CardProps {
   title: string;
   content: string[];
   className?: string;
   shadow?: boolean;
+}
+
+export const CardTemp: React.FC = () => {
+  return (<></>)
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
@@ -32,5 +36,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     );
   }
 );
+
+Card.displayName = "CardComponent";
 
 export default Card;

@@ -40,8 +40,9 @@ const HeaderBar: React.FC = () => {
           <div
             key={item.name}
             onClick={() => handleItemClick(item)}
-            className={`cursor-pointer text-center ${selectedItem === item.name ? 'text-primary' : 'text-dark-gray'
-              }`}
+            className={`cursor-pointer text-center ${
+              selectedItem === item.name ? 'text-primary' : 'text-dark-gray'
+            }`}
           >
             {item.name}
           </div>

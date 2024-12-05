@@ -6,13 +6,13 @@ const Accessories: React.FC = () => {
   return (
     <div>
       <AccessoriesMainSlide />
-      <div className="mt-[200px] my-[400px]">
+      <div className="2xl:mt-[200px] lg:mt-[160px] mt-[124px]">
         <AccecssoriesDemoComp>
           <div>
-            <div className="text-primary font-bold text-[55px] tracking-[-0.02em]">
+            <div className="text-primary font-bold 2xl:text-[55px] lg:text-[33px] text-[16px] tracking-[-0.02em]">
               Lenticular Sheets (4 x 4”)
             </div>
-            <div className="text-[20px] leading-[174%] tracking-[0.02em]">
+            <div className="2xl:text-[20px] lg:text-[15px] text-[11px] leading-[174%] tracking-[0.02em]">
               <div className="mt-[28px]">
                 <span className="underline font-semibold">Price</span>
                 <br />
@@ -39,10 +39,10 @@ const Accessories: React.FC = () => {
         </AccecssoriesDemoComp>
         <AccecssoriesDemoComp>
           <div>
-            <div className="text-primary font-bold text-[55px] tracking-[-0.02em]">
+            <div className="text-primary font-bold 2xl:text-[55px] lg:text-[33px] text-[16px] tracking-[-0.02em]">
               Perforated Paper
             </div>
-            <div className="text-[20px] leading-[174%] tracking-[0.02em]">
+            <div className="2xl:text-[20px] lg:text-[15px] text-[11px] leading-[174%] tracking-[0.02em]">
               <div className="mt-[28px]">
                 <span className="font-semibold">Price: </span>
                 USD$220
@@ -75,10 +75,10 @@ const Accessories: React.FC = () => {
         </AccecssoriesDemoComp>
         <AccecssoriesDemoComp>
           <div>
-            <div className="text-primary font-bold text-[55px] tracking-[-0.02em]">
+            <div className="text-primary font-bold 2xl:text-[55px] lg:text-[33px] text-[16px] tracking-[-0.02em]">
               Adhesion Roller
             </div>
-            <div className="text-[20px] leading-[174%] tracking-[0.02em]">
+            <div className="2xl:text-[20px] lg:text-[15px] text-[11px] leading-[174%] tracking-[0.02em]">
               <div className="mt-[28px]">
                 <span className="font-semibold">Price: </span>
                 USD$220
@@ -104,10 +104,10 @@ const Accessories: React.FC = () => {
         </AccecssoriesDemoComp>
         <AccecssoriesDemoComp>
           <div>
-            <div className="text-primary font-bold text-[55px] tracking-[-0.02em]">
+            <div className="text-primary font-bold 2xl:text-[55px] lg:text-[33px] text-[16px] tracking-[-0.02em]">
               Luggage Tag Cutter
             </div>
-            <div className="text-[20px] leading-[174%] tracking-[0.02em]">
+            <div className="2xl:text-[20px] lg:text-[15px] text-[11px] leading-[174%] tracking-[0.02em]">
               <div className="mt-[28px]">
                 <span className="font-semibold">Price: </span>
                 USD$300
