@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import RoundButton from '../RoundButton';
 import SubscriptionTabs from './overview/SubscriptionTabComp';
 
 const AccountOverview: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleAddSubscription = () => {
+    navigate('/accounts/plans');
+  }
+
   return (
     <div className="mt-[50px]">
       <div className="flex items-center space-x-[100px]">
@@ -14,7 +21,11 @@ const AccountOverview: React.FC = () => {
             View, progress and manage subscription efficiently
           </div>
         </div>
-        <RoundButton text="+Add Subscription" className="rounded-[70px]" />
+        <RoundButton 
+          text="+Add Subscription" 
+          className="rounded-[70px]"
+          onClick={handleAddSubscription}
+        />
       </div>
       <SubscriptionTabs />
     </div>

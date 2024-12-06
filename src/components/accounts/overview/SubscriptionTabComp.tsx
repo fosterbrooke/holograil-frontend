@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import RoundButton from '../../RoundButton';
 
 interface SubscriptionData {
@@ -22,6 +24,7 @@ interface SubscriptionInfo {
 type ActiveTab = 'current' | 'past';
 
 const SubscriptionTabs: React.FC = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<ActiveTab>('current');
   const subscriptionInfo: SubscriptionInfo = {
     current: {
@@ -89,6 +92,10 @@ const SubscriptionTabs: React.FC = () => {
   const handleTabChange = (tab: ActiveTab) => {
     setActiveTab(tab);
   };
+
+  const handleSubscribe = () => {
+    navigate("/accounts/plans");
+  }
 
   const currentData = subscriptionInfo[activeTab];
 
@@ -201,6 +208,7 @@ const SubscriptionTabs: React.FC = () => {
           <RoundButton
             text="Subscribe Now"
             className="mt-[44px] rounded-[10px] max-w-[282px] w-full"
+            onClick={handleSubscribe}
           />
         </div>
       )}
