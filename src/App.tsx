@@ -5,6 +5,7 @@ import WhyChooseSlide from './components/WhyChooseSlide';
 import PeopleSaySlide from './components/PeopleSaySlide';
 import ChoosePlanSlide from './components/ChoosePlanSlide';
 import VideoPlayer from './components/VideoPlayer';
+import ScrollToTop from './components/ScrollToTop';
 import HowItWorks from './pages/HowItWorks';
 import CaseStudy from './pages/CaseStudy';
 import Pricing from './pages/Pricing';
@@ -68,6 +69,7 @@ const AppWrapper: React.FC = () => {
   return (
     <MainLayout>
       <div className="overflow-hidden">
+        <ScrollToTop />  
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/signup" element={<SignupPage />} />

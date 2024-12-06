@@ -3,6 +3,7 @@ import ExpirationDateInput from '../components/accounts/ExpirationDateinput';
 import ProductItem from '../components/accounts/products/ProductItem';
 import RoundButton from '../components/RoundButton';
 import InfoComp from '../components/InfoComp';
+import CVVInput from '../components/accounts/CVVInput';
 
 const ShippingBillingPage: React.FC = () => {
   const [name, setName] = useState<string>('');
@@ -25,17 +26,22 @@ const ShippingBillingPage: React.FC = () => {
     { id: 2, icon: '', quantity: 1, name: 'Another Product', price: 40 },
     // Add more products as needed
   ]);
+  const shipping_fee = 20;
 
   const handleRemove = (id: number) => {
     setProducts(products.filter((product) => product.id !== id));
   };
 
   // Function to calculate total price
-  const calculateTotalPrice = () => {
+  const calculateSubTotalPrice = () => {
     return products
       .reduce((total, product) => total + product.quantity * product.price, 0)
       .toFixed(2);
   };
+
+  const calculateTotalPrice = () => {
+    return (Number(calculateSubTotalPrice()) + shipping_fee).toFixed(2);
+  }
 
   return (
     <div className="flex justify-center w-screen">
@@ -161,7 +167,7 @@ const ShippingBillingPage: React.FC = () => {
                   id="country"
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
-                  className="mx-[47.25px] bg-transparent text-[24px] rounded-[10px] font-semibold p-2 flex-grow flex-shrink-1"
+                  className="mx-[47.25px] bg-transparent text-[24px] rounded-[10px] font-semibold p-2 flex-shrink-1"
                   placeholder="Country"
                 />
               </div>
@@ -170,10 +176,10 @@ const ShippingBillingPage: React.FC = () => {
               PAYMENT INFORMATION
             </div>
             <div className="mt-[24px] bg-white rounded-[10px] shadow-custom-multiple">
-              <div className="py-[18px] flex items-center">
+              <div className="px-[71.89px] py-[18px] flex items-center">
                 <label
                   htmlFor="card"
-                  className="w-[186px] pl-[71.89px] text-[24px] font-semibold flex-grow flex-shrink-0"
+                  className="w-[120px] text-[24px] font-semibold"
                 >
                   Card
                 </label>
@@ -183,10 +189,11 @@ const ShippingBillingPage: React.FC = () => {
                   id="card"
                   value={cardNumber}
                   onChange={(e) => setCardNumber(e.target.value)}
-                  className="mx-[9px] bg-transparent text-[24px] rounded-[10px] font-semibold p-2 flex-grow flex-shrink-1"
+                  className="mx-[9px] bg-transparent text-[24px] rounded-[10px] font-semibold p-2 w-[230px]"
                   placeholder="Card number"
                 />
                 <ExpirationDateInput />
+                <CVVInput />
               </div>
             </div>
           </div>
@@ -212,7 +219,13 @@ const ShippingBillingPage: React.FC = () => {
               <div className="max-w-[420px] w-full flex justify-between items-center text-[20px] text-[#404040]">
                 <div>Subtotal</div>
                 <div className="font-bold text-black pr-[24px]">
-                  ${calculateTotalPrice()}
+                  ${calculateSubTotalPrice()}
+                </div>
+              </div>
+              <div className="max-w-[420px] w-full flex justify-between items-center text-[20px] text-[#404040]">
+                <div>Shipping Fee</div>
+                <div className="font-bold text-black pr-[24px]">
+                  ${shipping_fee.toFixed(2)}
                 </div>
               </div>
               <hr className="max-w-[420px] w-full flex-shrink-1 text-primary" />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface PurchasePlansCompProps {
   title: string;
@@ -17,11 +18,17 @@ const PurchasePlansComp: React.FC<PurchasePlansCompProps> = ({
   options = [],
   className = '',
 }) => {
+  const navigate = useNavigate();
   const formattedNumber = price.toLocaleString();
+
+  const handlePurchaseCardClick = () => {
+    navigate('/shipping');
+  }
 
   return (
     <div
       className={`cursor-pointer flex items-center bg-custom-white text-black group hover:bg-primary hover:text-white py-[35px] px-[50px] rounded-[10px] duration-200 ${className}`}
+      onClick={handlePurchaseCardClick}
     >
       <div className="flex-grow flex-shrink-1 max-w-[500px]">
         <div className="font-semibold text-[36px]">{title}</div>

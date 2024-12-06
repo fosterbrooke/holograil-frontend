@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import HtmlContent from './products/HtmlContent';
 import RoundButton from '../RoundButton';
 import QuantityInputComp from './resources/QuantityInputComp';
+import InfoComp from '../InfoComp';
 
 interface ProductData {
   uid: string;
@@ -132,27 +133,38 @@ USD$0.15 (20,001 and above)</span>`,
         <div className="mt-[44px]">
           <HtmlContent htmlString={productInfo[productIndex].content} />
         </div>
-        <div className="flex w-full">
+        <div className="flex space-x-8 w-full">
           <div className="mt-[25px] max-w-[400px] w-full flex-grow flex-shrink-1">
             <div className="font-semibold text-[24px]">Price</div>
             <br />
             <HtmlContent htmlString={productInfo[productIndex].price} />
           </div>
-          <div className="flex-shrink-1 mx-[50px] items-center justify-center max-w-[256px] w-full">
-            <div className="font-semibold mb-[23px] text-[24px] text-center">
-              Quantity
-            </div>
-            <QuantityInputComp
-              quantity={quantity}
-              setQuantity={setQuantity}
-              className=""
-            />
-            <div className="mx-[31.5px] mt-[39px]">
-              <RoundButton
-                text="Add to Cart"
-                className="shadow-custom-item rounded-[10px] w-full"
-              />
-            </div>
+          <div className="flex-shrink-1 items-center justify-center w-full">
+            {productIndex === 0 ?
+              <div>
+                <InfoComp
+                  title="Shipping"
+                  text="Please note that due to logistical constraints and varying port restrictions, we are unable to provide a shipping rate upfront for the Lenticular Sheets. Please contact us directly via email for a quote"
+                  option="contact"
+                />
+              </div> :
+              <>
+                <div className="font-semibold mb-[23px] text-[24px] text-center">
+                  Quantity
+                </div>
+                <QuantityInputComp
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                  className=""
+                />
+                <div className="mx-[31.5px] mt-[39px]">
+                  <RoundButton
+                    text="Add to Cart"
+                    className="shadow-custom-item rounded-[10px] w-full"
+                  />
+                </div>
+              </>
+            }
           </div>
         </div>
       </div>

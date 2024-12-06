@@ -8,8 +8,8 @@ interface CardProps {
 }
 
 export const CardTemp: React.FC = () => {
-  return (<></>)
-}
+  return (<></>);
+};
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ title, content, className = '', shadow = false }, ref) => {
@@ -37,6 +37,6 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
   }
 );
 
-Card.displayName = "CardComponent";
+Card.displayName = 'CardComponent';
 
 export default Card;

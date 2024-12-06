@@ -7,6 +7,20 @@ const GetMoreSlide: React.FC = () => {
   const total_download_number = 1980;
   const customers_number = 600;
 
+  const handleGetStartedButton = () => {
+    const target = document.getElementById('chooseplanslide');
+    const offsetX = 100;
+
+    if (target) {
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: targetPosition - offsetX,
+        behavior: 'smooth'
+      });
+    }
+  }
+
   return (
     <div className="flex lg:flex-row flex-col w-full justify-space">
       <div
@@ -31,7 +45,11 @@ const GetMoreSlide: React.FC = () => {
             booth setup.
           </div>
           <div className="mt-[40px] flex w-full lg:justify-start justify-center space-x-[52px]">
-            <RoundButton text="Get Started" className="rounded-[7px]" />
+            <RoundButton
+              text="Get Started"
+              className="rounded-[7px]"
+              onClick={handleGetStartedButton}
+            />
             <RoundButton
               text="Contact Us"
               isMain={false}

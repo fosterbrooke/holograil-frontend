@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaRegCalendarMinus, FaSearch } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import Avatar from './Avatar';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -20,9 +20,9 @@ const Toolbar: React.FC = () => {
             className="flex-grow outline-none border-none bg-transparent text-[16px] font-bold" // Styling for input
           />
         </div>
-        <div className="flex max-w-[230px] h-[45px] items-center flex-grow flex-shrink-0 bg-custom-white rounded-[10px] py-[13px] ml-[38px]">
+        {/* <div className="flex max-w-[230px] h-[45px] items-center flex-grow flex-shrink-0 bg-custom-white rounded-[10px] py-[13px] ml-[38px]">
           <FaRegCalendarMinus size={18} className="mx-[16px]" />
-        </div>
+        </div> */}
       </div>
       <div className="flex items-center ml-[55px]">
         <img

@@ -69,7 +69,7 @@ const ChoosePlanSlide: React.FC = () => {
         src="/right_panel.svg"
         className="absolute top-0 right-[-6.25%] z-10 max-w-[50%]"
       />
-      <div className="mt-[17px] grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-items-center xl:mr-[100px] mr-0 sm:mx-[10px] mx-0">
+      <div className="mt-[17px] grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-items-center xl:mr-[100px] mr-0 sm:mx-[10px] mx-0" id="chooseplanslide">
         {subscriptions.map((item, index) => (
           <PurchaseCardComp
             key={index}

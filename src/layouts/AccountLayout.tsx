@@ -44,7 +44,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
             {children} {/* Render child components here */}
           </div>
         </div>
-        <div className="flex-grow sticky text-custom-gray2">
+        {/* <div className="flex-grow sticky text-custom-gray2">
           <button
             onClick={onClose}
             className="relative hover:scale-105 border-2 w-[40px] h-[40px] mt-[90px] rounded-[100%] flex items-center justify-center"
@@ -52,7 +52,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
             <div className="mt-[-4px] text-[35px]">&times;</div>
             <div className="absolute top-[40px]">ESC</div>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

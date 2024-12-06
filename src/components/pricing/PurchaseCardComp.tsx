@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import RoundButton from '../RoundButton';
 
 interface PurchaseCardCompProps {
@@ -18,7 +19,12 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
   bgColor = 'bg-[#37A3FF]',
   className = '',
 }) => {
+  const navigate = useNavigate();
   const formattedNumber = price.toLocaleString();
+
+  const handlePurchase = () => {
+    navigate('/shipping');
+  }
   return (
     <div className={`${className}`}>
       <div className="sm:flex hidden text-center flex-col items-center space-y-[30px] shadow-custom-multiple rounded-[12px] min-h-[700px] h-full max-w-[400px] px-[20px]">
@@ -48,7 +54,11 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
             ))}
           </div>
           <div className="mt-auto mb-[40px] bottom-[39px] flex justify-center">
-            <RoundButton text="Purchase" className="py-[10px] rounded-[7px]" />
+            <RoundButton 
+              text="Purchase" 
+              className="py-[10px] rounded-[7px]" 
+              onClick={handlePurchase}
+            />
           </div>
         </div>
       </div>
