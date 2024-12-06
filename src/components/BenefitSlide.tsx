@@ -17,7 +17,7 @@ const BenefitSlide: React.FC = () => {
             photo booth software to ensure every event is a success. Choose our
             software for reliability, innovation, and results that stand out.
           </div>
-          <RoundButton text="Get Started ->" className="mt-2 rounded-[7px]" />
+          <RoundButton text="Get Started ->" className="mt-2 rounded-[15px] max-w-[180px]" />
         </div>
         <img src="/benefit_slide1.png" className="my-[45px]" />
       </div>

@@ -28,6 +28,10 @@ const SubscriptionTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>('current');
   const subscriptionInfo: SubscriptionInfo = {
     current: {
+      devices: [],
+      payments: [],
+    },
+    past: {
       devices: [
         {
           name: 'Device 1',
@@ -82,10 +86,6 @@ const SubscriptionTabs: React.FC = () => {
           type: 'Monthly Subscription Plan',
         },
       ],
-    },
-    past: {
-      devices: [],
-      payments: [],
     },
   };
 

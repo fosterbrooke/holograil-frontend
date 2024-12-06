@@ -1,5 +1,6 @@
 import React from 'react';
 import RoundButton from '../../RoundButton';
+import { useNavigate } from 'react-router-dom';
 
 type PlanType = 'year' | 'month' | 'day';
 
@@ -13,12 +14,18 @@ interface SubscriptionCurrentShowCompProps {
 const SubscriptionCurrentShowComp: React.FC<
   SubscriptionCurrentShowCompProps
 > = ({ plan, amount, expiry, className = '' }) => {
+  const navigate = useNavigate();
+
   // Format the expiry date to "October 1, 2021"
   const formattedExpiry = expiry.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   });
+
+  const handleUpgradePlan = () => {
+    navigate("/accounts/plans");
+  }
 
   return (
     <div className={`rounded-[7px] ${className}`}>
@@ -33,6 +40,7 @@ const SubscriptionCurrentShowComp: React.FC<
         <RoundButton
           text="Upgrade plan"
           className="rounded-[7px] shadow-custom-item"
+          onClick={handleUpgradePlan}
         />
         <RoundButton
           text="Cancel plan"
