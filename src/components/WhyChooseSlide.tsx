@@ -3,6 +3,20 @@ import NumberShow2 from './NumberShow2';
 import RoundButton from './RoundButton';
 
 const WhyChooseSlide: React.FC = () => {
+  const handleGetStart = () => {
+    const target = document.getElementById('chooseplanslide');
+    const offsetX = 100;
+
+    if (target) {
+      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: targetPosition - offsetX,
+        behavior: 'smooth'
+      });
+    }
+  }
+
   const content = [
     {
       number: '01',
@@ -66,7 +80,11 @@ const WhyChooseSlide: React.FC = () => {
             />
           </div>
           <div className="xl:mt-[-28px] lg:mt-[-100px] mt-[55px] lg:ml-[195px] mr-0 flex lg:w-1/3 w-full justify-end">
-            <RoundButton text="Get Started" className="rounded-[7px]" />
+            <RoundButton 
+              text="Get Started" 
+              className="rounded-[7px]" 
+              onClick={handleGetStart}
+            />
           </div>
         </div>
       </div>
