@@ -141,33 +141,35 @@ const SubscriptionTabs: React.FC = () => {
                   {currentData.devices.map((device, index) => (
                     <div key={index}>
                       <div
-                        className={`flex items-center justify-between space-x-[15px] rounded-[10px] text-[16px] py-[23px] px-[28px] ${index % 2 == 0 ? 'text-white bg-primary' : 'text-black bg-custom-white'}`}
+                        className={`flex items-center justify-between space-x-[15px] rounded-[10px] text-[16px] py-[23px] px-[28px] text-black-50 ${index % 2 == 0 ? 'bg-gray-300' : 'bg-custom-white'}`}
                       >
                         <img
                           src="/accounts/overview/airplay.svg"
-                          className=""
+                          className="grayscale"
                         />
                         <div>
                           <div>{device.name}</div>
-                          <div>Expiry: {device.expiry}</div>
+                          <div>Expired: {device.expiry}</div>
                         </div>
                         <div>LICENSE KEY: {device.license}</div>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div>
+                {/* <div>
                   <div className="font-semibold text-[24px] text-primary mt-[64px] mb-[15px]">
                     Your Hardware ID{' '}
                   </div>
                   <div className="bg-custom-white rounted-[10px] h-[60px] w-full" />
-                </div>
+                </div> */}
               </div>
             )}
           </div>
         </div>
         {/* Your Rececnt Payments */}
-        {currentData.devices.length > 0 && (
+        {currentData.devices.length > 0 
+          && activeTab === 'current'
+          && (
           <div className="flex-grow flex-shrink-1 max-w-[393px] font-poppins">
             <div className="font-semibold text-[24px] text-primary mt-[64px] mb-[15px]">
               Your Recent Payments
