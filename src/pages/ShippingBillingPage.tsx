@@ -26,17 +26,22 @@ const ShippingBillingPage: React.FC = () => {
     { id: 2, icon: '', quantity: 1, name: 'Another Product', price: 40 },
     // Add more products as needed
   ]);
+  const shipping_fee = 20;
 
   const handleRemove = (id: number) => {
     setProducts(products.filter((product) => product.id !== id));
   };
 
   // Function to calculate total price
-  const calculateTotalPrice = () => {
+  const calculateSubTotalPrice = () => {
     return products
       .reduce((total, product) => total + product.quantity * product.price, 0)
       .toFixed(2);
   };
+
+  const calculateTotalPrice = () => {
+    return (Number(calculateSubTotalPrice()) + shipping_fee).toFixed(2);
+  }
 
   return (
     <div className="flex justify-center w-screen">
@@ -214,7 +219,13 @@ const ShippingBillingPage: React.FC = () => {
               <div className="max-w-[420px] w-full flex justify-between items-center text-[20px] text-[#404040]">
                 <div>Subtotal</div>
                 <div className="font-bold text-black pr-[24px]">
-                  ${calculateTotalPrice()}
+                  ${calculateSubTotalPrice()}
+                </div>
+              </div>
+              <div className="max-w-[420px] w-full flex justify-between items-center text-[20px] text-[#404040]">
+                <div>Shipping Fee</div>
+                <div className="font-bold text-black pr-[24px]">
+                  ${shipping_fee.toFixed(2)}
                 </div>
               </div>
               <hr className="max-w-[420px] w-full flex-shrink-1 text-primary" />
