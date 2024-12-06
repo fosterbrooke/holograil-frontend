@@ -39,7 +39,7 @@ const Accessories: React.FC = () => {
             <InfoComp
               title="Shipping Information"
               text="Please note that due to logistical constraints and varying port restrictions, we are unable to provide a shipping rate upfront. After you place your order for our accessories, we will reach out via email with a customized shipping and delivery quote, as well as the finalized total price. Thank you for your understanding."
-              className="md:mt-[100px] mt-[30px] md:max-w-auto"
+              className="md:mt-[50px] mt-[30px] md:max-w-auto"
             />
           </div>
         </AccecssoriesDemoComp>
