@@ -1,8 +1,20 @@
 import React from 'react';
 import ResourceCardComp from './resources/ResourceCardComp';
 import VideoPlayer from '../VideoPlayer';
+import RoundButton from '../RoundButton';
 
 const AccountResources: React.FC = () => {
+  const guideURL = 'https://drive.google.com/u/1/uc?id=1ZcuWP62tNrcVx1w3_ALCPBnqvCGTJ7lU&export=download';
+  const appURL = 'https://drive.google.com/u/1/uc?id=1ZcuWP62tNrcVx1w3_ALCPBnqvCGTJ7lU&export=download';
+
+  const handleDownGuidePDF = () => {
+    window.open(guideURL, "_blank");
+  }
+
+  const handleDownApp = () => {
+    window.open(appURL, "_blank");
+  }
+
   const resourceCardInfo = [
     {
       title: 'Windows based photo booth',
@@ -46,11 +58,20 @@ const AccountResources: React.FC = () => {
         Additional Resources
       </div>
       <div className="flex space-x-[42px] text-white font-bold text-[20px]">
-        <div className="p-[22px] rounded-[10px] bg-primary flex items-center max-w-[389px] w-full space-x-[17px]">
+        <RoundButton
+          className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]"
+          onClick={handleDownGuidePDF}
+        >
           <img src="/accounts/resources/book.png" />
           <div>Download PDF Guidebook</div>
-        </div>
-        <div className="p-[22px] rounded-[10px] bg-primary flex items-center max-w-[389px] w-full space-x-[17px]" />
+        </RoundButton>
+        <RoundButton
+          className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]"
+          onClick={handleDownApp}
+        >
+          <img src="/accounts/resources/download.png" />
+          <div>Download the App here</div>
+        </RoundButton>
       </div>
     </div>
   );
