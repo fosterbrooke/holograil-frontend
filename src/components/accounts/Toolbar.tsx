@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaRegCalendarMinus, FaSearch } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import Avatar from './Avatar';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
