@@ -7,11 +7,12 @@ import CVVInput from '../components/accounts/CVVInput';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem } from '../redux/cartSlice';
 import { CartItem } from '../types/Cart';
+import { RootState } from '../redux/store';
 
 const ShippingBillingPage: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { items: cart_items, totalCartPrice, shipping_fee, totalPrice } = useSelector((state: any) => state.cart);
+  const { items: cart_items, totalCartPrice, shipping_fee, totalPrice } = useSelector((state: RootState) => state.cart);
 
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -23,7 +24,6 @@ const ShippingBillingPage: React.FC = () => {
   const [cardNumber, setCardNumber] = useState<string>('');
 
   const handleRemove = (id: number) => {
-    console.log(id);
     dispatch(removeItem(id));
   };
 

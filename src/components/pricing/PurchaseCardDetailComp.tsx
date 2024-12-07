@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import RoundButton from '../RoundButton';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 interface PurchaseCardDetailCompProps {
   title: string;
@@ -27,7 +28,7 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
 }) => {
   const navigate = useNavigate();
 
-  const user = useSelector((state: any) => state.user);
+  const user = useSelector((state: RootState) => state.user);
   const formattedNumber = price.toLocaleString();
 
   const handleSignUp = () => {
