@@ -64,13 +64,17 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
       </div>
 
       <div
-        className={`${bgColor} sm:hidden flex items-center justify-evenly rounded-[10px] text-white p-[28px] mb-[37px] w-[328px]`}
+        className={`${bgColor} sm:hidden flex items-center justify-evenly rounded-[10px] text-white p-[28px] mb-[20px] w-[328px]`}
       >
         <div className="">
           <div className="font-semibold text-[16px]">{title}</div>
           <div className="text-left text-[11px] leading-[16px] mt-[10px]">
             {content.map((item, index) => (
-              <div key={index} className="flex">
+              <div 
+                key={index} 
+                className="flex"
+                onClick={() => navigate('/shipping')}
+              >
                 {item}
               </div>
             ))}

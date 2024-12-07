@@ -1,5 +1,5 @@
-import React from 'react';
-import { HeaderItem, headerItems } from '../types/HeaderItem';
+import React, { useEffect } from 'react';
+import { HeaderItem, headerItems as origin_headerItems } from '../types/HeaderItem';
 import { hideHeader, setSelectedItem } from '../redux/userSlice';
 import { RootState } from '../redux/store';
 
@@ -13,6 +13,8 @@ import Avatar from './accounts/Avatar';
 const HeaderBar: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [headerItems, setHeaderItems] = useState(origin_headerItems);
   const selectedItem = useSelector(
     (state: RootState) => state.user.selectedItem
   );
@@ -29,8 +31,27 @@ const HeaderBar: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (! user) {
+      setHeaderItems([
+        {
+          name: 'Login',
+          link: '/login',
+        },
+        {
+          name: 'Sign Up',
+          link: '/signup',
+        },
+        ...origin_headerItems,
+      ]);
+    }
+    else {
+      setHeaderItems(origin_headerItems);
+    }
+  }, [user]);
+
   return (
-    <header className="flex md:fixed sticky top-0 left-0 w-full items-center md:justify-between px-6 lg:px-[10%] md:px-[6%] py-6 md:bg-white/50 bg-primary backdrop-blur-lg z-50 space-x-4 font-inter">
+    <header className="flex md:fixed sticky top-0 left-0 w-full items-center justify-between px-6 lg:px-[10%] md:px-[6%] py-6 md:bg-white/50 bg-primary backdrop-blur-lg z-50 space-x-4 font-inter">
       {/* Logo */}
       <Logo />
 
@@ -51,7 +72,7 @@ const HeaderBar: React.FC = () => {
 
       {/* Login and Sign Up Buttons */}
       {user ? (
-        <div className="flex items-center md:w-auto w-full md:justify-normal justify-end">
+        <div className="flex items-center md:w-auto w-full justify-end">
           <Avatar />
         </div>
       ) : (
@@ -81,7 +102,7 @@ const HeaderBar: React.FC = () => {
           ☰
         </button>
         <ul
-          className={`fixed right-0 w-full bg-primary py-2.5 px-4 shadow-gray-800 shadow-md transition-all duration-200 ${!isMenuOpen ? 'h-0 opacity-0' : 'h-[180px]'} text-right`}
+          className={`fixed right-0 w-full bg-primary py-2.5 px-4 shadow-gray-800 shadow-md transition-all duration-200 ${!isMenuOpen ? 'h-0 opacity-0' : user ? 'h-[180px]' : 'h-[250px]'} text-right`}
         >
           {headerItems.map((item) => (
             <li

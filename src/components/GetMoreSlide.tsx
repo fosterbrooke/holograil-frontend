@@ -34,7 +34,7 @@ const GetMoreSlide: React.FC = () => {
       />
       <div className="flex flex-col items-center w-full sm:mt-[140px] mt-[38px] px-[46px]">
         <div className="lg:w-1/2 w-full sm:w-[585px] lg:w-[585px] w-full flex flex-col lg:items-normal items-center">
-          <div className="text-primary lg:text-left text-center sm:text-[64px] text-[37px] font-bold ">
+          <div className="text-primary lg:text-left sm:text-[64px] text-[37px] font-bold ">
             Get More Done with The Grail
           </div>
           <div className="sm:text-[20px] text-[12px] sm:mt-[35px] mt-[30px]">
