@@ -24,6 +24,10 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose, className = '' }) => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
+  const handleUpgradePlan = () => {
+    navigate("/accounts/plans");
+  }
+
   return (
     <div
       className={`flex flex-col w-[320px] bg-custom-white items-center space-y-[100px] ${className}`}
@@ -55,7 +59,9 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose, className = '' }) => {
           </div>
         ))}
       </div>
-      <button className="sm:text-[16px] text-[16px] sm:leading-[19px] sm:leading-[13px] sm:py-[16px] font-semibold transform duration-300 hover:scale-105 rounded-[7px] px-[49px] text-white bg-primary py-[15px] shadow-custom-item2">
+      <button 
+        className="sm:text-[16px] text-[16px] sm:leading-[19px] sm:leading-[13px] sm:py-[16px] font-semibold transform duration-300 hover:scale-105 rounded-[7px] px-[49px] text-white bg-primary py-[15px] shadow-custom-item2"
+        onClick={handleUpgradePlan}>
         Upgrade your plan
       </button>
     </div>
