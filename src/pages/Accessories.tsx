@@ -7,7 +7,7 @@ const Accessories: React.FC = () => {
   return (
     <div>
       <AccessoriesMainSlide />
-      <div className="2xl:mt-[200px] lg:mt-[160px] mt-[124px]">
+      <div className="2xl:mt-[200px] lg:mt-[160px] mt-[64px]">
         <AccecssoriesDemoComp>
           <div>
             <div className="text-primary font-bold 2xl:text-[55px] lg:text-[33px] text-[16px] tracking-[-0.02em]">

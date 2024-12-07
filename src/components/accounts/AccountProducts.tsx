@@ -3,6 +3,9 @@ import HtmlContent from './products/HtmlContent';
 import RoundButton from '../RoundButton';
 import QuantityInputComp from './resources/QuantityInputComp';
 import InfoComp from '../InfoComp';
+import { useDispatch } from 'react-redux';
+import { addCartItem } from '../../redux/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 interface ProductData {
   uid: string;
@@ -12,6 +15,9 @@ interface ProductData {
 }
 
 const AccountProducts: React.FC = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [productIndex, setProductIndex] = useState<number>(0);
   const [quantity, setQuantity] = useState<number>(1);
 
@@ -93,6 +99,15 @@ USD$0.15 (20,001 and above)</span>`,
     setQuantity(1);
   };
 
+  const handleAddCart = () => {
+    dispatch(addCartItem({
+      product_id: productIndex,
+      quantity: quantity
+    }));
+
+    navigate("/shipping");
+  }
+
   return (
     <div className="mt-[63px] bg-custom-white rounded-[10px] text-black py-[56px] px-[50px]">
       <div className="flex items-center">
@@ -161,6 +176,7 @@ USD$0.15 (20,001 and above)</span>`,
                   <RoundButton
                     text="Add to Cart"
                     className="shadow-custom-item rounded-[10px] w-full"
+                    onClick={handleAddCart}
                   />
                 </div>
               </>

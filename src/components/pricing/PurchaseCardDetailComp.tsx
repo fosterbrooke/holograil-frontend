@@ -1,5 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import RoundButton from '../RoundButton';
+import { useSelector } from 'react-redux';
 
 interface PurchaseCardDetailCompProps {
   title: string;
@@ -23,7 +25,20 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
   isFocus = false,
   subTitle = '',
 }) => {
+  const navigate = useNavigate();
+
+  const user = useSelector((state: any) => state.user);
   const formattedNumber = price.toLocaleString();
+
+  const handleSignUp = () => {
+    if (user) {
+      navigate("/accounts/plans");
+    }
+    else {
+      navigate("/signup");
+    }
+  }
+
   return (
     <div className={`${className}`}>
       <div
@@ -63,6 +78,7 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
             <RoundButton
               text="Sign Up"
               className="py-[10px] rounded-[7px] 2xl:scale-[100%] lg:scale-[80%] sm:scale-[50%] 2xl:hover:scale-[105%] lg:hover:scale-[85%] sm:hover:scale-[55%]"
+              onClick={handleSignUp}
             />
           </div>
         </div>
@@ -75,7 +91,11 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
           <div className="font-semibold text-[16px]">{title}</div>
           <div className="text-left text-[11px] leading-[16px] mt-[10px]">
             {content.map((item, index) => (
-              <div key={index} className="flex">
+              <div 
+                key={index} 
+                className="flex"
+                onClick={handleSignUp}
+              >
                 {item}
               </div>
             ))}
