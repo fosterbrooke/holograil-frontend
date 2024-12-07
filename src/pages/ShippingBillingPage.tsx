@@ -4,8 +4,15 @@ import ProductItem from '../components/accounts/products/ProductItem';
 import RoundButton from '../components/RoundButton';
 import InfoComp from '../components/InfoComp';
 import CVVInput from '../components/accounts/CVVInput';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeItem } from '../redux/cartSlice';
+import { CartItem } from '../types/Cart';
 
 const ShippingBillingPage: React.FC = () => {
+  const dispatch = useDispatch();
+
+  const { items: cart_items, totalCartPrice, shipping_fee, totalPrice } = useSelector((state: any) => state.cart);
+
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [address, setAddress] = useState<string>('');
@@ -15,33 +22,10 @@ const ShippingBillingPage: React.FC = () => {
   const [country, setCountry] = useState<string>('');
   const [cardNumber, setCardNumber] = useState<string>('');
 
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      icon: '',
-      quantity: 2,
-      name: 'Luggage Tag Cutter Dimensions: 20cm (W), 15cm (H)',
-      price: 40,
-    },
-    { id: 2, icon: '', quantity: 1, name: 'Another Product', price: 40 },
-    // Add more products as needed
-  ]);
-  const shipping_fee = 20;
-
   const handleRemove = (id: number) => {
-    setProducts(products.filter((product) => product.id !== id));
+    console.log(id);
+    dispatch(removeItem(id));
   };
-
-  // Function to calculate total price
-  const calculateSubTotalPrice = () => {
-    return products
-      .reduce((total, product) => total + product.quantity * product.price, 0)
-      .toFixed(2);
-  };
-
-  const calculateTotalPrice = () => {
-    return (Number(calculateSubTotalPrice()) + shipping_fee).toFixed(2);
-  }
 
   return (
     <div className="flex justify-center w-screen">
@@ -204,14 +188,14 @@ const ShippingBillingPage: React.FC = () => {
               </div>
               <hr className="max-w-[420px] w-full flex-shrink-1 text-primary" />
               <div className="w-full flex flex-col space-y-[30px]">
-                {products.map((product) => (
+                {cart_items && cart_items.length > 0 && cart_items.map((product: CartItem, index: number) => (
                   <ProductItem
-                    key={product.id}
+                    key={index}
                     icon={product.icon}
                     quantity={product.quantity}
                     name={product.name}
                     price={product.price}
-                    onRemove={() => handleRemove(product.id)}
+                    onRemove={() => handleRemove(product.product_id)}
                   />
                 ))}
               </div>
@@ -219,7 +203,7 @@ const ShippingBillingPage: React.FC = () => {
               <div className="max-w-[420px] w-full flex justify-between items-center text-[20px] text-[#404040]">
                 <div>Subtotal</div>
                 <div className="font-bold text-black pr-[24px]">
-                  ${calculateSubTotalPrice()}
+                  ${totalCartPrice.toFixed(2)}
                 </div>
               </div>
               <div className="max-w-[420px] w-full flex justify-between items-center text-[20px] text-[#404040]">
@@ -231,7 +215,7 @@ const ShippingBillingPage: React.FC = () => {
               <hr className="max-w-[420px] w-full flex-shrink-1 text-primary" />
               <div className="max-w-[420px] w-full flex justify-between items-center font-bold text-[24px] text-[#404040]">
                 <div>Total</div>
-                <div className=" pr-[0px]">${calculateTotalPrice()}*</div>
+                <div className=" pr-[0px]">${totalPrice.toFixed(2)}*</div>
               </div>
               <div className="w-full px-[16px] pt-[17px] py-[54px]">
                 <RoundButton
