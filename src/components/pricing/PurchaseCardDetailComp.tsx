@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import RoundButton from '../RoundButton';
 
 interface PurchaseCardDetailCompProps {
@@ -23,7 +24,13 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
   isFocus = false,
   subTitle = '',
 }) => {
+  const navigate = useNavigate();
   const formattedNumber = price.toLocaleString();
+
+  const handleSignUp = () => {
+    navigate("/signup");
+  }
+
   return (
     <div className={`${className}`}>
       <div
@@ -63,6 +70,7 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
             <RoundButton
               text="Sign Up"
               className="py-[10px] rounded-[7px] 2xl:scale-[100%] lg:scale-[80%] sm:scale-[50%] 2xl:hover:scale-[105%] lg:hover:scale-[85%] sm:hover:scale-[55%]"
+              onClick={handleSignUp}
             />
           </div>
         </div>
