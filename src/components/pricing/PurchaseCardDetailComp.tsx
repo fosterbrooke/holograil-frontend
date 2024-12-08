@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import RoundButton from '../RoundButton';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { fetchAPI } from '../../utils/api';
 import handlePurchase from '../../utils/stripe';
 
 interface PurchaseCardDetailCompProps {
