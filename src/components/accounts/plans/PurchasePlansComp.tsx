@@ -1,5 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { RootState } from '../../../redux/store';
+import handlePurchase from '../../../utils/stripe';
 
 interface PurchasePlansCompProps {
   title: string;
@@ -8,6 +11,7 @@ interface PurchasePlansCompProps {
   content?: string;
   options?: string[];
   className?: string;
+  planId: string;
 }
 
 const PurchasePlansComp: React.FC<PurchasePlansCompProps> = ({
@@ -17,12 +21,19 @@ const PurchasePlansComp: React.FC<PurchasePlansCompProps> = ({
   content = '',
   options = [],
   className = '',
+  planId,
 }) => {
   const navigate = useNavigate();
+  const { user } = useSelector((state: RootState) => state.user);
   const formattedNumber = price.toLocaleString();
 
-  const handlePurchaseCardClick = () => {
-    navigate('/shipping');
+  const handlePurchaseCardClick = async () => {
+    if (user) {
+      await handlePurchase(user.email, planId);
+    }
+    else {
+      navigate("/signup");
+    }
   }
 
   return (

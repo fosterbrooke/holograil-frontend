@@ -8,7 +8,7 @@ import { auth, googleProvider } from '../utils/firebaseConfig';
 import { FirebaseError } from 'firebase/app';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/userSlice';
-import { storeUserData } from '../services/user.service';
+import { registerUser, storeUserData } from '../services/user.service';
 
 const LoginPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -79,6 +79,8 @@ const LoginPage: React.FC = () => {
 
       // Dispatch to state management
       dispatch(setUser(fetchedUser));
+      
+      await registerUser(firebaseUser);
 
       // Retrieve selected item from local storage
       const storedSelectedAccountsItem = localStorage.getItem(

@@ -1,6 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import RoundButton from '../RoundButton';
+import { RootState } from '../../redux/store';
+import handlePurchase from '../../utils/stripe';
 
 interface PurchaseCardCompProps {
   title: string;
@@ -9,6 +12,7 @@ interface PurchaseCardCompProps {
   period: string;
   bgColor?: string;
   className?: string;
+  planId: string;
 }
 
 const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
@@ -18,13 +22,22 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
   period,
   bgColor = 'bg-[#37A3FF]',
   className = '',
+  planId,
 }) => {
   const navigate = useNavigate();
+  const { user } = useSelector((state: RootState) => state.user);
   const formattedNumber = price.toLocaleString();
 
-  const handlePurchase = () => {
-    navigate('/shipping');
+  const handleSignUp = async () => {
+    if (user) {
+      alert(planId);
+      await handlePurchase(user.email, planId);
+    }
+    else {
+      navigate("/signup");
+    }
   }
+  
   return (
     <div className={`${className}`}>
       <div className="sm:flex hidden text-center flex-col items-center space-y-[30px] shadow-custom-multiple rounded-[12px] min-h-[700px] h-full max-w-[400px] px-[20px]">
@@ -57,7 +70,7 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
             <RoundButton 
               text="Purchase" 
               className="py-[10px] rounded-[7px]" 
-              onClick={handlePurchase}
+              onClick={handleSignUp}
             />
           </div>
         </div>

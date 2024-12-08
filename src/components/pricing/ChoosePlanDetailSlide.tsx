@@ -1,10 +1,12 @@
 import React from 'react';
 import PurchaseCardDetailComp from './PurchaseCardDetailComp';
 import OneTimeSetupComp from './OneTimeSetupComp';
+import { pricingPlans } from '../../utils/stripe';
 
 const ChoosePlanDetailSlide: React.FC = () => {
   const focusIndex = 1;
   const oneTimeSubscription = {
+    id: pricingPlans["onetime"],
     title: '1 Time Setup',
     price: 990,
     period: '',
@@ -24,6 +26,7 @@ const ChoosePlanDetailSlide: React.FC = () => {
   };
   const subscriptions = [
     {
+      id: pricingPlans["year"],
       title: 'Yearly License',
       price: 1500,
       period: 'Year',
@@ -37,6 +40,7 @@ const ChoosePlanDetailSlide: React.FC = () => {
         'For established businesses looking to cut costs while maximizing long-term profitability.',
     },
     {
+      id: pricingPlans["month"],
       title: 'Monthly License',
       price: 150,
       period: 'Month',
@@ -50,6 +54,7 @@ const ChoosePlanDetailSlide: React.FC = () => {
         'Ideal for businesses with consistent bookings that need flexibility month-to-month.',
     },
     {
+      id: pricingPlans["day"],
       title: 'Daily License',
       price: 40,
       period: 'Day',
@@ -69,6 +74,7 @@ const ChoosePlanDetailSlide: React.FC = () => {
         {subscriptions.map((item, index) => (
           <PurchaseCardDetailComp
             key={index}
+            planId={item.id}
             title={item.title}
             subTitle={item.subTitle}
             content={item.content}
@@ -81,6 +87,7 @@ const ChoosePlanDetailSlide: React.FC = () => {
         ))}
       </div>
       <OneTimeSetupComp
+        planId={oneTimeSubscription.id}
         title={oneTimeSubscription.title}
         price={oneTimeSubscription.price}
         placeholder={oneTimeSubscription.placeholder}

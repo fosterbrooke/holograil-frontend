@@ -1,5 +1,6 @@
 import { User as FirebaseUser } from 'firebase/auth';
 import { User } from '../types/User';
+import { fetchAPI } from '../utils/api';
 
 export const storeUserData = (firebaseUser: FirebaseUser) => {
   const user: User = {
@@ -18,3 +19,26 @@ export const storeUserData = (firebaseUser: FirebaseUser) => {
 
   return fetchedUser;
 };
+
+export const registerUser = async (firebaseUser: FirebaseUser) => {
+  try {
+    await fetchAPI(
+      "/users/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify({
+          username: firebaseUser.displayName || 'admin',
+          email: firebaseUser.email || 'admin@gmail.com',
+          password: "123123123",
+          avatar_url: firebaseUser.photoURL || '',
+        }), // Empty body as per the sample
+      }
+    );
+  } catch (error) {
+    console.error("Error creating checkout session:", error);
+  }
+}
