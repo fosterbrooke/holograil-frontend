@@ -1,9 +1,11 @@
 import React from 'react';
 import PurchasePlansComp from './plans/PurchasePlansComp';
+import { pricingPlans } from '../../utils/stripe';
 
 const AccountPlans: React.FC = () => {
   const subscriptions = [
     {
+      id: pricingPlans["day"],
       title: 'Daily License',
       price: 40,
       period: 'Daily',
@@ -11,6 +13,7 @@ const AccountPlans: React.FC = () => {
       options: [],
     },
     {
+      id: pricingPlans["month"],
       title: 'Monthly License',
       price: 150,
       period: 'Monthly',
@@ -18,6 +21,7 @@ const AccountPlans: React.FC = () => {
       options: [],
     },
     {
+      id: pricingPlans["year"],
       title: 'Yearly License',
       price: 1500,
       period: 'Yearly',
@@ -25,6 +29,7 @@ const AccountPlans: React.FC = () => {
       options: [],
     },
     {
+      id: pricingPlans["onetime"],
       title: 'One Time Setup',
       price: 990,
       period: 'one time setup',
@@ -46,6 +51,7 @@ const AccountPlans: React.FC = () => {
       {subscriptions.map((item, index) => (
         <PurchasePlansComp
           key={index}
+          planId={item.id}
           title={item.title}
           content={item.content}
           period={item.period}

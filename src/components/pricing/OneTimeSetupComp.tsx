@@ -1,5 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import RoundButton from '../RoundButton';
+import { RootState } from '../../redux/store';
+import handlePurchase from '../../utils/stripe';
 
 interface OneTimeSetupCompProps {
   title: string;
@@ -8,6 +12,7 @@ interface OneTimeSetupCompProps {
   placeholder: string;
   subTitle: string[];
   content: string[];
+  planId: string;
 }
 
 const OneTimeSetupComp: React.FC<OneTimeSetupCompProps> = ({
@@ -17,7 +22,20 @@ const OneTimeSetupComp: React.FC<OneTimeSetupCompProps> = ({
   subTitle,
   content,
   className = '',
+  planId,
 }) => {
+  const navigate = useNavigate();
+  const { user } = useSelector((state: RootState) => state.user);
+
+  const handleSignUp = async () => {
+    if (user) {
+      await handlePurchase(user.email, planId);
+    }
+    else {
+      navigate("/signup");
+    }
+  }
+
   return (
     <div>
       <div
@@ -92,6 +110,7 @@ const OneTimeSetupComp: React.FC<OneTimeSetupCompProps> = ({
               <RoundButton
                 text="Get Started"
                 className={`lg:block hidden rounded-[8px] 2xl:scale-[100%] lg:scale-[80%] sm:scale-[50%] 2xl:hover:scale-[105%] lg:hover:scale-[85%] sm:hover:scale-[55%] mt-[40px] mb-[24px]`}
+                onClick={handleSignUp}
               />
             </div>
           </div>

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import RoundButton from '../RoundButton';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+import { fetchAPI } from '../../utils/api';
+import handlePurchase from '../../utils/stripe';
 
 interface PurchaseCardDetailCompProps {
   title: string;
@@ -14,6 +16,7 @@ interface PurchaseCardDetailCompProps {
   className?: string;
   isFocus?: boolean;
   subTitle?: string;
+  planId: string;
 }
 
 const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
@@ -25,15 +28,15 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
   className = '',
   isFocus = false,
   subTitle = '',
+  planId,
 }) => {
   const navigate = useNavigate();
-
-  const user = useSelector((state: RootState) => state.user);
+  const { user } = useSelector((state: RootState) => state.user);
   const formattedNumber = price.toLocaleString();
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     if (user) {
-      navigate("/accounts/plans");
+      await handlePurchase(user.email, planId);
     }
     else {
       navigate("/signup");

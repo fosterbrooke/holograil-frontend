@@ -1,9 +1,11 @@
 import React from 'react';
 import PurchaseCardComp from './pricing/PurchaseCardComp';
+import { pricingPlans } from '../utils/stripe';
 
 const ChoosePlanSlide: React.FC = () => {
   const subscriptions = [
     {
+      id: pricingPlans["onetime"],
       title: 'One Time Setup',
       price: 990,
       period: '',
@@ -19,6 +21,7 @@ const ChoosePlanSlide: React.FC = () => {
       ],
     },
     {
+      id: pricingPlans["year"],
       title: 'Yearly License',
       price: 1500,
       period: 'Year',
@@ -30,6 +33,7 @@ const ChoosePlanSlide: React.FC = () => {
       ],
     },
     {
+      id: pricingPlans["month"],
       title: 'Monthly License',
       price: 150,
       period: 'Month',
@@ -41,6 +45,7 @@ const ChoosePlanSlide: React.FC = () => {
       ],
     },
     {
+      id: pricingPlans["day"],
       title: 'Daily License',
       price: 40,
       period: 'Day',
@@ -73,6 +78,7 @@ const ChoosePlanSlide: React.FC = () => {
         {subscriptions.map((item, index) => (
           <PurchaseCardComp
             key={index}
+            planId={item.id}
             title={item.title}
             content={item.content}
             period={item.period}
