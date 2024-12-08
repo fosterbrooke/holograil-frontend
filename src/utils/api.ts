@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://api.thegrail.app";
+const API_BASE_URL = "api.thegrail.app";
 // const API_BASE_URL = "http://52.90.200.142:8088";
 
 const fetchAPI = async (endpoint:string, options:RequestInit) => {
