@@ -32,7 +32,7 @@ const HeaderBar: React.FC = () => {
   };
 
   useEffect(() => {
-    if (! user) {
+    if (! user && isMenuOpen) {
       setHeaderItems([
         {
           name: 'Login',
@@ -48,7 +48,7 @@ const HeaderBar: React.FC = () => {
     else {
       setHeaderItems(origin_headerItems);
     }
-  }, [user]);
+  }, [user, isMenuOpen]);
 
   return (
     <header className="flex md:fixed sticky top-0 left-0 w-full items-center justify-between px-6 lg:px-[10%] md:px-[6%] py-6 md:bg-white/50 bg-primary backdrop-blur-lg z-50 space-x-4 font-inter">
