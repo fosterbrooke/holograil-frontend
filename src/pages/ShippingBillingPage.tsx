@@ -43,6 +43,7 @@ const BillingInfoItem: React.FC<BillingInfoItemProps> = ({
 };
 
 const PaymentInfoForm: React.FC = () => {
+  const [focused, setFocused] = useState<string>('');
   const [cardValues, setCardValues] = useState({
     number: '',
     expiry: '',
@@ -101,7 +102,6 @@ const PaymentInfoForm: React.FC = () => {
             required
             value={cardValues.number}
             onChange={handleInputChange}
-            onFocus={handleInputFocus}
           />
         </div>
         <div className="flex sm:flex-row flex-col sm:w-1/3 w-full sm:space-x-4">
@@ -117,7 +117,6 @@ const PaymentInfoForm: React.FC = () => {
             required
             value={cardValues.expiry}
             onChange={handleInputChange}
-            onFocus={handleInputFocus}
           />
           <label className="font-bold sm:hidden sm:text-[20px] text-[16px] my-4">
             Security Code
@@ -131,7 +130,6 @@ const PaymentInfoForm: React.FC = () => {
             required
             value={cardValues.cvc}
             onChange={handleInputChange}
-            onFocus={handleInputFocus}
           />
         </div>
         <div className="sm:hidden flex flex-col">
@@ -147,7 +145,6 @@ const PaymentInfoForm: React.FC = () => {
             required
             value={cardValues.name}
             onChange={handleInputChange}
-            onFocus={handleInputFocus}
           />
         </div>
         <div className="sm:hidden w-full flex space-x-2 mt-4">
