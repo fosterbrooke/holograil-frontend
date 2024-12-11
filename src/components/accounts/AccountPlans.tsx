@@ -5,7 +5,7 @@ import { pricingPlans } from '../../utils/stripe';
 const AccountPlans: React.FC = () => {
   const subscriptions = [
     {
-      id: pricingPlans["day"],
+      id: pricingPlans['day'],
       title: 'Daily License',
       price: 40,
       period: 'Daily',
@@ -13,7 +13,7 @@ const AccountPlans: React.FC = () => {
       options: [],
     },
     {
-      id: pricingPlans["month"],
+      id: pricingPlans['month'],
       title: 'Monthly License',
       price: 150,
       period: 'Monthly',
@@ -21,7 +21,7 @@ const AccountPlans: React.FC = () => {
       options: [],
     },
     {
-      id: pricingPlans["year"],
+      id: pricingPlans['year'],
       title: 'Yearly License',
       price: 1500,
       period: 'Yearly',
@@ -29,7 +29,7 @@ const AccountPlans: React.FC = () => {
       options: [],
     },
     {
-      id: pricingPlans["onetime"],
+      id: pricingPlans['onetime'],
       title: 'One Time Setup',
       price: 990,
       period: 'one time setup',

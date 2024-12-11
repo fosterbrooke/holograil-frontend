@@ -32,13 +32,14 @@ const InfoComp: React.FC<InfoCompProps> = ({
         >
           {text}
         </div>
-        {option &&
+        {option && (
           <div className="flex justify-end mt-[20px]">
             <RoundButton
               text="Contact Us"
               className="bg-transparent rounded-[7px] border-white py-[5px]"
             />
-          </div>}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -79,7 +79,7 @@ const LoginPage: React.FC = () => {
 
       // Dispatch to state management
       dispatch(setUser(fetchedUser));
-      
+
       await registerUser(firebaseUser);
 
       // Retrieve selected item from local storage

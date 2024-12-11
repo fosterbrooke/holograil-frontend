@@ -6,7 +6,7 @@ import { pricingPlans } from '../../utils/stripe';
 const ChoosePlanDetailSlide: React.FC = () => {
   const focusIndex = 1;
   const oneTimeSubscription = {
-    id: pricingPlans["onetime"],
+    id: pricingPlans['onetime'],
     title: '1 Time Setup',
     price: 990,
     period: '',
@@ -26,7 +26,7 @@ const ChoosePlanDetailSlide: React.FC = () => {
   };
   const subscriptions = [
     {
-      id: pricingPlans["year"],
+      id: pricingPlans['year'],
       title: 'Yearly License',
       price: 1500,
       period: 'Year',
@@ -40,7 +40,7 @@ const ChoosePlanDetailSlide: React.FC = () => {
         'For established businesses looking to cut costs while maximizing long-term profitability.',
     },
     {
-      id: pricingPlans["month"],
+      id: pricingPlans['month'],
       title: 'Monthly License',
       price: 150,
       period: 'Month',
@@ -54,7 +54,7 @@ const ChoosePlanDetailSlide: React.FC = () => {
         'Ideal for businesses with consistent bookings that need flexibility month-to-month.',
     },
     {
-      id: pricingPlans["day"],
+      id: pricingPlans['day'],
       title: 'Daily License',
       price: 40,
       period: 'Day',

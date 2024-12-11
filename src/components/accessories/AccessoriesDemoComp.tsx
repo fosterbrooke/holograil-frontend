@@ -13,7 +13,10 @@ const AccecssoriesDemoComp: React.FC<AccecssoriesDemoCompProps> = ({
     <div
       className={`${className} flex 2xl:mb-[270px] lg:mb-[180px] mb-[100px] md:items-center items-start relative md:flex-row flex-col`}
     >
-      <img src="/accessories/Vector 2.svg" className="w-[70%] sm:w-1/2 scale-y-[70%] sm:scale-100 object-contain" />
+      <img
+        src="/accessories/Vector 2.svg"
+        className="w-[70%] sm:w-1/2 scale-y-[70%] sm:scale-100 object-contain"
+      />
       <div className="absolute inset-0 md:items-center items-start flex sm:w-1/2">
         <div className="bg-white shadow-custom-card rounded-[15px] sm:w-full 2xl:mr-[80px] aspect-square w-[60%] pb-[clamp(0px,40%,750px)] relative mx-[5%] md:mt-0 mt-[18%]">
           <div className="flex justify-evenly absolute bottom-0 w-full">

@@ -5,7 +5,7 @@ interface RoundButtonProps {
   isMain?: boolean;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  children?: React.ReactNode;  // Add this to accept children as well
+  children?: React.ReactNode; // Add this to accept children as well
 }
 
 const RoundButton: React.FC<RoundButtonProps> = ({

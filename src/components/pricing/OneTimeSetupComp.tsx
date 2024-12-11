@@ -30,11 +30,10 @@ const OneTimeSetupComp: React.FC<OneTimeSetupCompProps> = ({
   const handleSignUp = async () => {
     if (user) {
       await handlePurchase(user.email, planId);
+    } else {
+      navigate('/signup');
     }
-    else {
-      navigate("/signup");
-    }
-  }
+  };
 
   return (
     <div>

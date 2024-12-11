@@ -22,23 +22,20 @@ export const storeUserData = (firebaseUser: FirebaseUser) => {
 
 export const registerUser = async (firebaseUser: FirebaseUser) => {
   try {
-    await fetchAPI(
-      "/users/signup",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          accept: "application/json",
-        },
-        body: JSON.stringify({
-          username: firebaseUser.displayName || 'admin',
-          email: firebaseUser.email || 'admin@gmail.com',
-          password: "123123123",
-          avatar_url: firebaseUser.photoURL || '',
-        }), // Empty body as per the sample
-      }
-    );
+    await fetchAPI('/users/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        accept: 'application/json',
+      },
+      body: JSON.stringify({
+        username: firebaseUser.displayName || 'admin',
+        email: firebaseUser.email || 'admin@gmail.com',
+        password: '123123123',
+        avatar_url: firebaseUser.photoURL || '',
+      }), // Empty body as per the sample
+    });
   } catch (error) {
-    console.error("Error creating checkout session:", error);
+    console.error('Error creating checkout session:', error);
   }
-}
+};

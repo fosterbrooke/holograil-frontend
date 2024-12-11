@@ -4,16 +4,18 @@ import VideoPlayer from '../VideoPlayer';
 import RoundButton from '../RoundButton';
 
 const AccountResources: React.FC = () => {
-  const guideURL = 'https://drive.google.com/u/1/uc?id=1ZcuWP62tNrcVx1w3_ALCPBnqvCGTJ7lU&export=download';
-  const appURL = 'https://drive.google.com/u/1/uc?id=1ZcuWP62tNrcVx1w3_ALCPBnqvCGTJ7lU&export=download';
+  const guideURL =
+    'https://drive.google.com/u/1/uc?id=1ZcuWP62tNrcVx1w3_ALCPBnqvCGTJ7lU&export=download';
+  const appURL =
+    'https://drive.google.com/u/1/uc?id=1ZcuWP62tNrcVx1w3_ALCPBnqvCGTJ7lU&export=download';
 
   const handleDownGuidePDF = () => {
-    window.open(guideURL, "_blank");
-  }
+    window.open(guideURL, '_blank');
+  };
 
   const handleDownApp = () => {
-    window.open(appURL, "_blank");
-  }
+    window.open(appURL, '_blank');
+  };
 
   const resourceCardInfo = [
     {
@@ -69,8 +71,12 @@ const AccountResources: React.FC = () => {
           className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]"
           onClick={handleDownApp}
         >
-          <img src="/accounts/resources/download.png" />
-          <div>Download the App here</div>
+          <a
+            href={`${process.env.VITE_APP_BACKEND_URL}/subscriptions/download-app`}
+          >
+            <img src="/accounts/resources/download.png" />
+            <div>Download the App here</div>
+          </a>
         </RoundButton>
       </div>
     </div>

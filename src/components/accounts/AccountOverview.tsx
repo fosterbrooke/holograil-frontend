@@ -8,7 +8,7 @@ const AccountOverview: React.FC = () => {
 
   const handleAddSubscription = () => {
     navigate('/accounts/plans');
-  }
+  };
 
   return (
     <div className="mt-[50px]">
@@ -21,8 +21,8 @@ const AccountOverview: React.FC = () => {
             View, progress and manage subscription efficiently
           </div>
         </div>
-        <RoundButton 
-          text="+Add Subscription" 
+        <RoundButton
+          text="+Add Subscription"
           className="rounded-[70px]"
           onClick={handleAddSubscription}
         />

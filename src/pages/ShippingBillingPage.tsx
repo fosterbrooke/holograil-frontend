@@ -12,7 +12,12 @@ import { RootState } from '../redux/store';
 const ShippingBillingPage: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { items: cart_items, totalCartPrice, shipping_fee, totalPrice } = useSelector((state: RootState) => state.cart);
+  const {
+    items: cart_items,
+    totalCartPrice,
+    shipping_fee,
+    totalPrice,
+  } = useSelector((state: RootState) => state.cart);
 
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -188,16 +193,18 @@ const ShippingBillingPage: React.FC = () => {
               </div>
               <hr className="max-w-[420px] w-full flex-shrink-1 text-primary" />
               <div className="w-full flex flex-col space-y-[30px]">
-                {cart_items && cart_items.length > 0 && cart_items.map((product: CartItem, index: number) => (
-                  <ProductItem
-                    key={index}
-                    icon={product.icon}
-                    quantity={product.quantity}
-                    name={product.name}
-                    price={product.price}
-                    onRemove={() => handleRemove(product.product_id)}
-                  />
-                ))}
+                {cart_items &&
+                  cart_items.length > 0 &&
+                  cart_items.map((product: CartItem, index: number) => (
+                    <ProductItem
+                      key={index}
+                      icon={product.icon}
+                      quantity={product.quantity}
+                      name={product.name}
+                      price={product.price}
+                      onRemove={() => handleRemove(product.product_id)}
+                    />
+                  ))}
               </div>
               <hr className="max-w-[420px] w-full flex-shrink-1 text-primary" />
               <div className="max-w-[420px] w-full flex justify-between items-center text-[20px] text-[#404040]">

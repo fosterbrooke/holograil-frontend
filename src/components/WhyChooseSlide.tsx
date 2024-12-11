@@ -8,14 +8,15 @@ const WhyChooseSlide: React.FC = () => {
     const offsetX = 100;
 
     if (target) {
-      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+      const targetPosition =
+        target.getBoundingClientRect().top + window.scrollY;
 
       window.scrollTo({
         top: targetPosition - offsetX,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
-  }
+  };
 
   const content = [
     {
@@ -80,9 +81,9 @@ const WhyChooseSlide: React.FC = () => {
             />
           </div>
           <div className="xl:mt-[-28px] lg:mt-[-100px] mt-[55px] lg:ml-[195px] mr-0 flex lg:w-1/3 w-full justify-end">
-            <RoundButton 
-              text="Get Started" 
-              className="rounded-[7px]" 
+            <RoundButton
+              text="Get Started"
+              className="rounded-[7px]"
               onClick={handleGetStart}
             />
           </div>

@@ -36,11 +36,10 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
   const handleSignUp = async () => {
     if (user) {
       await handlePurchase(user.email, planId);
+    } else {
+      navigate('/signup');
     }
-    else {
-      navigate("/signup");
-    }
-  }
+  };
 
   return (
     <div className={`${className}`}>
@@ -94,11 +93,7 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
           <div className="font-semibold text-[16px]">{title}</div>
           <div className="text-left text-[11px] leading-[16px] mt-[10px]">
             {content.map((item, index) => (
-              <div 
-                key={index} 
-                className="flex"
-                onClick={handleSignUp}
-              >
+              <div key={index} className="flex" onClick={handleSignUp}>
                 {item}
               </div>
             ))}
