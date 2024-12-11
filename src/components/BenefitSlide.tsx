@@ -7,14 +7,15 @@ const BenefitSlide: React.FC = () => {
     const offsetX = 100;
 
     if (target) {
-      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+      const targetPosition =
+        target.getBoundingClientRect().top + window.scrollY;
 
       window.scrollTo({
         top: targetPosition - offsetX,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
-  }
+  };
 
   return (
     <div className="flex justify-center mb-[61px] sm:mx-0 mx-[46px]">
@@ -31,9 +32,9 @@ const BenefitSlide: React.FC = () => {
             photo booth software to ensure every event is a success. Choose our
             software for reliability, innovation, and results that stand out.
           </div>
-          <RoundButton 
-            text="Get Started ->" 
-            className="mt-2 rounded-[15px] max-w-[180px]" 
+          <RoundButton
+            text="Get Started ->"
+            className="mt-2 rounded-[15px] max-w-[180px]"
             onClick={handleGetStart}
           />
         </div>

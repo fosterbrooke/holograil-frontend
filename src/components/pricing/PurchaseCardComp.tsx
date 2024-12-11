@@ -31,12 +31,11 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
   const handleSignUp = async () => {
     if (user) {
       await handlePurchase(user.email, planId);
+    } else {
+      navigate('/signup');
     }
-    else {
-      navigate("/signup");
-    }
-  }
-  
+  };
+
   return (
     <div className={`${className}`}>
       <div className="sm:flex hidden text-center flex-col items-center space-y-[30px] shadow-custom-multiple rounded-[12px] min-h-[700px] h-full max-w-[400px] px-[20px]">
@@ -66,9 +65,9 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
             ))}
           </div>
           <div className="mt-auto mb-[40px] bottom-[39px] flex justify-center">
-            <RoundButton 
-              text="Purchase" 
-              className="py-[10px] rounded-[7px]" 
+            <RoundButton
+              text="Purchase"
+              className="py-[10px] rounded-[7px]"
               onClick={handleSignUp}
             />
           </div>
@@ -82,8 +81,8 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
           <div className="font-semibold text-[16px]">{title}</div>
           <div className="text-left text-[11px] leading-[16px] mt-[10px]">
             {content.map((item, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="flex"
                 onClick={() => navigate('/shipping')}
               >

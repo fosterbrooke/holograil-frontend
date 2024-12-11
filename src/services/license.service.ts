@@ -5,14 +5,14 @@ export const getLicenseByUser = async (user_email: string) => {
     return await fetchAPI(
       `/subscriptions/available-licenses?user_email=${user_email}`,
       {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "Content-Type": "application/json",
-          accept: "application/json",
-        }
+          'Content-Type': 'application/json',
+          accept: 'application/json',
+        },
       }
     );
   } catch (error) {
-    console.error("Error fetching available licenses", error);
+    console.error('Error fetching available licenses', error);
   }
-}
+};

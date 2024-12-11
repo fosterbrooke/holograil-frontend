@@ -69,7 +69,7 @@ const AppWrapper: React.FC = () => {
   return (
     <MainLayout>
       <div className="overflow-hidden">
-        <ScrollToTop />  
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/signup" element={<SignupPage />} />

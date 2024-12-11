@@ -8,7 +8,7 @@ interface CardProps {
 }
 
 export const CardTemp: React.FC = () => {
-  return (<></>);
+  return <></>;
 };
 
 const Card = forwardRef<HTMLDivElement, CardProps>(

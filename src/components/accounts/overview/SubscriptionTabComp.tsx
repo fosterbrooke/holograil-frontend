@@ -9,19 +9,6 @@ import { User } from '../../../types/User';
 import { License } from '../../../types/License';
 import CopyComp from './CopyComp';
 
-interface SubscriptionData {
-  devices: {
-    name: string;
-    expiry: string;
-    license: string;
-  }[];
-  payments: {
-    id: number;
-    event: string;
-    type: string;
-  }[];
-}
-
 type ActiveTab = 'current' | 'past';
 
 const SubscriptionTabs: React.FC = () => {
@@ -34,7 +21,7 @@ const SubscriptionTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>('current');
   const [subscriptionInfo, setSubScriptionInfo] = useState({
     current: [],
-    past: []
+    past: [],
   });
 
   useEffect(() => {
@@ -47,19 +34,23 @@ const SubscriptionTabs: React.FC = () => {
 
           const newSubscriptionInfo = {
             current: licenses
-              .filter((license: License) => new Date(license.expire_date) > nowtime)
+              .filter(
+                (license: License) => new Date(license.expire_date) > nowtime
+              )
               .map((license: License) => ({
                 device_number: license.device_number || 'Unknown Device',
                 expire_date: new Date(license.expire_date),
-                license_key: license.license_key
+                license_key: license.license_key,
               })),
             past: licenses
-              .filter((license: License) => new Date(license.expire_date) <= nowtime)
+              .filter(
+                (license: License) => new Date(license.expire_date) <= nowtime
+              )
               .map((license: License) => ({
                 device_number: license.device_number || 'Unknown Device',
                 expire_date: new Date(license.expire_date),
-                license_key: license.license_key
-              }))
+                license_key: license.license_key,
+              })),
           };
 
           setSubScriptionInfo(newSubscriptionInfo);
@@ -75,8 +66,8 @@ const SubscriptionTabs: React.FC = () => {
   };
 
   const handleSubscribe = () => {
-    navigate("/accounts/plans");
-  }
+    navigate('/accounts/plans');
+  };
 
   const currentData = subscriptionInfo[activeTab];
 
@@ -86,7 +77,7 @@ const SubscriptionTabs: React.FC = () => {
       <div className="flex space-x-[80px] w-full">
         <div className="flex flex-grow flex-shrink-1">
           {/* Your Subscriptions */}
-          <div className='w-full'>
+          <div className="w-full">
             <div className="font-semibold text-[24px] text-primary mt-[64px] mb-[15px]">
               Your Subscriptions
             </div>
@@ -130,9 +121,12 @@ const SubscriptionTabs: React.FC = () => {
                         />
                         <div>
                           <div>{license.device_number}</div>
-                          <div>{activeTab === 'current' ? 'Expiry: ' : 'Expired: '}{license.expire_date.toLocaleDateString()}</div>
+                          <div>
+                            {activeTab === 'current' ? 'Expiry: ' : 'Expired: '}
+                            {license.expire_date.toLocaleDateString()}
+                          </div>
                         </div>
-                        <div className='flex items-center'>
+                        <div className="flex items-center">
                           LICENSE KEY: {license.license_key.slice(0, 10)}...
                           <CopyComp license={license.license_key} index={0} />
                         </div>
@@ -152,8 +146,8 @@ const SubscriptionTabs: React.FC = () => {
               <div className="flex flex-col items-center justify-center mt-[100px] mr-[200px]">
                 <img src="/accounts/overview/no_data.png" />
                 <div className="mt-[22px] max-w-[610px] text-center text-custom-gray2 text-[20px]">
-                  Currently you don’t have any subscriptions linked to your account.
-                  Get started on a plan today!
+                  Currently you don’t have any subscriptions linked to your
+                  account. Get started on a plan today!
                 </div>
                 <RoundButton
                   text="Subscribe Now"

@@ -24,8 +24,8 @@ const SubscriptionCurrentShowComp: React.FC<
   });
 
   const handleUpgradePlan = () => {
-    navigate("/accounts/plans");
-  }
+    navigate('/accounts/plans');
+  };
 
   return (
     <div className={`rounded-[7px] ${className}`}>

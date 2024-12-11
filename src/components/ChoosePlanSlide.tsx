@@ -5,7 +5,7 @@ import { pricingPlans } from '../utils/stripe';
 const ChoosePlanSlide: React.FC = () => {
   const subscriptions = [
     {
-      id: pricingPlans["onetime"],
+      id: pricingPlans['onetime'],
       title: 'One Time Setup',
       price: 990,
       period: '',
@@ -21,7 +21,7 @@ const ChoosePlanSlide: React.FC = () => {
       ],
     },
     {
-      id: pricingPlans["year"],
+      id: pricingPlans['year'],
       title: 'Yearly License',
       price: 1500,
       period: 'Year',
@@ -33,7 +33,7 @@ const ChoosePlanSlide: React.FC = () => {
       ],
     },
     {
-      id: pricingPlans["month"],
+      id: pricingPlans['month'],
       title: 'Monthly License',
       price: 150,
       period: 'Month',
@@ -45,7 +45,7 @@ const ChoosePlanSlide: React.FC = () => {
       ],
     },
     {
-      id: pricingPlans["day"],
+      id: pricingPlans['day'],
       title: 'Daily License',
       price: 40,
       period: 'Day',
@@ -74,7 +74,10 @@ const ChoosePlanSlide: React.FC = () => {
         src="/right_panel.svg"
         className="absolute top-0 right-[-6.25%] z-10 max-w-[50%]"
       />
-      <div className="mt-[17px] grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-items-center xl:mr-[100px] mr-0 sm:mx-[10px] mx-0" id="chooseplanslide">
+      <div
+        className="mt-[17px] grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-items-center xl:mr-[100px] mr-0 sm:mx-[10px] mx-0"
+        id="chooseplanslide"
+      >
         {subscriptions.map((item, index) => (
           <PurchaseCardComp
             key={index}

@@ -100,13 +100,15 @@ USD$0.15 (20,001 and above)</span>`,
   };
 
   const handleAddCart = () => {
-    dispatch(addCartItem({
-      product_id: productIndex,
-      quantity: quantity
-    }));
+    dispatch(
+      addCartItem({
+        product_id: productIndex,
+        quantity: quantity,
+      })
+    );
 
-    navigate("/shipping");
-  }
+    navigate('/shipping');
+  };
 
   return (
     <div className="mt-[63px] bg-custom-white rounded-[10px] text-black py-[56px] px-[50px]">
@@ -155,14 +157,15 @@ USD$0.15 (20,001 and above)</span>`,
             <HtmlContent htmlString={productInfo[productIndex].price} />
           </div>
           <div className="flex-shrink-1 items-center justify-center w-full">
-            {productIndex === 0 ?
+            {productIndex === 0 ? (
               <div>
                 <InfoComp
                   title="Shipping"
                   text="Please note that due to logistical constraints and varying port restrictions, we are unable to provide a shipping rate upfront for the Lenticular Sheets. Please contact us directly via email for a quote"
                   option="contact"
                 />
-              </div> :
+              </div>
+            ) : (
               <>
                 <div className="font-semibold mb-[23px] text-[24px] text-center">
                   Quantity
@@ -180,7 +183,7 @@ USD$0.15 (20,001 and above)</span>`,
                   />
                 </div>
               </>
-            }
+            )}
           </div>
         </div>
       </div>

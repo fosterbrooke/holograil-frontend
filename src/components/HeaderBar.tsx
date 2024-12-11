@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
-import { HeaderItem, headerItems as origin_headerItems } from '../types/HeaderItem';
+import {
+  HeaderItem,
+  headerItems as origin_headerItems,
+} from '../types/HeaderItem';
 import { hideHeader, setSelectedItem } from '../redux/userSlice';
 import { RootState } from '../redux/store';
 
@@ -32,7 +35,7 @@ const HeaderBar: React.FC = () => {
   };
 
   useEffect(() => {
-    if (! user && isMenuOpen) {
+    if (!user && isMenuOpen) {
       setHeaderItems([
         {
           name: 'Login',
@@ -44,8 +47,7 @@ const HeaderBar: React.FC = () => {
         },
         ...origin_headerItems,
       ]);
-    }
-    else {
+    } else {
       setHeaderItems(origin_headerItems);
     }
   }, [user, isMenuOpen]);

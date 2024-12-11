@@ -12,14 +12,15 @@ const GetMoreSlide: React.FC = () => {
     const offsetX = 100;
 
     if (target) {
-      const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+      const targetPosition =
+        target.getBoundingClientRect().top + window.scrollY;
 
       window.scrollTo({
         top: targetPosition - offsetX,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
-  }
+  };
 
   return (
     <div className="flex lg:flex-row flex-col w-full justify-space">

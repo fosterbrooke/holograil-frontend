@@ -13,7 +13,10 @@ const PricingMainSlide: React.FC = () => {
             Suit You
           </div>
           <div className="2xl:text-[20px] lg:text-[16px] text-[12px] leading-[174%] tracking-[0.05em] w-full sm:w-[60%]">
-          Get the perfect solution for your photo booth business with flexible pricing options that cater to events of all sizes and durations. Whether you need a one-time setup or ongoing access, we’ve got you covered.
+            Get the perfect solution for your photo booth business with flexible
+            pricing options that cater to events of all sizes and durations.
+            Whether you need a one-time setup or ongoing access, we’ve got you
+            covered.
           </div>
           <RoundButton
             text="Learn More"
