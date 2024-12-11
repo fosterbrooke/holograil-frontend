@@ -6,15 +6,9 @@ import RoundButton from '../RoundButton';
 const AccountResources: React.FC = () => {
   const guideURL =
     'https://drive.google.com/u/1/uc?id=1ZcuWP62tNrcVx1w3_ALCPBnqvCGTJ7lU&export=download';
-  const appURL =
-    'https://drive.google.com/u/1/uc?id=1ZcuWP62tNrcVx1w3_ALCPBnqvCGTJ7lU&export=download';
 
   const handleDownGuidePDF = () => {
     window.open(guideURL, '_blank');
-  };
-
-  const handleDownApp = () => {
-    window.open(appURL, '_blank');
   };
 
   const resourceCardInfo = [
@@ -64,18 +58,23 @@ const AccountResources: React.FC = () => {
           className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]"
           onClick={handleDownGuidePDF}
         >
-          <img src="/accounts/resources/book.png" />
-          <div>Download PDF Guidebook</div>
+          <a
+            className='flex items-center space-x-[17px]'
+            href={`${import.meta.env.VITE_APP_BACKEND_URL}/subscriptions/download-guidebook`}
+          >
+            <img src="/accounts/resources/book.png" />
+            <span>Download PDF Guidebook</span>
+          </a>
         </RoundButton>
         <RoundButton
           className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]"
-          onClick={handleDownApp}
         >
           <a
-            href={`${process.env.VITE_APP_BACKEND_URL}/subscriptions/download-app`}
+            className='flex items-center space-x-[17px]'
+            href={`${import.meta.env.VITE_APP_BACKEND_URL}/subscriptions/download-app`}
           >
             <img src="/accounts/resources/download.png" />
-            <div>Download the App here</div>
+            <span>Download the App here</span>
           </a>
         </RoundButton>
       </div>
