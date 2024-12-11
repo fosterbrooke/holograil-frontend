@@ -55,7 +55,6 @@ const SimplicitySlide: React.FC = () => {
             if (entry.target === card2Ref.current) setIsCard2Visible(true);
             if (entry.target === card3Ref.current) setIsCard3Visible(true);
           } else {
-            console.log('here');
             if (entry.target === card1Ref.current) setIsCard1Visible(false);
             if (entry.target === card2Ref.current) setIsCard2Visible(false);
             if (entry.target === card3Ref.current) setIsCard3Visible(false);

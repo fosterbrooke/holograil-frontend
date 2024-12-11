@@ -85,8 +85,11 @@ const SubscriptionsSettingsPage: React.FC = () => {
       <hr className="mt-[14px]" />
       <div className="flex flex-col space-y-[34px] mt-[27px]">
         {billingHistory.map((item, index) => (
-          <div key={index} className="flex space-x-[48px]">
-            <div className="flex space-x-[6px] w-[110px]">
+          <div
+            key={index}
+            className="flex justify-between items-center sm:text-[16px] text-[12px] font-normal"
+          >
+            <div className="flex space-x-[6px]">
               <div>
                 {item.date.toLocaleDateString('en-US', {
                   year: 'numeric',
@@ -96,7 +99,7 @@ const SubscriptionsSettingsPage: React.FC = () => {
               </div>
               <img src="/accounts/settings/open.svg" />
             </div>
-            <div className="w-[32px]">${item.price}</div>
+            <div>${item.price}</div>
             <div>{item.plan}</div>
           </div>
         ))}

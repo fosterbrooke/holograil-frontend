@@ -14,16 +14,16 @@ const AccountOverview: React.FC = () => {
     <div className="mt-[50px]">
       <div className="flex items-center space-x-[100px]">
         <div>
-          <div className="font-semibold text-[32px] text-primary">
+          <div className="font-semibold lg:text-[32px] text-[18px] text-primary">
             Get Started with The Grail
           </div>
-          <div className="text-[16px] text-black mt-[16px]">
+          <div className="lg:text-[16px] text-[12px] text-black mt-[16px]">
             View, progress and manage subscription efficiently
           </div>
         </div>
         <RoundButton
           text="+Add Subscription"
-          className="rounded-[70px]"
+          className="rounded-[70px] hidden lg:flex"
           onClick={handleAddSubscription}
         />
       </div>

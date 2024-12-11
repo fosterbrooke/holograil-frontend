@@ -5,7 +5,7 @@ const Logo: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 768); // Update state based on window width
+      setIsLargeScreen(window.innerWidth >= 1024); // Update state based on window width
     };
 
     window.addEventListener('resize', handleResize);

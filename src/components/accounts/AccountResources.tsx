@@ -26,10 +26,10 @@ const AccountResources: React.FC = () => {
 
   return (
     <div>
-      <div className="text-black font-semibold text-[36px] mb-[23px] mt-[50px]">
+      <div className="sm:text-black text-primary font-semibold sm:text-[36px] text-[20px] mb-[23px] sm:mt-[50px]">
         Requirement
       </div>
-      <div className="flex space-x-[27px]">
+      <div className="flex sm:flex-row flex-col items-center sm:space-x-[27px] space-y-[30px]">
         {resourceCardInfo.map((item, index) => (
           <ResourceCardComp
             title={item.title}
@@ -39,30 +39,26 @@ const AccountResources: React.FC = () => {
           />
         ))}
       </div>
-      <div className="text-black font-semibold text-[36px] mb-[23px] mt-[50px]">
+      <div className="sm:text-black text-primary font-semibold sm:text-[36px] text-[20px] mb-[23px] mt-[50px]">
         Video Tutorial
       </div>
       <VideoPlayer videoUrl="https://www.youtube.com/embed/kS5mQJXCfPU" />
-      <div className="text-black font-semibold text-[36px] mb-[23px] mt-[50px]">
+      <div className="sm:text-black text-primary font-semibold sm:text-[36px] text-[20px] mb-[23px] mt-[50px]">
         Additional Resources
       </div>
-      <div className="flex space-x-[42px] text-white font-bold text-[20px]">
-        <RoundButton
-          className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]"
-        >
+      <div className="flex sm:flex-row flex-col items-center sm:space-x-[42px] space-y-[20px] text-white font-bold text-[20px]">
+        <RoundButton className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]">
           <a
-            className='flex items-center space-x-[17px]'
+            className="flex items-center space-x-[17px]"
             href={`${import.meta.env.VITE_APP_BACKEND_URL}/subscriptions/download-guidebook`}
           >
             <img src="/accounts/resources/book.png" />
             <span>Download PDF Guidebook</span>
           </a>
         </RoundButton>
-        <RoundButton
-          className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]"
-        >
+        <RoundButton className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]">
           <a
-            className='flex items-center space-x-[17px]'
+            className="flex items-center space-x-[17px]"
             href={`${import.meta.env.VITE_APP_BACKEND_URL}/subscriptions/download-app`}
           >
             <img src="/accounts/resources/download.png" />

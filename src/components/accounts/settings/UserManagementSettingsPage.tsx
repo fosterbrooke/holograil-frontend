@@ -34,7 +34,7 @@ const ProfileManagementSidebar: React.FC = () => {
   ];
 
   return (
-    <div className="mt-[38px]">
+    <div className="sm:mt-[38px] mt-[20px]">
       {/* Profile Section */}
       <CollapsibleSection
         title="Profile"

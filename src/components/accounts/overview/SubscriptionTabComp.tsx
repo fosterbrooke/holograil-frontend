@@ -74,22 +74,29 @@ const SubscriptionTabs: React.FC = () => {
   return (
     <div className="mt-[25px]">
       {/* Tab Navigation */}
-      <div className="flex space-x-[80px] w-full">
-        <div className="flex flex-grow flex-shrink-1">
+      <div className="w-full flex space-x-[80px]">
+        <div className="flex w-full lg:max-w-[521px] flex-grow flex-shrink-1">
           {/* Your Subscriptions */}
           <div className="w-full">
-            <div className="font-semibold text-[24px] text-primary mt-[64px] mb-[15px]">
-              Your Subscriptions
+            <div className="flex justify-between items-center w-full">
+              <div className="font-semibold lg:text-[24px] text-[18px] text-primary lg:mt-[64px] mt-[15px] mb-[15px]">
+                Your Subscriptions
+              </div>
+              <RoundButton
+                text="+Add Subscription"
+                className="rounded-full lg:hidden text-[12px] px-[10px] py-[4px] h-[70%]"
+                onClick={handleSubscribe}
+              />
             </div>
-            <div>
+            <div className="lg:m-0 mt-[12px]">
               <button onClick={() => handleTabChange('current')}>
                 <div
-                  className={`font-bold text-[20px] ${activeTab === 'current' ? 'text-primary' : 'text-custom-gray2'}`}
+                  className={`font-bold sm:text-[20px] text-[12px] ${activeTab === 'current' ? 'text-primary' : 'text-custom-gray2'}`}
                 >
                   Current
                 </div>
                 <div
-                  className={`w-[130px] h-[2px] rounded-t-[2px] ${activeTab === 'current' ? 'bg-primary' : 'bg-custom-white'} mt-[24px]`}
+                  className={`sm:w-[130px] w-[80px] h-[2px] rounded-t-[2px] ${activeTab === 'current' ? 'bg-primary' : 'bg-custom-white'} sm:mt-[24px] mt-[8px]`}
                 />
               </button>
               <button
@@ -97,27 +104,27 @@ const SubscriptionTabs: React.FC = () => {
                 className="ml-[10px]"
               >
                 <div
-                  className={`font-bold text-[20px] ${activeTab === 'past' ? 'text-primary' : 'text-custom-gray2'}`}
+                  className={`font-bold sm:text-[20px] text-[12px] ${activeTab === 'past' ? 'text-primary' : 'text-custom-gray2'}`}
                 >
                   Past
                 </div>
                 <div
-                  className={`w-[130px] h-[2px] rounded-t-[2px] ${activeTab === 'past' ? 'bg-primary' : 'bg-custom-white'} mt-[24px]`}
+                  className={`sm:w-[130px] w-[80px] h-[2px] rounded-t-[2px] ${activeTab === 'past' ? 'bg-primary' : 'bg-custom-white'} sm:mt-[24px] mt-[8px]`}
                 />
               </button>
-              <div className="bg-custom-white w-[542px] h-[2px] mt-[-2px]" />
+              <div className="bg-custom-white sm:w-[542px] h-[2px] mt-[-2px]" />
             </div>
             {currentData.length > 0 && (
-              <div>
-                <div className="mt-[31px] w-[542px]">
+              <div className="w-full">
+                <div className="mt-[31px] lg:w-[542px] w-full">
                   {currentData.map((license: License, index) => (
                     <div key={index}>
                       <div
-                        className={`flex items-center justify-between space-x-[15px] rounded-[10px] text-[16px] py-[23px] px-[28px] ${activeTab === 'current' ? 'text-black' : 'text-black-50'} ${index % 2 == 0 ? 'bg-gray-300' : 'bg-custom-white'}`}
+                        className={`flex items-center justify-between space-x-[15px] sm:text-[16px] text-[12px] rounded-[10px] text-[14px] py-[23px] sm:px-[28px] ${activeTab === 'current' ? 'text-black' : 'text-black-50'} ${index % 2 == 0 ? 'bg-gray-300' : 'bg-custom-white'}`}
                       >
                         <img
                           src="/accounts/overview/airplay.svg"
-                          className={`${activeTab === 'current' ? '' : 'grayscale'}`}
+                          className={`${activeTab === 'current' ? '' : 'grayscale'} sm:scale-100 scale-75`}
                         />
                         <div>
                           <div>{license.device_number}</div>
@@ -127,7 +134,7 @@ const SubscriptionTabs: React.FC = () => {
                           </div>
                         </div>
                         <div className="flex items-center">
-                          LICENSE KEY: {license.license_key.slice(0, 10)}...
+                          LICENSE KEY: {license.license_key.slice(0, 5)}...
                           <CopyComp license={license.license_key} index={0} />
                         </div>
                       </div>
@@ -143,9 +150,9 @@ const SubscriptionTabs: React.FC = () => {
               </div>
             )}
             {currentData.length === 0 && (
-              <div className="flex flex-col items-center justify-center mt-[100px] mr-[200px]">
+              <div className="flex flex-col items-center justify-center mt-[100px] mx-[10%]">
                 <img src="/accounts/overview/no_data.png" />
-                <div className="mt-[22px] max-w-[610px] text-center text-custom-gray2 text-[20px]">
+                <div className="mt-[22px] max-w-[610px] text-center text-custom-gray2 sm:text-[20px] text-[12px]">
                   Currently you don’t have any subscriptions linked to your
                   account. Get started on a plan today!
                 </div>

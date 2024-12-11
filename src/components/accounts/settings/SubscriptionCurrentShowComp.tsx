@@ -29,26 +29,28 @@ const SubscriptionCurrentShowComp: React.FC<
 
   return (
     <div className={`rounded-[7px] ${className}`}>
-      <div className="font-bold text-[22px]">
+      <div className="font-bold sm:text-[22px] text-[16px]">
         {plan === 'year' ? 'Yearly' : plan === 'month' ? 'Monthly' : 'Daily'}{' '}
         Subscription
       </div>
-      <div className="mt-[13px] text-[20px]">
+      <div className="mt-[13px] sm:text-[20px] text-[14px] font-normal">
         ${amount} per {plan}
       </div>
       <div className="flex space-x-[15px] mt-[23px]">
         <RoundButton
           text="Upgrade plan"
-          className="rounded-[7px] shadow-custom-item"
+          className="rounded-[7px] shadow-custom-item sm:flex-none flex-1"
           onClick={handleUpgradePlan}
         />
         <RoundButton
           text="Cancel plan"
-          className="rounded-[7px]"
+          className="rounded-[7px] sm:flex-none flex-1"
           isMain={false}
         />
       </div>
-      <div className="mt-[19px]">Your plan expires on {formattedExpiry}</div>
+      <div className="mt-[19px] sm:text-[14px] text-[12px] font-normal">
+        Your plan expires on {formattedExpiry}
+      </div>
     </div>
   );
 };

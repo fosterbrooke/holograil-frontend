@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
+
 import {
   HeaderItem,
   headerItems as origin_headerItems,
+  accountsHeaderItems,
 } from '../types/HeaderItem';
+
 import { hideHeader, setSelectedItem } from '../redux/userSlice';
 import { RootState } from '../redux/store';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Logo from './Logo';
 import { User } from '../types/User';
@@ -15,6 +18,7 @@ import Avatar from './accounts/Avatar';
 
 const HeaderBar: React.FC = () => {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const [headerItems, setHeaderItems] = useState(origin_headerItems);
@@ -35,30 +39,46 @@ const HeaderBar: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!user && isMenuOpen) {
-      setHeaderItems([
-        {
-          name: 'Login',
-          link: '/login',
-        },
-        {
-          name: 'Sign Up',
-          link: '/signup',
-        },
-        ...origin_headerItems,
-      ]);
+    if (pathname.startsWith('/accounts')) {
+      setHeaderItems(accountsHeaderItems);
     } else {
       setHeaderItems(origin_headerItems);
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!pathname.startsWith('/accounts')) {
+      if (!user && isMenuOpen) {
+        setHeaderItems([
+          {
+            name: 'Login',
+            link: '/login',
+          },
+          {
+            name: 'Sign Up',
+            link: '/signup',
+          },
+          ...origin_headerItems,
+        ]);
+      } else {
+        setHeaderItems(origin_headerItems);
+      }
+    } else {
+      setHeaderItems(accountsHeaderItems);
     }
   }, [user, isMenuOpen]);
 
   return (
-    <header className="flex md:fixed sticky top-0 left-0 w-full items-center justify-between px-6 lg:px-[10%] md:px-[6%] py-6 md:bg-white/50 bg-primary backdrop-blur-lg z-50 space-x-4 font-inter">
+    <header
+      className={`flex ${pathname.startsWith('/accounts') ? 'lg:hidden' : 'flex'} fixed sticky top-0 left-0 w-full items-center justify-between px-6 lg:px-[10%] md:px-[6%] py-6 lg:bg-white/50 bg-primary backdrop-blur-lg z-50 space-x-4 font-inter`}
+    >
       {/* Logo */}
       <Logo />
 
       {/* Navigation Items */}
-      <div className="hidden md:flex flex-1 justify-center space-x-4 lg:space-x-8 text-sm xl:text-base items-center">
+      <div
+        className={`hidden lg:flex flex-1 justify-center space-x-4 lg:space-x-8 text-sm xl:text-base items-center`}
+      >
         {headerItems.map((item) => (
           <div
             key={item.name}
@@ -74,7 +94,7 @@ const HeaderBar: React.FC = () => {
 
       {/* Login and Sign Up Buttons */}
       {user ? (
-        <div className="flex items-center md:w-auto w-full justify-end">
+        <div className="flex items-center lg:w-auto w-full justify-end">
           <Avatar />
         </div>
       ) : (
@@ -96,7 +116,23 @@ const HeaderBar: React.FC = () => {
         </div>
       )}
 
-      <div className="md:hidden text-white relative">
+      {/* {pathname.startsWith("/accounts") &&
+        <div className="lg:hidden flex items-center ml-[55px]">
+          <img
+            src="/accounts/shopping_cart.png"
+            className="w-[25px] h-[25px] cursor-pointer hover:scale-105"
+            onClick={() => {
+              dispatch(hideHeader());
+              navigate('/shipping');
+            }}
+          />
+          <img
+            src="/accounts/alert.svg"
+            className="w-[20px] h-[20px] ml-[17px] mr-[40px] filter invert brightness-100"
+          />
+        </div>} */}
+
+      <div className="lg:hidden text-white relative">
         <button
           className="text-[24px] font-semibold"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -104,7 +140,7 @@ const HeaderBar: React.FC = () => {
           ☰
         </button>
         <ul
-          className={`fixed right-0 w-full bg-primary py-2.5 px-4 shadow-gray-800 shadow-md transition-all duration-200 ${!isMenuOpen ? 'h-0 opacity-0' : user ? 'h-[180px]' : 'h-[250px]'} text-right`}
+          className={`fixed right-0 w-full bg-primary py-2.5 px-4 shadow-gray-800 shadow-md transition-all duration-200 ${!isMenuOpen ? 'h-0 opacity-0' : user ? 'h-[180px]' : 'h-[250px]'} text-right px-[5%]`}
         >
           {headerItems.map((item) => (
             <li

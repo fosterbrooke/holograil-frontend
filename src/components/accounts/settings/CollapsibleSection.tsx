@@ -33,10 +33,12 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
         onClick={onToggle}
         className="cursor-pointer flex items-center justify-between"
       >
-        <span className="font-bold text-black text-[20px]">{title}</span>
+        <span className="font-bold text-black sm:text-[20px] text-[14px]">
+          {title}
+        </span>
         {isOpen ? <UpIcon /> : <DownIcon />}
       </div>
-      <span className="mt-[8px] text-[18px]">{content}</span>
+      <span className="mt-[8px] sm:text-[18px] text-[14px]">{content}</span>
       {isOpen && <div className="mt-[24px]">{children}</div>}
       <hr className="mt-[33px] mb-[29px]" />
     </div>

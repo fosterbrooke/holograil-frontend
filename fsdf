@@ -1,0 +1,254 @@
+[33mcommit ff3380cfdb3acc7d46ebd64d8d8f1b9bf40ec31a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Wed Dec 11 07:00:01 2024 -0600
+
+    chore: update download book, app comp
+
+[33mcommit 2336ae80a4d20f95176d7fcc93a6e4333dc7d478[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Wed Dec 11 06:44:46 2024 -0600
+
+    fix: run prettier lint
+
+[33mcommit 60878876e2510b2360821cb59dcd7ed621e1d3a0[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Wed Dec 11 06:41:26 2024 -0600
+
+    chore: update backend url, copy comp, update download app url
+
+[33mcommit d291a227d95079a27101cf1ed4793913f51c5df2[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Mon Dec 9 06:37:08 2024 -0600
+
+    chore: update website icon
+
+[33mcommit b545fd96ec1c4ca19ba4990b68cff6b00beeb6dc[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Mon Dec 9 06:34:18 2024 -0600
+
+    fix: remove unnecessary auth menu in the header
+
+[33mcommit 34556df4d5ce948cfa73e8bcd0d5665a171fa3ec[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Mon Dec 9 04:39:16 2024 -0600
+
+    fix: remove unnecessary alert and console log
+
+[33mcommit fc7cdea97a0663b3fb116dc7cf8a3dbd325bea3c[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sun Dec 8 19:20:35 2024 -0600
+
+    chore: update server address
+
+[33mcommit f3f56280a7f6ad51807d0747c5e8663666e261e9[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sun Dec 8 18:37:48 2024 -0600
+
+    chore: update server address
+
+[33mcommit 32dcd7956cf4fc75a0fe4e161a59cad5c3024b9c[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sun Dec 8 18:00:16 2024 -0600
+
+    chore: update server address
+
+[33mcommit dad8805519c69c8d3adb73bdb9812131646ca9b3[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sun Dec 8 17:55:17 2024 -0600
+
+    fix: lint error
+
+[33mcommit bec6d1bb399254c78f39f77c447debdb47ae3f16[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sun Dec 8 17:52:36 2024 -0600
+
+    feat: add stripe subscription function
+
+[33mcommit ff28224643ec63fc7c3f8bdde31a87065e455aaa[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sat Dec 7 12:37:46 2024 -0600
+
+    fix: add React definition to main.tsx
+
+[33mcommit 7e9f85bde65cb857bd7aca5fa8abf1972ef25b62[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sat Dec 7 12:32:49 2024 -0600
+
+    fix: react definition error in main.tsx
+
+[33mcommit 72629a7480ed11767ded18a81b79393e7af32e8f[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sat Dec 7 12:28:07 2024 -0600
+
+    fix: store type to RootState
+
+[33mcommit 2d46c28c8051e46a668432f18f36987808bff2ea[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sat Dec 7 12:21:36 2024 -0600
+
+    fix: mobile responsive design except settings page
+
+[33mcommit b11e2233524a80d17de7ca611ec8081f299c4418[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sat Dec 7 06:20:14 2024 -0600
+
+    chore: complete cart feature
+
+[33mcommit 530e7add7c7acd3513ee1d7f3d975897e89f5c1c[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sat Dec 7 00:50:05 2024 -0600
+
+    fix: navigate when click signup button in pricing page
+
+[33mcommit efdeefeecdfc09e6ba0a2df730a9d7f050072c00[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Sat Dec 7 00:42:17 2024 -0600
+
+    fix: navigate when click upgrade plan button in settings page
+
+[33mcommit 0e4391843dd107ca4ed3e6564d517119dc761f5a[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 07:03:17 2024 -0600
+
+    chore: changed color of past content of subscription settings panel
+
+[33mcommit 621afa31fcfe5c0961b92841517fe5b97356f1af[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 05:53:57 2024 -0600
+
+    fix: navigate when click get start button
+
+[33mcommit 884124e35b679d7e5c1137e05faba1c680763b0f[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 05:24:43 2024 -0600
+
+    chore: revert current and past status in subscription panel
+
+[33mcommit 424b8b546d3e4ad25a0610cb0a8b4632d63f1080[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 05:22:07 2024 -0600
+
+    fix: navigate when click upgrade plan button
+
+[33mcommit 04f7df7fdcf35f966dcd1160c2c92c46a65903a6[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 05:11:10 2024 -0600
+
+    fix: adjust About Us -> Get Started button width
+
+[33mcommit ec0c5a2df0f7aef4f02a962d310474fc1e655816[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 04:55:28 2024 -0600
+
+    fix: deleted unused variable'
+
+[33mcommit 0d6218159af76ccf7b70772a04d847a44a835791[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 04:52:41 2024 -0600
+
+    chore: update infocomp and its real usage
+
+[33mcommit 51824591da6b6e305f51ed3e682df850aead71d2[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 04:15:38 2024 -0600
+
+    chore: add shipment fee in the shipping page
+
+[33mcommit b7c0a31f9b3d63b28b090aa484e63f6addd7e134[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 04:03:17 2024 -0600
+
+    chore: handle download guidebook and app
+
+[33mcommit eca05493ed624cd3050cc951f93a754e12d8eb50[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 03:33:36 2024 -0600
+
+    chore: display only children when RoundButton has got it
+
+[33mcommit ca69638eaa999ff8d9d250df16f6f8054b356e56[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 03:14:39 2024 -0600
+
+    fix: update shipping infomation component position
+
+[33mcommit 366194c83378e38a0e14c15e7338f735de474ce3[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 02:57:06 2024 -0600
+
+    fix: scroll to top when nagivate to other route
+
+[33mcommit c5c0675e50dbc3b8ed7d728a7ea1f94a73d73b52[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Fri Dec 6 02:52:16 2024 -0600
+
+    chore: handle subscribe and purchase button behavior
+
+[33mcommit 9f18b2913f62083fad3a59cd262ec6bfa8d15f19[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Thu Dec 5 18:08:21 2024 -0600
+
+    feat: scroll to ChoosePlanSlide panel when click 'Get Started' button on the first page
+
+[33mcommit 85cfec39862263f735cdb7bb37f76431f78bf699[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Thu Dec 5 17:51:25 2024 -0600
+
+    feat: add CVV form to the Subscription panel
+
+[33mcommit 21fd70f6112b05d547fa0e1450c2719a08eb789b[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Thu Dec 5 16:24:51 2024 -0600
+
+    refactor: hide calendar section in the settings toolbar
+
+[33mcommit 692e1783405e46af67b5876f8a41647a8d7b7945[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Thu Dec 5 16:21:08 2024 -0600
+
+    fix: big logo skew error
+
+[33mcommit 329c388e1c651cc2845706b643463bb1e6b4167a[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Thu Dec 5 16:20:16 2024 -0600
+
+    refactor: navigate to shipping page when click purchase plan button
+
+[33mcommit 27865ca74698b6f22a01f0919c6165f2e7798f5a[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Thu Dec 5 16:19:05 2024 -0600
+
+    refactor: hide ESC button
+
+[33mcommit ed9f6716aa456539cb65c40a85f4c1783cffe3f8[m
+Author: fosterbrooke <okisahandsome@gmail.com>
+Date:   Thu Dec 5 16:16:37 2024 -0600
+
+    fix: resolve lint error and firebase config
+
+[33mcommit 9bd0cf0386dbc95bac0ec2d0af0377b007213d80[m
+Author: micwonder <130264564+micwonder@users.noreply.github.com>
+Date:   Thu Dec 5 02:16:05 2024 -0600
+
+    Completed the responsive UI
+
+[33mcommit 865b3bf90d987f2dd45187369cd05be929f05c50[m
+Author: micwonder <130264564+micwonder@users.noreply.github.com>
+Date:   Tue Dec 3 21:25:01 2024 -0600
+
+    Impl responsive design for 4 pages
+
+[33mcommit 3daed875f3887c078899ca1a192d1e5a9370988b[m
+Author: micwonder <130264564+micwonder@users.noreply.github.com>
+Date:   Tue Dec 3 02:53:53 2024 -0600
+
+    vercel config for refresh error fix
+
+[33mcommit 7c59bdd7eac317d0576528bd52f4ed502a984e6a[m
+Author: micwonder <130264564+micwonder@users.noreply.github.com>
+Date:   Tue Dec 3 02:03:14 2024 -0600
+
+    Updated the issue
+
+[33mcommit 4bc01b3af7dcd4050f55393991b4ee2b576bb554[m
+Author: micwonder <130264564+micwond

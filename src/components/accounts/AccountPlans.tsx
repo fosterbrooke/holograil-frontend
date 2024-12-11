@@ -35,19 +35,19 @@ const AccountPlans: React.FC = () => {
       period: 'one time setup',
       content: '',
       options: [
-        'Training manual',
-        '1 time online meet (1 hour)',
-        '1 roller',
-        '500 pcs sheets (4’’ x 4’’)',
+        'Comprehensive training manual',
+        '1-hour online meeting',
+        'A Roller',
+        '500 sheets',
         'App download',
-        '3 month key (1 device only)',
-        'Border file',
+        '3-month license key for 1 device',
+        'Custom border file',
       ],
     },
   ];
 
   return (
-    <div className="flex flex-col space-y-[44px] mt-[93px]">
+    <div className="flex flex-col space-y-[44px] sm:mt-[93px]">
       {subscriptions.map((item, index) => (
         <PurchasePlansComp
           key={index}

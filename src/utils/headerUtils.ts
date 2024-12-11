@@ -16,7 +16,7 @@ export const updateHeaderVisibility = (
   currentPath: string,
   dispatch: AppDispatch
 ) => {
-  const noHeaderFooterRoutes = ['/accounts', '/login', '/signup', '/404'];
+  const noHeaderFooterRoutes = ['/login', '/signup', '/404'];
   const shouldHideHeaderFooter = noHeaderFooterRoutes.some((route) =>
     currentPath.startsWith(route)
   );

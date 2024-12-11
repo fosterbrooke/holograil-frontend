@@ -8,9 +8,8 @@ import UserManagementSettingsPage from './settings/UserManagementSettingsPage';
 const AccountSettings: React.FC = () => {
   return (
     <SettingsLayout>
-      <div></div>
       <Routes>
-        <Route path="/" element={<div />} />
+        <Route path="/" element={<div>adsfasdfasd</div>} />
         <Route path="subscriptions" element={<SubscriptionsSettingsPage />} />
         <Route path="invoice" element={<InvoiceSettingsPage />} />
         <Route

@@ -46,9 +46,13 @@ const ProfileCompletion: React.FC<ProfileCompletionProps> = ({
       </div>
 
       <div className="text-white flex-grow flex-shrink-1">
-        <div className="font-bold text-[20px]">Profile Information</div>
-        <div className="text-[14px] mt-[1px]">Complete your profile! </div>
-        <button className="mt-[17px] px-[16px] py-[9px] rounded-[7px] bg-white text-primary text-[16px] font-bold">
+        <div className="font-bold sm:text-[20px] text-[16px]">
+          Profile Information
+        </div>
+        <div className="sm:text-[14px] text-[12px] mt-[1px]">
+          Complete your profile!{' '}
+        </div>
+        <button className="mt-[17px] px-[16px] py-[9px] rounded-[7px] bg-white text-primary sm:text-[16px] text-[12px] font-bold">
           Complete Your Profile
         </button>
       </div>
