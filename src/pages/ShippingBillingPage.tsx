@@ -43,7 +43,6 @@ const BillingInfoItem: React.FC<BillingInfoItemProps> = ({
 };
 
 const PaymentInfoForm: React.FC = () => {
-  const [focused, setFocused] = useState<string>('');
   const [cardValues, setCardValues] = useState({
     number: '',
     expiry: '',
