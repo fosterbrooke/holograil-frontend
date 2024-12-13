@@ -7,12 +7,12 @@ interface SpinnerProps {
   className?: string;
 }
 
-const Spinner: React.FC = ({
+const Spinner: React.FC<SpinnerProps> = ({
   loading = true,
   size = 'sm',
   color = 'blue-600',
   className = '',
-}: SpinnerProps) => {
+}) => {
   // If not loading, return null
   if (!loading) return null;
 

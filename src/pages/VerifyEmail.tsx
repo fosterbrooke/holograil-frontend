@@ -26,7 +26,7 @@ const VerifyEmail: React.FC = () => {
     };
 
     verify();
-  }, [token, navigate]);
+  }, []);
 
   return (
     <div className="flex items-center justify-center p-32 bg-gray-100">

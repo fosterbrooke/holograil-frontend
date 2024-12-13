@@ -17,12 +17,14 @@ const rootElement = document.getElementById('root') as HTMLElement;
 
 const root = ReactDOM.createRoot(rootElement);
 root.render(
-  <Provider store={store}>
-    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <AppWrapper />
-    </Router>
-    <SpeedInsights />
-  </Provider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <AppWrapper />
+      </Router>
+      <SpeedInsights />
+    </Provider>
+  </React.StrictMode>
 );
 
 // Call reportWebVitals to measure performance
