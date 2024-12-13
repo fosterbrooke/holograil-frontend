@@ -14,7 +14,7 @@ const PeopleSaySlide: React.FC = () => {
         <div className="flex space-x-4">
           {[1, 2, 3].map((item: number, index: number) => (
             <span
-              key={index}
+              key={index + item}
               className={`w-3 h-3 border-2 rounded-full cursor-pointer mt-24 ${index === slideIndex ? 'bg-primary' : 'bg-gray border-none'}`}
               onClick={() => setSlideIndex(index)}
             ></span>
