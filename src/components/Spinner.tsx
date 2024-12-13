@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface SpinnerProps {
   loading?: boolean;
   size?: 'sm' | 'md' | 'lg';
@@ -5,12 +7,12 @@ interface SpinnerProps {
   className?: string;
 }
 
-export default function Spinner({
+const Spinner: React.FC = ({
   loading = true,
   size = 'sm',
   color = 'blue-600',
   className = '',
-}: SpinnerProps) {
+}: SpinnerProps) => {
   // If not loading, return null
   if (!loading) return null;
 
@@ -46,3 +48,5 @@ export default function Spinner({
     </div>
   );
 }
+
+export default Spinner;
