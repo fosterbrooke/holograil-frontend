@@ -119,11 +119,11 @@ const SubscriptionTabs: React.FC = () => {
               </button>
               <div className="bg-custom-white sm:w-[542px] h-[2px] mt-[-2px]" />
             </div>
-            {isLoading && 
+            {isLoading && (
               <div className="mt-[100px] lg:w-[542px] w-full justify-center">
                 <Spinner loading={isLoading} size="lg" />
               </div>
-            }
+            )}
             {!isLoading && currentData.length > 0 && (
               <div className="w-full">
                 <div className="mt-[31px] lg:w-[542px] w-full">

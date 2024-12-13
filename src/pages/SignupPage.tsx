@@ -46,7 +46,7 @@ const SignupPage: React.FC = () => {
       };
 
       await registerUser(userToRegister);
-      navigate(`/verify-sent?email=${email}`)
+      navigate(`/verify-sent?email=${email}`);
     } catch (error: unknown) {
       if (error instanceof FetchError) {
         switch (error.status) {
@@ -91,7 +91,7 @@ const SignupPage: React.FC = () => {
         const user = await getUserByEmail(firebaseUser.email);
         if (!user) {
           await registerUser(firebaseUser);
-          navigate(`/verify-sent?email=${firebaseUser.email}`)
+          navigate(`/verify-sent?email=${firebaseUser.email}`);
         } else {
           if (!user.is_email_verified) {
             navigate('/login');

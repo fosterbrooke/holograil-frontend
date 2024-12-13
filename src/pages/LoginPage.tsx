@@ -234,8 +234,14 @@ const LoginPage: React.FC = () => {
                   sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} // Use environment variable for site key
                 />
               </div>
-              <div className='w-full text-center'>
-                <span className="text-[12px] text-white">Don’t have an account yet? <Link to="/signup" className="underline font-bold">Register</Link> for free</span>
+              <div className="w-full text-center">
+                <span className="text-[12px] text-white">
+                  Don’t have an account yet?{' '}
+                  <Link to="/signup" className="underline font-bold">
+                    Register
+                  </Link>{' '}
+                  for free
+                </span>
               </div>
             </div>
           </form>

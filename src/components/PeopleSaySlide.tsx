@@ -8,15 +8,17 @@ const PeopleSaySlide: React.FC = () => {
   return (
     <div className="flex lg:flex-row flex-col lg:items-center items-start justify-center w-full my-[190px]">
       <div className="lg:w-2/5 w-full text-secondary font-bold  max-w-[500px] sm:ml-[100px] ml-[37px]">
-        <span className="sm:text-[57px] text-[20px]">What People Say About Us.</span>
+        <span className="sm:text-[57px] text-[20px]">
+          What People Say About Us.
+        </span>
         <div className="flex space-x-4">
-          {[1, 2, 3].map((item: number, index: number) =>
+          {[1, 2, 3].map((item: number, index: number) => (
             <span
               key={index}
               className={`w-3 h-3 border-2 rounded-full cursor-pointer mt-24 ${index === slideIndex ? 'bg-primary' : 'bg-gray border-none'}`}
               onClick={() => setSlideIndex(index)}
             ></span>
-          )}
+          ))}
         </div>
       </div>
       <div className="lg:w-3/5 w-full md:px-[100px] relative sm:mt-[100px] mt-[40px] relative">
