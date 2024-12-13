@@ -29,7 +29,7 @@ const AccountResources: React.FC = () => {
       <div className="sm:text-black text-primary font-semibold sm:text-[36px] text-[20px] mb-[23px] sm:mt-[50px]">
         Requirement
       </div>
-      <div className="flex sm:flex-row flex-col items-center sm:space-x-[27px] space-y-[30px]">
+      <div className="flex sm:flex-row flex-col items-center sm:items-start sm:space-x-[27px] space-x-0 sm:space-y-0 space-y-[30px]">
         {resourceCardInfo.map((item, index) => (
           <ResourceCardComp
             title={item.title}
@@ -46,7 +46,7 @@ const AccountResources: React.FC = () => {
       <div className="sm:text-black text-primary font-semibold sm:text-[36px] text-[20px] mb-[23px] mt-[50px]">
         Additional Resources
       </div>
-      <div className="flex sm:flex-row flex-col items-center sm:space-x-[42px] space-y-[20px] text-white font-bold text-[20px]">
+      <div className="flex sm:flex-row flex-col items-center sm:space-x-[42px] space-x-0 sm:space-y-0 space-y-[20px] text-white font-bold text-[20px]">
         <RoundButton className="p-[22px] rounded-[10px] bg-primary flex justify-center items-center max-w-[389px] w-full space-x-[17px]">
           <a
             className="flex items-center space-x-[17px]"

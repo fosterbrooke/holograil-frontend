@@ -75,7 +75,7 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
       </div>
 
       <div
-        className={`${bgColor} sm:hidden flex items-center justify-evenly rounded-[10px] text-white p-[28px] mb-[20px] w-[328px]`}
+        className={`${bgColor} sm:hidden flex items-center justify-evenly rounded-[10px] text-white p-[28px] mb-[20px] w-full`}
       >
         <div className="">
           <div className="font-semibold text-[16px]">{title}</div>

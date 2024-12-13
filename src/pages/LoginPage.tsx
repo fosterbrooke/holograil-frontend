@@ -3,98 +3,147 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import './LoginPage.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../utils/firebaseConfig';
-import { FirebaseError } from 'firebase/app';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/userSlice';
-import { registerUser, storeUserData } from '../services/user.service';
+import {
+  getUserByEmail,
+  loginUser,
+  registerUser,
+  resendVerificationEmail,
+  storeUserData,
+} from '../services/user.service';
+import Spinner from '../components/Spinner';
+import { FetchError } from '../utils/api';
 
 const LoginPage: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const recaptcha = useRef<ReCAPTCHA | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    const captchaValue = recaptcha.current?.getValue();
-    if (!captchaValue) {
-      alert('Please complete the CAPTCHA');
-      return;
-    }
+  const handleResendVerification = async (email: string) => {
     try {
-      // Proceed with form submission
-      // const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/verify`, {
-      //   method: 'POST',
-      //   body: JSON.stringify({ captchaValue }),
-      //   headers: {
-      //     'content-type': 'application/json',
-      //   },
-      // });
-
-      // if (!response.ok) {
-      //   throw new Error('CAPTCHA verification failed');
-      // }
-
-      await signInWithEmailAndPassword(auth, email, password);
-
-      // alert('Form submission successful!');
-      // console.log('Form submitted with CAPTCHA value:', captchaValue);
-    } catch (error) {
-      if (error instanceof FirebaseError) {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        switch (errorCode) {
-          case 'auth/invalid-email':
-            alert('Please Enter a valid email address');
-            break;
-          case 'auth/user-not-found':
-            alert('User not found');
-            break;
-          case 'auth/wrong-password':
-            alert('Incorrect Password. Try again.');
-            break;
-          case 'auth/internal-error':
-            alert('Please enter a valid password');
-            break;
-        }
+      setIsLoading(true);
+      await resendVerificationEmail(email);
+      alert('Verification email has been sent. Please check your inbox.');
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error('Resend verification error:', error);
+        alert(error.message);
       } else {
+        // Handle case where error is not an instance of Error
+        console.error('Unexpected error:', error);
         alert('An unexpected error occurred.');
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const handleGoogleSignIn = async () => {
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setIsLoading(true);
+
+    const captchaValue = recaptcha.current?.getValue();
+    if (!captchaValue) {
+      alert('Please complete the CAPTCHA');
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const firebaseUser = result.user; // This is of type FirebaseUser
+      const userData = await loginUser(email, password);
 
-      // Store user data and get the fetched user object
-      const fetchedUser = storeUserData(firebaseUser);
+      dispatch(setUser(userData));
 
-      // Dispatch to state management
-      dispatch(setUser(fetchedUser));
-
-      await registerUser(firebaseUser);
-
-      // Retrieve selected item from local storage
+      // Navigate based on the stored item or default to overview
       const storedSelectedAccountsItem = localStorage.getItem(
         'selectedAccountsItem'
       );
-
-      // Navigate based on the stored item or default to overview
       if (storedSelectedAccountsItem) {
         navigate(`/accounts/${storedSelectedAccountsItem}`);
       } else {
         navigate('/accounts/overview');
       }
+    } catch (error: unknown) {
+      if (error instanceof FetchError) {
+        if (error.status === 403 && error.requires_verification) {
+          const shouldResend = window.confirm(
+            'Your email is not verified. Would you like us to resend the verification email?'
+          );
+          if (shouldResend) {
+            await handleResendVerification(email);
+          }
+          return;
+        }
+
+        // Handle other errors
+        switch (error.status) {
+          case 400:
+            alert('Invalid email or password');
+            break;
+          case 429:
+            alert('Too many login attempts. Please try again later.');
+            break;
+          default:
+            alert('An error occurred during login. Please try again.');
+        }
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    const captchaValue = recaptcha.current?.getValue();
+    if (!captchaValue) {
+      alert('Please complete the CAPTCHA');
+      return;
+    }
+
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const firebaseUser = result.user;
+      const fetchedUser = storeUserData(firebaseUser);
+
+      // Dispatch to state management
+      dispatch(setUser(fetchedUser));
+
+      if (firebaseUser.email) {
+        const user = await getUserByEmail(firebaseUser.email);
+        if (!user) {
+          await registerUser(firebaseUser);
+
+          alert(
+            'Registration successful! Please check your email to verify your account.'
+          );
+        } else {
+          if (!user.is_email_verified) {
+            alert('Please verify your email');
+          } else {
+            const storedSelectedAccountsItem = localStorage.getItem(
+              'selectedAccountsItem'
+            );
+
+            if (storedSelectedAccountsItem) {
+              navigate(`/accounts/${storedSelectedAccountsItem}`);
+            } else {
+              navigate('/accounts/overview');
+            }
+          }
+        }
+      }
     } catch (error) {
-      console.error('Error during Google Sign-In:', error);
+      console.error('Error during Google Sign-Up:', error);
+      alert('Failed to sign up with Google. Please try again.');
+    } finally {
+      recaptcha.current?.reset();
     }
   };
 
@@ -161,8 +210,10 @@ const LoginPage: React.FC = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#003465] text-white pt-[8px] pb-[13px] rounded-[7.11px] hover:scale-[101%] transition duration-200 font-bold "
+                className="w-full flex justify-center items-center space-x-4 bg-[#003465] text-white pt-[8px] pb-[13px] rounded-[7.11px] hover:scale-[101%] transition duration-200 font-bold "
+                disabled={isLoading}
               >
+                <Spinner loading={isLoading} />
                 <div className="text-[16px] h-[19px]">Login</div>
               </button>
               <div className="text-white text-[13px] text-center h-[16px]">
@@ -183,10 +234,13 @@ const LoginPage: React.FC = () => {
                   sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} // Use environment variable for site key
                 />
               </div>
+              <div className='w-full text-center'>
+                <span className="text-[12px] text-white">Don’t have an account yet? <Link to="/signup" className="underline font-bold">Register</Link> for free</span>
+              </div>
             </div>
           </form>
         </div>
-        <div className="text-[10px] text-white text-center my-[28px]">
+        <div className="text-[12px] text-white text-center my-[28px]">
           2024© TheGrail All rights reserved
           <br />
           Terms of Service | Privacy Policy | EULA

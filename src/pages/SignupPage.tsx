@@ -1,87 +1,118 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './SignupPage.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../utils/firebaseConfig';
-import { storeUserData } from '../services/user.service';
+import {
+  getUserByEmail,
+  registerUser,
+  storeUserData,
+} from '../services/user.service';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/userSlice';
+import Spinner from '../components/Spinner';
+import { FetchError } from '../utils/api';
 
 const SignupPage: React.FC = () => {
-  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [username, setUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const recaptcha = useRef<ReCAPTCHA>(null);
 
-  const handleCaptchaChange = (value: string | null) => {
-    setCaptchaValue(value);
-  };
-
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setIsLoading(true);
 
+    const captchaValue = recaptcha.current?.getValue();
     if (!captchaValue) {
       alert('Please complete the CAPTCHA');
+      setIsLoading(false);
       return;
+    }
+
+    try {
+      // Call signup endpoint
+      const userToRegister = {
+        displayName: username,
+        email: email,
+        password: password,
+      };
+
+      await registerUser(userToRegister);
+      navigate(`/verify-sent?email=${email}`)
+    } catch (error: unknown) {
+      if (error instanceof FetchError) {
+        switch (error.status) {
+          case 400:
+            if (error.message === 'Email already registered') {
+              alert(
+                'This email is already registered. Please try logging in instead.'
+              );
+            } else {
+              alert('Invalid signup data. Please check your information.');
+            }
+            break;
+          case 429:
+            alert('Too many signup attempts. Please try again later.');
+            break;
+          default:
+            alert('An error occurred during signup. Please try again.');
+        }
+      }
+    } finally {
+      setIsLoading(false);
+      recaptcha.current?.reset();
     }
   };
 
   const handleGoogleSignIn = async () => {
+    const captchaValue = recaptcha.current?.getValue();
+    if (!captchaValue) {
+      alert('Please complete the CAPTCHA');
+      return;
+    }
+
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const firebaseUser = result.user;
-
-      // Prepare user data for backend
-      // const userName = encodeURIComponent(firebaseUser.displayName || '');
-      // const userEmail = encodeURIComponent(firebaseUser.email || '');
-      // const userProfilePic = encodeURIComponent(firebaseUser.photoURL || '');
-
-      // Send data to your backend for further processing
-      // const response = await fetch(
-      //   `${import.meta.env.VITE_RECAPTCHA_SITE_KEY}/users/google-signin?name=${userName}&email=${userEmail}&picture=${userProfilePic}`,
-      //   {
-      //     method: "POST",
-      //     headers: {
-      //       accept: "application/json",
-      //     },
-      //   }
-      // );
-
-      // const data = await response.json();
-
-      // Validate that the response matches the User interface
-      // if (response.ok) {
-      // if (true) {
-      // Store user data and get the fetched user object from the backend
       const fetchedUser = storeUserData(firebaseUser);
 
       // Dispatch to state management
       dispatch(setUser(fetchedUser));
 
-      // Retrieve selected item from local storage
-      const storedSelectedAccountsItem = localStorage.getItem(
-        'selectedAccountsItem'
-      );
+      if (firebaseUser.email) {
+        const user = await getUserByEmail(firebaseUser.email);
+        if (!user) {
+          await registerUser(firebaseUser);
+          navigate(`/verify-sent?email=${firebaseUser.email}`)
+        } else {
+          if (!user.is_email_verified) {
+            navigate('/login');
+          } else {
+            const storedSelectedAccountsItem = localStorage.getItem(
+              'selectedAccountsItem'
+            );
 
-      // Navigate based on the stored item or default to overview
-      if (storedSelectedAccountsItem) {
-        navigate(`/accounts/${storedSelectedAccountsItem}`);
-      } else {
-        navigate('/accounts/overview');
+            if (storedSelectedAccountsItem) {
+              navigate(`/accounts/${storedSelectedAccountsItem}`);
+            } else {
+              navigate('/accounts/overview');
+            }
+          }
+        }
       }
-      // } else {
-
-      // console.error(data.detail);
-      // alert('Failed to sign in: ' + data.detail);
-      //}
     } catch (error) {
       console.error('Error during Google Sign-Up:', error);
+      alert('Failed to sign up with Google. Please try again.');
+    } finally {
+      recaptcha.current?.reset();
     }
   };
 
@@ -104,7 +135,7 @@ const SignupPage: React.FC = () => {
               <div className="text-[24px] font-bold text-white h-[29px]">
                 Sign Up
               </div>
-              <div className=" text-[13px]">
+              <div className="text-[13px]">
                 <label htmlFor="username" className="text-white">
                   User Name
                 </label>
@@ -112,10 +143,7 @@ const SignupPage: React.FC = () => {
                   placeholder="User Name"
                   type="text"
                   id="username"
-                  onChange={(e) => {
-                    setUsername(e.target.value);
-                    console.log(username);
-                  }}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
                   className="mt-2 w-full h-[32px] border border-[#BCBEC0] rounded-[5px] p-2 px-[16px]"
                 />
@@ -128,36 +156,27 @@ const SignupPage: React.FC = () => {
                   placeholder="username@gmail.com"
                   type="email"
                   id="email"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    console.log(email);
-                  }}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   className="mt-2 w-full h-[32px] border border-[#BCBEC0] rounded-[5px] p-2 px-[16px]"
                 />
               </div>
               <div className="text-[13px]">
-                {' '}
-                {/* Relative positioning for the icon */}
                 <label htmlFor="password" className="text-white">
                   Password
                 </label>
                 <div className="relative">
                   <input
-                    type={showPassword ? 'text' : 'password'} // Toggle between text and password
+                    type={showPassword ? 'text' : 'password'}
                     id="password"
                     placeholder="Password"
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                      console.log(password);
-                    }}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="mt-2 w-full h-[32px] border border-[#BCBEC0] rounded-[5px] p-2 px-[16px] relative" // Add padding to avoid overlap with icon
+                    className="mt-2 w-full h-[32px] border border-[#BCBEC0] rounded-[5px] p-2 px-[16px]"
                   />
-                  {/* Eye icon for toggling password visibility */}
                   <button
                     type="button"
-                    onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+                    onClick={() => setShowPassword(!showPassword)}
                     className="absolute inset-y-0 right-0 flex items-center pr-4"
                   >
                     {showPassword ? (
@@ -170,8 +189,10 @@ const SignupPage: React.FC = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#003465] text-white pt-[8px] pb-[13px] rounded-[7.11px] hover:scale-[101%] transition duration-200 font-bold "
+                disabled={isLoading}
+                className="w-full flex justify-center items-center space-x-4 bg-[#003465] text-white pt-[8px] pb-[13px] rounded-[7.11px] hover:scale-[101%] transition duration-200 font-bold disabled:opacity-50"
               >
+                <Spinner loading={isLoading} size="sm" color="white" />
                 <div className="text-[16px] h-[19px]">Sign Up</div>
               </button>
               <div className="text-white text-[13px] text-center h-[16px]">
@@ -182,14 +203,12 @@ const SignupPage: React.FC = () => {
                 className="rounded-[7.11px] h-[35.08px] flex justify-center p-[9px] bg-white border border-[#BCBEC0]"
                 onClick={handleGoogleSignIn}
               >
-                {' '}
-                <img src="/signup/Group 2212.svg" />
+                <img src="/signup/Group 2212.svg" alt="Google Sign In" />
               </button>
-              {/* Google reCAPTCHA */}
               <div className="w-full">
                 <ReCAPTCHA
-                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} // Use environment variable for site key
-                  onChange={handleCaptchaChange}
+                  ref={recaptcha}
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
                 />
               </div>
             </div>

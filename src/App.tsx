@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import GetMoreSlide from './components/GetMoreSlide';
 import BenefitSlide from './components/BenefitSlide';
 import WhyChooseSlide from './components/WhyChooseSlide';
@@ -14,8 +15,8 @@ import React, { useEffect, useState } from 'react';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import Accounts from './pages/Accounts';
+import VerifyEmail from './pages/VerifyEmail';
 import ProtectedRoute from './components/ProtectedRoute';
-import { useDispatch, useSelector } from 'react-redux';
 import ShippingBillingPage from './pages/ShippingBillingPage';
 import { initializeLocalStorage } from './utils/localStorageUtils';
 import MainLayout from './layouts/MainLayout';
@@ -23,6 +24,7 @@ import { NotFoundWrapper } from './pages/NotFound';
 import { updateHeaderVisibility } from './utils/headerUtils';
 import { RootState } from './redux/store';
 import { convertToSlug } from './utils/urlNormalization';
+import CheckVerifyPage from './pages/CheckVerifyPage';
 
 function App() {
   return (
@@ -74,6 +76,8 @@ const AppWrapper: React.FC = () => {
           <Route path="/" element={<App />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/verify-sent" element={<CheckVerifyPage />} />
+          <Route path="/verify-email/:token" element={<VerifyEmail />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route
             path="/accounts/*"

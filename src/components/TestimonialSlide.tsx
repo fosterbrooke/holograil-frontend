@@ -16,12 +16,12 @@ const TestimonialSlide: React.FC<TestimonialSlideProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`relative ${className} shadow-custom-testimonial w-auto`}>
+    <div className={`${className} relative py-3 w-auto`}>
       <img
         src={avatar}
         className="-translate-x-1/2 -translate-y-1/2 absolute inset-0 sm:w-[84px] w-[40px]"
       />
-      <div className="mx-[42px] my-[39px] flex flex-col space-y-[16px] max-w-[500px]">
+      <div className="mx-[42px] flex flex-col space-y-[16px]">
         <div className="leading-[32px] sm:text-[16px] text-[9px] sm:leading-[32px] leading-[20px]">
           {content}
         </div>

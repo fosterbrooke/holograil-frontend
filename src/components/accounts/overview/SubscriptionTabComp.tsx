@@ -8,6 +8,7 @@ import { RootState } from '../../../redux/store';
 import { User } from '../../../types/User';
 import { License } from '../../../types/License';
 import CopyComp from './CopyComp';
+import Spinner from '../../Spinner';
 
 type ActiveTab = 'current' | 'past';
 
@@ -18,6 +19,7 @@ const SubscriptionTabs: React.FC = () => {
     (state: RootState) => state.user.user
   ) as User | null;
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<ActiveTab>('current');
   const [subscriptionInfo, setSubScriptionInfo] = useState({
     current: [],
@@ -27,6 +29,8 @@ const SubscriptionTabs: React.FC = () => {
   useEffect(() => {
     const fetchLicenses = async () => {
       if (user) {
+        setIsLoading(true);
+
         const licenses = await getLicenseByUser(user.email);
 
         if (licenses) {
@@ -54,6 +58,7 @@ const SubscriptionTabs: React.FC = () => {
           };
 
           setSubScriptionInfo(newSubscriptionInfo);
+          setIsLoading(false);
         }
       }
     };
@@ -114,7 +119,12 @@ const SubscriptionTabs: React.FC = () => {
               </button>
               <div className="bg-custom-white sm:w-[542px] h-[2px] mt-[-2px]" />
             </div>
-            {currentData.length > 0 && (
+            {isLoading && 
+              <div className="mt-[100px] lg:w-[542px] w-full justify-center">
+                <Spinner loading={isLoading} size="lg" />
+              </div>
+            }
+            {!isLoading && currentData.length > 0 && (
               <div className="w-full">
                 <div className="mt-[31px] lg:w-[542px] w-full">
                   {currentData.map((license: License, index) => (
@@ -149,7 +159,7 @@ const SubscriptionTabs: React.FC = () => {
                 </div> */}
               </div>
             )}
-            {currentData.length === 0 && (
+            {!isLoading && currentData.length === 0 && (
               <div className="flex flex-col items-center justify-center mt-[100px] mx-[10%]">
                 <img src="/accounts/overview/no_data.png" />
                 <div className="mt-[22px] max-w-[610px] text-center text-custom-gray2 sm:text-[20px] text-[12px]">

@@ -4,3 +4,9 @@ export interface User {
   email: string;
   photoURL: string;
 }
+
+export interface UserRegister {
+  displayName: string;
+  email: string;
+  password: string;
+}

@@ -1,6 +1,6 @@
 import { User as FirebaseUser } from 'firebase/auth';
-import { User } from '../types/User';
-import { fetchAPI } from '../utils/api';
+import { User, UserRegister } from '../types/User';
+import { fetchAPI, FetchError } from '../utils/api';
 
 export const storeUserData = (firebaseUser: FirebaseUser) => {
   const user: User = {
@@ -20,22 +20,105 @@ export const storeUserData = (firebaseUser: FirebaseUser) => {
   return fetchedUser;
 };
 
-export const registerUser = async (firebaseUser: FirebaseUser) => {
+export const loginUser = async (email: string, password: string) => {
+  const response = await fetchAPI('/users/signin', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      accept: 'application/json',
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  });
+
+  const userData = {
+    user: {
+      email: response.user,
+    },
+    access_token: response.access_token,
+  };
+
+  localStorage.setItem('user', JSON.stringify(userData));
+
+  return userData;
+};
+
+export const resendVerificationEmail = async (email: string): Promise<void> => {
   try {
-    await fetchAPI('/users/signup', {
+    await fetchAPI(`/users/resend-verification?email=${email}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        accept: 'application/json',
+      },
+    });
+  } catch (error: unknown) {
+    if (error instanceof FetchError) {
+      switch (error.status) {
+        case 404:
+          throw new Error('User not found');
+        case 429:
+          throw new Error('Too many requests. Please try again later');
+        case 400:
+          throw new Error('Invalid email address');
+        default:
+          throw new Error('Failed to resend verification email');
+      }
+    }
+  }
+};
+
+export const registerUser = async (user: FirebaseUser | UserRegister) => {
+  try {
+    const response = await fetchAPI('/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         accept: 'application/json',
       },
       body: JSON.stringify({
-        username: firebaseUser.displayName || 'admin',
-        email: firebaseUser.email || 'admin@gmail.com',
-        password: '123123123',
-        avatar_url: firebaseUser.photoURL || '',
+        username: user.displayName || 'admin',
+        email: user.email || 'admin@gmail.com',
+        password: 'password' in user ? user.password : '',
+        avatar_url: 'photoURL' in user ? user.photoURL : '',
       }), // Empty body as per the sample
     });
+
+    return response;
   } catch (error) {
-    console.error('Error creating checkout session:', error);
+    console.error('Error registering user:', error);
+    throw error;
   }
+};
+
+export const getUserByEmail = async (email: string) => {
+  try {
+    const response = await fetchAPI(
+      `/users?email=${encodeURIComponent(email)}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          accept: 'application/json',
+        },
+      }
+    );
+
+    return response;
+  } catch (error) {
+    console.error('Error getting a user: ', error);
+    throw error;
+  }
+};
+
+export const verifyEmail = async (token: string): Promise<void> => {
+  return await fetchAPI(`/users/verify-email/${token}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      accept: 'application/json',
+    },
+  });
 };
