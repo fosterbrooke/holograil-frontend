@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface TestimonialSlideProps {
-  avatar: string;
+  avatar?: string;
   content: string;
   name: string;
   location: string;
@@ -17,10 +17,12 @@ const TestimonialSlide: React.FC<TestimonialSlideProps> = ({
 }) => {
   return (
     <div className={`${className} relative py-3 w-auto`}>
-      <img
-        src={avatar}
-        className="-translate-x-1/2 -translate-y-1/2 absolute inset-0 sm:w-[84px] w-[40px]"
-      />
+      {avatar && (
+        <img
+          src={avatar}
+          className="-translate-x-1/2 -translate-y-1/2 absolute inset-0 sm:w-[84px] sm:h-[84px] w-[40px] h-[40px]"
+        />
+      )}
       <div className="mx-[42px] flex flex-col space-y-[16px]">
         <div className="leading-[32px] sm:text-[16px] text-[9px] sm:leading-[32px] leading-[20px]">
           {content}

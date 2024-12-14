@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ProductItem from '../components/accounts/products/ProductItem';
 import RoundButton from '../components/RoundButton';
-import InfoComp from '../components/InfoComp';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem } from '../redux/cartSlice';
 import { CartItem } from '../types/Cart';
@@ -26,7 +25,7 @@ const BillingInfoItem: React.FC<BillingInfoItemProps> = ({
     >
       <label
         htmlFor={label.toLowerCase()}
-        className="sm:w-[120px] w-[80px] sm:text-[24px] text-[16px] font-semibold text-right"
+        className="sm:w-[120px] w-[60px] sm:text-[24px] text-[12px] font-semibold text-right"
       >
         {label}
       </label>
@@ -35,7 +34,7 @@ const BillingInfoItem: React.FC<BillingInfoItemProps> = ({
         id={label.toLowerCase()}
         value={value}
         onChange={onChange}
-        className="bg-transparent sm:text-[24px] text-[16px] rounded-[10px] font-semibold p-2 w-[50%]"
+        className="bg-transparent sm:text-[24px] text-[12px] rounded-[10px] font-semibold p-2 w-[50%]"
         placeholder={label}
       />
     </div>
@@ -88,13 +87,13 @@ const PaymentInfoForm: React.FC = () => {
             className="sm:inline hidden mr-2"
             src="/accounts/shipping/credit_card.svg"
           />
-          <label className="sm:hidden font-bold sm:text-[20px] text-[16px] mb-2">
+          <label className="sm:hidden font-bold sm:text-[20px] text-[12px] mb-2">
             Card Number
           </label>
           <input
             type="tel"
             name="number"
-            className="sm:max-w-[250px] w-full sm:bg-transparent sm:text-[24px] text-[16px] rounded-[10px] font-semibold p-2  shadow-lg sm:shadow-none"
+            className="sm:max-w-[250px] w-full sm:bg-transparent sm:text-[24px] text-[12px] rounded-[10px] font-semibold p-2  shadow-lg sm:shadow-none"
             placeholder=""
             pattern="[\d| ]{16,22}"
             maxLength={19}
@@ -104,26 +103,26 @@ const PaymentInfoForm: React.FC = () => {
           />
         </div>
         <div className="flex sm:flex-row flex-col sm:w-1/3 w-full sm:space-x-4">
-          <label className="font-bold sm:hidden sm:text-[20px] text-[16px] my-4">
+          <label className="font-bold sm:hidden sm:text-[20px] text-[12px] my-4">
             Expiration Date
           </label>
           <input
             type="tel"
             name="expiry"
-            className="sm:max-w-[105px] w-full sm:bg-transparent bg-white sm:text-[24px] text-[16px] rounded-[10px] font-semibold p-2 shadow-lg sm:shadow-none"
+            className="sm:max-w-[105px] w-full sm:bg-transparent bg-white sm:text-[24px] text-[12px] rounded-[10px] font-semibold p-2 shadow-lg sm:shadow-none"
             placeholder="MM/YY"
             pattern="\d\d/\d\d"
             required
             value={cardValues.expiry}
             onChange={handleInputChange}
           />
-          <label className="font-bold sm:hidden sm:text-[20px] text-[16px] my-4">
+          <label className="font-bold sm:hidden sm:text-[20px] text-[12px] my-4">
             Security Code
           </label>
           <input
             type="tel"
             name="cvc"
-            className="sm:w-1/2 w-full bg-transparent sm:text-[24px] text-[16px] rounded-[10px] font-semibold p-2 shadow-lg sm:shadow-none"
+            className="sm:w-1/2 w-full bg-transparent sm:text-[24px] text-[12px] rounded-[10px] font-semibold p-2 shadow-lg sm:shadow-none"
             placeholder=" CVC"
             pattern="\d{3}"
             required
@@ -132,13 +131,13 @@ const PaymentInfoForm: React.FC = () => {
           />
         </div>
         <div className="sm:hidden flex flex-col">
-          <label className="font-bold sm:hidden sm:text-[20px] text-[16px] my-4">
+          <label className="font-bold sm:hidden sm:text-[20px] text-[12px] my-4">
             Full Name
           </label>
           <input
             type="text"
             name="name"
-            className="w-full bg-transparent sm:text-[24px] text-[16px] rounded-[10px] font-semibold p-2 shadow-lg sm:shadow-none"
+            className="w-full bg-transparent sm:text-[24px] text-[12px] rounded-[10px] font-semibold p-2 shadow-lg sm:shadow-none"
             placeholder=""
             pattern="[a-zA-Z\s-]+"
             required
@@ -148,7 +147,7 @@ const PaymentInfoForm: React.FC = () => {
         </div>
         <div className="sm:hidden w-full flex space-x-2 mt-4">
           <input type="checkbox" />
-          <span className="text-[16px]">Save or update card information</span>
+          <span className="text-[12px]">Save or update card information</span>
         </div>
         <div className="sm:hidden w-full flex justify-center mt-12">
           <RoundButton
@@ -233,7 +232,7 @@ const ShippingBillingPage: React.FC = () => {
                 >
                   <label
                     htmlFor="zip"
-                    className="max-w-[60px] sm:text-[24px] text-[16px] font-semibold text-right"
+                    className="max-w-[60px] sm:text-[24px] text-[12px] font-semibold text-right"
                   >
                     Zip
                   </label>
@@ -242,7 +241,7 @@ const ShippingBillingPage: React.FC = () => {
                     id={zip.toLowerCase()}
                     value={zip}
                     onChange={(e) => setZip(e.target.value)}
-                    className="bg-transparent sm:text-[24px] text-[16px] rounded-[10px] font-semibold p-2 sm:max-w-[100px] max-w-[70px]"
+                    className="bg-transparent sm:text-[24px] text-[12px] rounded-[10px] font-semibold p-2 sm:max-w-[100px] max-w-[70px]"
                     placeholder="zip"
                   />
                 </div>
@@ -260,12 +259,12 @@ const ShippingBillingPage: React.FC = () => {
             <PaymentInfoForm />
           </div>
           <div className="sm:mt-[54px] mt-16 flex flex-col flex-grow flex-shrink-1">
-            <div className="w-full flex-grow flex-shrink-1 rounded-[10px] flex flex-col space-y-[27px] bg-white shadow-custom-multiple py-8 px-[21px] items-center mb-16">
-              <div className="text-start w-full text-primary font-bold sm:text-[30px] text-[24px]">
+            <div className="w-full flex-grow flex-shrink-1 rounded-[10px] flex flex-col sm:space-y-6 space-y-2 bg-white shadow-custom-multiple py-8 px-[21px] items-center mb-16">
+              <div className="text-start w-full text-primary font-bold sm:text-[30px] text-[16px]">
                 Items
               </div>
               <hr className="max-w-[420px] w-full flex-shrink-1 text-primary" />
-              <div className="w-full flex flex-col space-y-[30px]">
+              <div className="w-full flex flex-col sm:space-y-6 space-y-2">
                 {cart_items &&
                   cart_items.length > 0 &&
                   cart_items.map((product: CartItem, index: number) => (
@@ -280,36 +279,30 @@ const ShippingBillingPage: React.FC = () => {
                   ))}
               </div>
               <hr className="max-w-[420px] w-full flex-shrink-1 text-primary" />
-              <div className="max-w-[420px] w-full flex justify-between items-center sm:text-[20px] text-[16px] text-[#404040]">
+              <div className="max-w-[420px] w-full flex justify-between items-center sm:text-[20px] text-[12px] text-[#404040] p-2">
                 <div>Subtotal</div>
-                <div className="font-bold text-black pr-[24px]">
+                <div className="font-bold text-black">
                   ${totalCartPrice.toFixed(2)}
                 </div>
               </div>
-              <div className="max-w-[420px] w-full flex justify-between items-center sm:text-[20px] text-[16px] text-[#404040]">
+              <div className="max-w-[420px] w-full flex justify-between items-center sm:text-[20px] text-[12px] text-[#404040] p-2">
                 <div>Shipping Fee</div>
-                <div className="font-bold text-black pr-[24px]">
+                <div className="font-bold text-black">
                   ${shipping_fee.toFixed(2)}
                 </div>
               </div>
               <hr className="max-w-[420px] w-full flex-shrink-1 text-primary" />
-              <div className="max-w-[420px] w-full flex justify-between items-center font-bold sm:text-[24px] text-[20px] text-[#404040]">
+              <div className="max-w-[420px] w-full flex justify-between items-center font-bold sm:text-[24px] text-[12px] p-2 text-black">
                 <div>Total</div>
-                <div className="pr-[24px]">${totalPrice.toFixed(2)}*</div>
+                <div>${totalPrice.toFixed(2)}</div>
               </div>
-              <div className="sm:flex hidden w-full px-[16px] pt-[17px] py-[54px]">
+              <div className="sm:flex hidden w-full px-[16px] pt-[17px]">
                 <RoundButton
                   text="Checkout"
                   className="w-full rounded-[10px]"
                 />
               </div>
             </div>
-            <InfoComp
-              title="Shipping"
-              text="Total price is not inclusive of shipping fees. We will contact you via email for the exact shipping quote based on your delivery address. Don’t worry, we will not charge your card before confirmation!"
-              className="shadow-custom-multiple max-w-[480px] w-full mt-[28px] lg:flex hidden"
-              isSmall={true}
-            />
           </div>
         </div>
       </div>

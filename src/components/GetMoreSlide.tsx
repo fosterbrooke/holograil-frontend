@@ -33,7 +33,7 @@ const GetMoreSlide: React.FC = () => {
         src="/get_more_slide2.svg"
         alt="image1"
       />
-      <div className="flex flex-col items-center w-full sm:mt-[140px] mt-[38px] px-[46px]">
+      <div className="flex flex-col items-center w-full sm:mt-[140px] mt-[38px] sm:px-20 px-8">
         <div className="lg:w-1/2 w-full sm:w-[585px] lg:w-[585px] w-full flex flex-col lg:items-normal items-center">
           <div className="text-primary lg:text-left sm:text-[64px] text-[37px] font-bold ">
             Get More Done with The Grail

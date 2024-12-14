@@ -59,8 +59,8 @@ const ChoosePlanSlide: React.FC = () => {
   ];
 
   return (
-    <div className="relative pt-[80px] mb-[80px]">
-      <div className="sm:pb-[70px] xl:mt-[120px] lg:mt-[80px] sm:mt-[40px] pb-[20px] md:mx-[140px] mx-[50px]">
+    <div className="relative pt-[80px] mb-[80px] sm:px-20 px-8">
+      <div className="sm:pb-[70px] xl:mt-[120px] lg:mt-[80px] sm:mt-[40px] pb-[20px]">
         <div className="text-secondary font-bold sm:text-[50px] md:text-[58px] md:text-[72px] text-[32px]">
           Choose Your Plan
         </div>
@@ -72,10 +72,10 @@ const ChoosePlanSlide: React.FC = () => {
       </div>
       <img
         src="/right_panel.svg"
-        className="absolute top-0 right-[-6.25%] z-10 max-w-[50%]"
+        className="absolute top-0 2xl:right-[-8%] xl:right-[-13%] right-[-6%] z-10 max-w-[50%]"
       />
       <div
-        className="mt-[17px] grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-items-center sm:mx-[140px] mx-[50px] mx-0"
+        className="mt-[17px] grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-items-center sm:mr-[20px] mx-0"
         id="chooseplanslide"
       >
         {subscriptions.map((item, index) => (

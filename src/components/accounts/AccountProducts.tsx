@@ -28,14 +28,14 @@ const AccountProducts: React.FC = () => {
       content: `<span style="font-weight: 600;" class="sm:text-[24px] text-[18px]">Product Description</span>
 <br />
 <br />
-<span class="sm:text-[20px] text-[14px]">Lenticular sheets are the heart of creating dynamic, animated prints. Our high-quality sheets provide smooth, vivid visuals that change when viewed from different angles.</span>
-<ul class="list-disc list-inside sm:text-[20px] text-[14px]">
+<span class="sm:text-[20px] text-[12px]">Lenticular sheets are the heart of creating dynamic, animated prints. Our high-quality sheets provide smooth, vivid visuals that change when viewed from different angles.</span>
+<ul class="list-disc list-inside sm:text-[20px] text-[12px]">
   <li>Perfect for creating 3D effects and flip images</li>
   <li>Durable, high-clarity material for professional results</li>
   <li>Compatible with all standard printers and software</li>
 <br />
 `,
-      price: `<span style="sm:text-[20px] text-[14px]">USD$0.3 (1,000 - 50,00pcs)<br/>
+      price: `<span style="sm:text-[20px] text-[12px]">USD$0.3 (1,000 - 50,00pcs)<br/>
 USD$0.2 (50,001 - 20,000pcs)<br/>
 USD$0.15 (20,001 and above)</span>`,
     },
@@ -45,13 +45,13 @@ USD$0.15 (20,001 and above)</span>`,
       content: `<span style="font-weight: 600;" class="sm:text-[24px] text-[18px]">Product Description</span>
 <br />
 <br />
-<span class="sm:text-[20px] text-[14px]">Perforated paper helps you easily align and attach the lenticular sheets for a seamless finish. Ideal for creating perfect, clean prints, this is an essential accessory in delivering high-quality photo booth prints.</span>
-<ul class="list-disc list-inside sm:text-[20px] text-[14px]">
+<span class="sm:text-[20px] text-[12px]">Perforated paper helps you easily align and attach the lenticular sheets for a seamless finish. Ideal for creating perfect, clean prints, this is an essential accessory in delivering high-quality photo booth prints.</span>
+<ul class="list-disc list-inside sm:text-[20px] text-[12px]">
   <li>Laser-precise perforation for easy tear-off and alignment</li>
   <li>Lightweight and easy to feed through standard printers</li>
   <li>Reduces errors and saves time on assembly</li>
 <br />
-<span class="sm:text-[20px] text-[14px]">Each Box contains 2 rolls of perforated paper</span>
+<span class="sm:text-[20px] text-[12px]">Each Box contains 2 rolls of perforated paper</span>
 `,
       price: `<span class="sm:text-[20px] text-[16px]">USD$220</span>`,
     },
@@ -61,13 +61,13 @@ USD$0.15 (20,001 and above)</span>`,
       content: `<span style="font-weight: 600;" class="sm:text-[24px] text-[18px]">Product Description</span>
 <br />
 <br />
-<span class="sm:text-[20px] text-[14px]">The adhesion roller is designed to eliminate air bubbles while securing lenticular sheets to the base paper. With an ergonomic handle and smooth application, this tool ensures a flawless, professional finish every time.</span>
-<ul class="list-disc list-inside sm:text-[20px] text-[14px]">
+<span class="sm:text-[20px] text-[12px]">The adhesion roller is designed to eliminate air bubbles while securing lenticular sheets to the base paper. With an ergonomic handle and smooth application, this tool ensures a flawless, professional finish every time.</span>
+<ul class="list-disc list-inside sm:text-[20px] text-[12px]">
   <li>Smooth roller for quick and easy air-bubble removal</li>
   <li>Ergonomic design to reduce hand strain during use</li>
   <li>Durable material for long-lasting performance</li>
 <br />
-<span class="sm:text-[20px] text-[14px]">Dimensions: 16cm (W), 35cm (H)</span>
+<span class="sm:text-[20px] text-[12px]">Dimensions: 16cm (W), 35cm (H)</span>
 `,
       price: `<span class="sm:text-[20px] text-[16px]">USD$300</span>`,
     },
@@ -77,12 +77,12 @@ USD$0.15 (20,001 and above)</span>`,
       content: `<span style="font-weight: 600;" class="sm:text-[24px] text-[18px]">Product Description</span>
 <br />
 <br />
-<span class="sm:text-[20px] text-[14px]">Create durable, perfectly sized tags for all your travels with our precision Luggage Tag Cutter. This tool quickly and efficiently cuts your lenticular prints into luggage tags that will elevate your product line, ensuring clean, professional edges every time.</span>
-<ul class="list-disc list-inside sm:text-[20px] text-[14px]">
+<span class="sm:text-[20px] text-[12px]">Create durable, perfectly sized tags for all your travels with our precision Luggage Tag Cutter. This tool quickly and efficiently cuts your lenticular prints into luggage tags that will elevate your product line, ensuring clean, professional edges every time.</span>
+<ul class="list-disc list-inside sm:text-[20px] text-[12px]">
   <li>Ideal for custom luggage tags, ID cards, and event passes</li>
   <li>Equipped with alignment guides for consistent, accurate cuts</li>
 <br />
-<span class="sm:text-[20px] text-[14px]">Dimensions: 20cm (W), 15cm (H)</span>
+<span class="sm:text-[20px] text-[12px]">Dimensions: 20cm (W), 15cm (H)</span>
 `,
       price: `<span class="sm:text-[20px] text-[16px]">USD$220</span>`,
     },
@@ -148,11 +148,11 @@ USD$0.15 (20,001 and above)</span>`,
           />
         </button>
       </div>
-      <div className="mx-[50px] mt-[41px]">
+      <div className="sm:mx-[50px] mx-4 mt-[41px]">
         <div className="text-center font-semibold sm:text-[24px] text-[18px]">
           {productInfo[productIndex].title}
         </div>
-        <div className="mt-[44px]">
+        <div className="mt-[44px] tracking-tight">
           <HtmlContent htmlString={productInfo[productIndex].content} />
         </div>
         <div className="flex sm:flex-row flex-col sm:space-x-8 space-y-8 w-full">

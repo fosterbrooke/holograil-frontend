@@ -29,7 +29,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
         onClick={handleToggle}
         className="rounded pt-[8px] pb-[10px] pl-[12px] pr-[15px] flex justify-between items-center cursor-pointer mb-2"
       >
-        <span className="text-[18px] text-black font-bold">
+        <span className="sm:text-[18px] text-[10px] text-black">
           {selectedValue}
         </span>
         {isOpen ? (
@@ -47,7 +47,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
         )}
       </div>
       {isOpen && (
-        <div className="absolute z-10 bg-white rounded shadow-lg mt-1 w-full mb-[20px]">
+        <div className="absolute z-10 bg-white rounded shadow-lg mt-1 w-full mb-[20px] sm:text-[16px] text-[10px]">
           {options.map((option) => (
             <div
               key={option}

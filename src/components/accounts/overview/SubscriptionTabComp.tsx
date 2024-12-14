@@ -84,12 +84,12 @@ const SubscriptionTabs: React.FC = () => {
           {/* Your Subscriptions */}
           <div className="w-full">
             <div className="flex justify-between items-center w-full">
-              <div className="font-semibold lg:text-[24px] text-[18px] text-primary lg:mt-[64px] mt-[15px] mb-[15px]">
+              <div className="font-semibold lg:text-[24px] text-[16px] text-primary lg:mt-[64px] mt-[15px] mb-[15px]">
                 Your Subscriptions
               </div>
               <RoundButton
                 text="+Add Subscription"
-                className="rounded-full lg:hidden text-[12px] px-[10px] py-[4px] h-[70%]"
+                className="rounded-full lg:hidden text-[12px] text-[10px] sm:px-[10px] px-2 py-[4px] h-[70%]"
                 onClick={handleSubscribe}
               />
             </div>
@@ -120,21 +120,21 @@ const SubscriptionTabs: React.FC = () => {
               <div className="bg-custom-white sm:w-[542px] h-[2px] mt-[-2px]" />
             </div>
             {isLoading && (
-              <div className="mt-[100px] lg:w-[542px] w-full justify-center">
-                <Spinner loading={isLoading} size="lg" />
+              <div className="sm:mt-[100px] mt-8 lg:w-[542px] w-full justify-center">
+                <Spinner loading={isLoading} size="md" />
               </div>
             )}
             {!isLoading && currentData.length > 0 && (
               <div className="w-full">
-                <div className="mt-[31px] lg:w-[542px] w-full">
+                <div className="sm:mt-[31px] mt-4 lg:w-[542px] w-full">
                   {currentData.map((license: License, index) => (
                     <div key={index}>
                       <div
-                        className={`flex items-center justify-between space-x-[15px] sm:text-[16px] text-[12px] rounded-[10px] text-[14px] py-[23px] sm:px-[28px] ${activeTab === 'current' ? 'text-black' : 'text-black-50'} ${index % 2 == 0 ? 'bg-gray-300' : 'bg-custom-white'}`}
+                        className={`flex items-center justify-between space-x-[15px] sm:text-[16px] text-[9px] rounded-[10px] text-[14px] sm:py-[23px] py-2 sm:px-[28px] px-4 ${activeTab === 'current' ? 'text-black' : 'text-black-50'} ${index % 2 == 0 ? 'bg-gray-300' : 'bg-custom-white'}`}
                       >
                         <img
                           src="/accounts/overview/airplay.svg"
-                          className={`${activeTab === 'current' ? '' : 'grayscale'} sm:scale-100 scale-75`}
+                          className={`${activeTab === 'current' ? '' : 'grayscale'} sm:scale-100 scale-50`}
                         />
                         <div>
                           <div>{license.device_number}</div>

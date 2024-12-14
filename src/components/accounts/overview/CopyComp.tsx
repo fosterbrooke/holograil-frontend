@@ -27,6 +27,7 @@ const CopyComp: React.FC<CopyCompProps> = ({ license, index }) => {
     >
       {copiedIndex === index ? (
         <img
+          className="sm: scale-100 scale-75"
           src="/accounts/overview/check.png"
           width="20"
           height="20"
@@ -34,6 +35,7 @@ const CopyComp: React.FC<CopyCompProps> = ({ license, index }) => {
         />
       ) : (
         <img
+          className="sm: scale-100 scale-75"
           src="/accounts/overview/copy.svg"
           width="20"
           height="20"

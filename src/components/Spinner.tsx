@@ -47,6 +47,6 @@ const Spinner: React.FC<SpinnerProps> = ({
       <span className="sr-only">Loading...</span>
     </div>
   );
-}
+};
 
 export default Spinner;

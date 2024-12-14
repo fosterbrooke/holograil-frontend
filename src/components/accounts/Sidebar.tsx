@@ -18,8 +18,8 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose, className = '' }) => {
   );
 
   const handleItemClick = (item: HeaderItem) => {
-    dispatch(setSelectedAccountsItem(item.name));
-    localStorage.setItem('selectedAccountsItem', item.name);
+    dispatch(setSelectedAccountsItem(item.name.toLowerCase()));
+    localStorage.setItem('selectedAccountsItem', item.name.toLowerCase());
     navigate(item.link);
     window.scrollTo({ top: 0, behavior: 'instant' });
   };

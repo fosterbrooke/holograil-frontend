@@ -11,13 +11,13 @@ const AccountOverview: React.FC = () => {
   };
 
   return (
-    <div className="mt-[50px]">
+    <div className="sm:mt-[50px] mt-8">
       <div className="flex items-center space-x-[100px]">
         <div>
-          <div className="font-semibold lg:text-[32px] text-[18px] text-primary">
+          <div className="font-semibold lg:text-[32px] sm:text-[18px] text-[16px] text-primary">
             Get Started with The Grail
           </div>
-          <div className="lg:text-[16px] text-[12px] text-black mt-[16px]">
+          <div className="lg:text-[16px] text-[12px] text-black sm:mt-[16px] mt-2">
             View, progress and manage subscription efficiently
           </div>
         </div>

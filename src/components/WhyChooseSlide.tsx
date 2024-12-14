@@ -40,7 +40,7 @@ const WhyChooseSlide: React.FC = () => {
   ];
   return (
     <div className="mt-[134px] space-x-[66px]">
-      <div className="lg:ml-[135px] mx-[46px]">
+      <div className="lg:ml-[135px] sm:mx-20 mx-8">
         <div className="flex lg:flex-row flex-col sm:space-x-[30px]">
           <div className="lg:w-1/3 w-full font-semibold sm:text-[57px] text-[32px] sm:leading-[120%] leading-[47px] text-secondary sm:ml-[39px] ml-0 mt-[25px]">
             Why Choose The Grail’s Lenticular Software?

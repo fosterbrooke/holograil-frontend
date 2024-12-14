@@ -18,7 +18,7 @@ const BenefitSlide: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center mb-[61px] sm:mx-0 mx-[46px]">
+    <div className="flex justify-center mb-[61px] sm:mx-0 sm:mx-20 mx-8">
       <div className="mt-[82px] flex flex-col space-y-[51px] sm:w-[67%] w-full">
         <div className="flex flex-col sm:space-y-6 space-y-[34px] mb-9">
           <div className="font-semibold sm:text-[64px] text-[32px] text-primary">

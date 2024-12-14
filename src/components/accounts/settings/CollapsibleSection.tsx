@@ -38,7 +38,7 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
         </span>
         {isOpen ? <UpIcon /> : <DownIcon />}
       </div>
-      <span className="mt-[8px] sm:text-[18px] text-[14px]">{content}</span>
+      <span className="mt-[8px] sm:text-[18px] text-[12px]">{content}</span>
       {isOpen && <div className="mt-[24px]">{children}</div>}
       <hr className="mt-[33px] mb-[29px]" />
     </div>

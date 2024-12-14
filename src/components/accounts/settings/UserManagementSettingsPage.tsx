@@ -1,37 +1,43 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import CustomInput from './CustomInput'; // Ensure this is the correct path
 import CollapsibleSection from './CollapsibleSection'; // Ensure this is the correct path
 import RoundButton from '../../RoundButton';
 import CustomCheckbox from './CustomCheckbox';
 import CustomDropdown from './CustomDropdown';
+import { RootState } from '../../../redux/store';
+
+// Sample timezones
+const timezones = [
+  '(UTC - 8:00) Pacific Time (US and Canada)',
+  'Mountain Time (US)',
+  'Central Time (US)',
+  'Eastern Time (US)',
+  'Greenwich Mean Time (GMT)',
+  'Central European Time (CET)',
+  'India Standard Time (IST)',
+  'China Standard Time (CST)',
+  'Australian Eastern Standard Time (AEST)',
+];
 
 const ProfileManagementSidebar: React.FC = () => {
+  const { user } = useSelector((state: RootState) => state.user);
+
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isPasswordOpen, setIsPasswordOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [isTimezoneOpen, setIsTimezoneOpen] = useState(false);
 
-  const [name, setName] = useState('Dilara');
-  const [surname, setSurname] = useState('Mataraci');
-  const [email, setEmail] = useState('dmataraci@gmail.com');
+  const [name, setName] = useState(user?.name.split(' ')[0]);
+  const [surname, setSurname] = useState(user?.name.split(' ')[1]);
+  const [email, setEmail] = useState(user?.email);
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [receivePromotions, setReceivePromotions] = useState(false);
   const [receiveAnnouncements, setReceiveAnnouncements] = useState(false);
-  const [timezone, setTimezone] = useState('Pacific Time (US)');
+  const [timezone, setTimezone] = useState(timezones[0]);
 
-  // Sample timezones
-  const timezones = [
-    'Pacific Time (US)',
-    'Mountain Time (US)',
-    'Central Time (US)',
-    'Eastern Time (US)',
-    'Greenwich Mean Time (GMT)',
-    'Central European Time (CET)',
-    'India Standard Time (IST)',
-    'China Standard Time (CST)',
-    'Australian Eastern Standard Time (AEST)',
-  ];
+  const handlePasswordChange = () => {};
 
   return (
     <div className="sm:mt-[38px] mt-[20px]">
@@ -61,6 +67,7 @@ const ProfileManagementSidebar: React.FC = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email Address"
+            readonly
           />
         </div>
       </CollapsibleSection>
@@ -89,6 +96,7 @@ const ProfileManagementSidebar: React.FC = () => {
         <RoundButton
           text="Update Password"
           className="rounded-[5px] mt-[26px]"
+          onClick={handlePasswordChange}
         />
       </CollapsibleSection>
 
@@ -97,9 +105,9 @@ const ProfileManagementSidebar: React.FC = () => {
         title="Notification"
         isOpen={isNotificationOpen}
         onToggle={() => setIsNotificationOpen(!isNotificationOpen)}
-        content="Rateit will send you notifications"
+        content="The Grail will send you notifications"
       >
-        <div className="flex flex-col text-black text-[18px] space-y-[19px]">
+        <div className="flex flex-col text-black sm:text-[18px] text-[12px] space-y-[19px]">
           <CustomCheckbox
             checked={receivePromotions}
             onChange={() => setReceivePromotions(!receivePromotions)}

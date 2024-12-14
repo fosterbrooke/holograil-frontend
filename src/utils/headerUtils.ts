@@ -46,7 +46,10 @@ export const updateCurrentSelection = (
 
   currentItem = accountsHeaderItems.find((item) => item.link === currentPath);
   if (currentItem) {
-    dispatch(setSelectedAccountsItem(currentItem.name));
-    localStorage.setItem('selectedAccountsItem', currentItem.name);
+    dispatch(setSelectedAccountsItem(currentItem.name.toLowerCase()));
+    localStorage.setItem(
+      'selectedAccountsItem',
+      currentItem.name.toLowerCase()
+    );
   }
 };
