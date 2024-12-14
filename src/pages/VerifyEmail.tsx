@@ -29,7 +29,7 @@ const VerifyEmail: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center p-32 bg-gray-100">
+    <div className="flex items-center justify-center sm:p-32 p-12 bg-gray-100">
       <div className="p-8 bg-white rounded-lg shadow-md">
         {status === 'loading' && (
           <div className="text-center">
