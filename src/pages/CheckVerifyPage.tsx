@@ -21,9 +21,9 @@ const CheckVerifyPage: React.FC = () => {
         </Link>
         <RoundButton
           text="Check Your Email"
-          className="rounded-md w-1/3 mb-4"
+          className="rounded-md sm:w-1/3 w-1/2 mb-4"
         ></RoundButton>
-        <div className="text-[14px] text-white w-1/3 text-center">
+        <div className="text-[14px] text-white sm:w-1/3 w-1/2 text-center">
           An email has been sent to {email}. It contains an activation link you
           must click to activate your account.{' '}
         </div>
