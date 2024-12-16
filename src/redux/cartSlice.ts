@@ -78,7 +78,7 @@ const cartSlice = createSlice({
       }
 
       // Save cart state to localStorage
-      localStorage.setItem("cart_items", JSON.stringify(state.items));
+      localStorage.setItem('cart_items', JSON.stringify(state.items));
 
       // Recalculate totals
       state.totalCartPrice = state.items.reduce(
@@ -94,7 +94,7 @@ const cartSlice = createSlice({
       );
 
       // Save cart state to localStorage
-      localStorage.setItem("cart_items", JSON.stringify(state.items));
+      localStorage.setItem('cart_items', JSON.stringify(state.items));
 
       state.totalCartPrice = state.items.reduce(
         (total, item) => total + item.price * item.quantity,
@@ -124,10 +124,15 @@ const cartSlice = createSlice({
         0
       );
       state.totalPrice = state.totalCartPrice + state.shipping_fee;
-    }
+    },
   },
 });
 
-export const { addCartItem, setShippingFee, recalculateTotals, removeItem, setCartItems } =
-  cartSlice.actions;
+export const {
+  addCartItem,
+  setShippingFee,
+  recalculateTotals,
+  removeItem,
+  setCartItems,
+} = cartSlice.actions;
 export default cartSlice.reducer;

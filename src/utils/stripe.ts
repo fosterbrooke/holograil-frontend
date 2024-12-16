@@ -16,19 +16,16 @@ interface PurchaseRequestBody {
 
 async function handlePurchase(mode: string, data: PurchaseRequestBody) {
   try {
-    const fetchURL = `/subscriptions/create-checkout-session/${mode}`
+    const fetchURL = `/subscriptions/create-checkout-session/${mode}`;
 
-    const session = await fetchAPI(
-      fetchURL,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          accept: 'application/json',
-        },
-        body: JSON.stringify(data),
-      }
-    );
+    const session = await fetchAPI(fetchURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        accept: 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
     window.location.href = session.url; // Redirect to Stripe checkout
   } catch (error) {
     console.error('Error creating checkout session:', error);

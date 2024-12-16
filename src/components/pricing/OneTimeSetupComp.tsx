@@ -29,7 +29,7 @@ const OneTimeSetupComp: React.FC<OneTimeSetupCompProps> = ({
 
   const handleSignUp = async () => {
     if (user) {
-      await handlePurchase("subscription", {
+      await handlePurchase('subscription', {
         email: user.email,
         plan_id: planId,
       });

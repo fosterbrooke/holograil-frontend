@@ -3,7 +3,8 @@ import React from 'react';
 const InvoiceSettingsPage: React.FC = () => {
   return (
     <div>
-      <iframe srcDoc="
+      <iframe
+        srcDoc="
 <script src='https://js.stripe.com/v3/'></script>
 <script type='text/javascript'>
 window.onload = function(){
@@ -12,7 +13,8 @@ window.onload = function(){
 }
 </script>
 <p id='display'></p>
-"></iframe>
+"
+      ></iframe>
     </div>
   );
 };

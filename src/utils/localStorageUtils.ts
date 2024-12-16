@@ -44,10 +44,10 @@ export const initializeLocalStorage = (dispatch: AppDispatch) => {
         if (Array.isArray(parsedCartItems)) {
           dispatch(setCartItems(parsedCartItems));
         } else {
-          console.error("Invalid cart items format in localStorage.");
+          console.error('Invalid cart items format in localStorage.');
         }
       } catch (error) {
-        console.error("Failed to parse cart items from localStorage:", error);
+        console.error('Failed to parse cart items from localStorage:', error);
       }
     }
 

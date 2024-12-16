@@ -1,14 +1,14 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { StripeCardElementChangeEvent } from '@stripe/stripe-js';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
 import ProductItem from '../components/accounts/products/ProductItem';
 import RoundButton from '../components/RoundButton';
 import { removeItem } from '../redux/cartSlice';
 import { CartItem } from '../types/Cart';
 import { RootState } from '../redux/store';
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import handlePurchase from '../utils/stripe';
 
 interface BillingInfoItemProps {
@@ -76,26 +76,36 @@ const ShippingBillingPage: React.FC = () => {
   };
 
   const validateForm = () => {
-    if (!name || !email || !address || !city || !state || !zip || !country || !isCardComplete) {
+    if (
+      !name ||
+      !email ||
+      !address ||
+      !city ||
+      !state ||
+      !zip ||
+      !country ||
+      !isCardComplete
+    ) {
       return false;
     }
     return true;
-  }
+  };
 
-  const handleCardChange = (event: any) => {
+  const handleCardChange = (event: StripeCardElementChangeEvent) => {
     setIsCardComplete(event.complete); // Check if card details are fully entered
   };
 
-  const handleCheckout = async (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
+  const handleCheckout = async (
+    e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
+  ) => {
     e.preventDefault();
 
     if (user) {
       if (!validateForm()) {
         alert('Complete the form');
-      }
-      else {
+      } else {
         if (!stripe || !elements) {
-          alert("Stripe is not initialized.");
+          alert('Stripe is not initialized.');
           return;
         }
 
@@ -103,14 +113,14 @@ const ShippingBillingPage: React.FC = () => {
         const cardElement = elements.getElement(CardElement);
 
         if (!cardElement) {
-          alert("CardElement not found.");
+          alert('CardElement not found.');
           // setIsProcessing(false);
           return;
         }
 
         try {
           const { error, paymentMethod } = await stripe.createPaymentMethod({
-            type: "card",
+            type: 'card',
             card: cardElement,
             billing_details: {
               name,
@@ -126,53 +136,52 @@ const ShippingBillingPage: React.FC = () => {
           });
 
           if (error) {
-            console.error("Payment method creation error:", error);
+            console.error('Payment method creation error:', error);
             alert(error.message);
             return;
           }
 
-          console.log("Payment method created successfully:", paymentMethod);
+          console.log('Payment method created successfully:', paymentMethod);
 
           await handlePurchase('one-payment', {
             payment_method_id: paymentMethod.id,
             email: user.email,
             amount: totalPrice * 100, // Amount in cents
           });
-
         } catch (err) {
-          console.error("Error processing payment:", err);
-          alert("An error occurred. Please try again.");
+          console.error('Error processing payment:', err);
+          alert('An error occurred. Please try again.');
         }
       }
     } else {
       navigate('/signin');
     }
-  }
+  };
 
   const [cardFontSize, setCardFontSize] = useState(getFontSize());
 
   function getFontSize() {
-    if (window.innerWidth < 480) return "12px";
-    if (window.innerWidth < 768) return "14px";
-    return "24px";
+    if (window.innerWidth < 480) return '12px';
+    if (window.innerWidth < 768) return '14px';
+    return '24px';
   }
 
   useEffect(() => {
     const handleResize = () => {
       setCardFontSize(getFontSize());
     };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const cardElementOptions = {
     style: {
       base: {
         fontSize: cardFontSize,
-      }
+      },
     },
     hidePostalCode: true,
-  }
+  };
 
   return (
     <div className="flex justify-center w-screen">
@@ -384,7 +393,7 @@ const ShippingBillingPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

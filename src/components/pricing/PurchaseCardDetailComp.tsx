@@ -35,7 +35,7 @@ const PurchaseCardDetailComp: React.FC<PurchaseCardDetailCompProps> = ({
 
   const handleSignUp = async () => {
     if (user) {
-      await handlePurchase("subscription", {
+      await handlePurchase('subscription', {
         email: user.email,
         plan_id: planId,
       });

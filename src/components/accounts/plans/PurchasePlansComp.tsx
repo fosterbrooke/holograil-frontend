@@ -29,7 +29,7 @@ const PurchasePlansComp: React.FC<PurchasePlansCompProps> = ({
 
   const handlePurchaseCardClick = async () => {
     if (user) {
-      await handlePurchase("subscription", {
+      await handlePurchase('subscription', {
         email: user.email,
         plan_id: planId,
       });
