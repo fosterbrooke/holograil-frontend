@@ -7,18 +7,26 @@ export const pricingPlans = {
   day: 'price_1PyctZJlIvt55eMlorJURoTl',
 };
 
-async function handlePurchase(email: string, planId: string) {
+interface PurchaseRequestBody {
+  email: string;
+  plan_id?: string;
+  amount?: number;
+  payment_method_id?: string;
+}
+
+async function handlePurchase(mode: string, data: PurchaseRequestBody) {
   try {
+    const fetchURL = `/subscriptions/create-checkout-session/${mode}`
+
     const session = await fetchAPI(
-      `/subscriptions/create-checkout-session?user_mail=${encodeURIComponent(
-        email
-      )}&plan_id=${planId}`,
+      fetchURL,
       {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
           accept: 'application/json',
         },
-        body: JSON.stringify({}), // Empty body as per the sample
+        body: JSON.stringify(data),
       }
     );
     window.location.href = session.url; // Redirect to Stripe checkout

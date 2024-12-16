@@ -25,6 +25,10 @@ import { updateHeaderVisibility } from './utils/headerUtils';
 import { RootState } from './redux/store';
 import { convertToSlug } from './utils/urlNormalization';
 import CheckVerifyPage from './pages/CheckVerifyPage';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe("pk_test_51PyVRxJlIvt55eMlCZ4wz4ynhzzVKe9ggwGEhnDRlFU8lebqLnHvfMIvqZlDo8h4x650U3GgcuHHfcsCk0jxz4Cv006op5Ltks");
 
 function App() {
   return (
@@ -105,7 +109,9 @@ const AppWrapper: React.FC = () => {
             path="/shipping"
             element={
               <ProtectedRoute>
-                <ShippingBillingPage />
+                <Elements stripe={stripePromise}>
+                  <ShippingBillingPage />
+                </Elements>
               </ProtectedRoute>
             }
           />

@@ -65,16 +65,20 @@ const cartSlice = createSlice({
         // If the product already exists in the cart, update its quantity
         targetItem.quantity += quantity;
       } else {
-        // If the product doesn't exist in the cart, add it
-        state.items.push({
+        const newItem = {
           product_id,
           quantity,
           price: targetProduct.price,
           icon: targetProduct.icon,
           name: targetProduct.name,
           description: targetProduct.description,
-        });
+        };
+
+        state.items.push(newItem);
       }
+
+      // Save cart state to localStorage
+      localStorage.setItem("cart_items", JSON.stringify(state.items));
 
       // Recalculate totals
       state.totalCartPrice = state.items.reduce(
@@ -88,6 +92,9 @@ const cartSlice = createSlice({
       state.items = state.items.filter(
         (item) => item.product_id !== action.payload
       );
+
+      // Save cart state to localStorage
+      localStorage.setItem("cart_items", JSON.stringify(state.items));
 
       state.totalCartPrice = state.items.reduce(
         (total, item) => total + item.price * item.quantity,
@@ -108,9 +115,19 @@ const cartSlice = createSlice({
       );
       state.totalPrice = state.totalCartPrice + state.shipping_fee;
     },
+
+    setCartItems: (state, action: PayloadAction<CartItem[]>) => {
+      state.items = action.payload;
+
+      state.totalCartPrice = state.items.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      );
+      state.totalPrice = state.totalCartPrice + state.shipping_fee;
+    }
   },
 });
 
-export const { addCartItem, setShippingFee, recalculateTotals, removeItem } =
+export const { addCartItem, setShippingFee, recalculateTotals, removeItem, setCartItems } =
   cartSlice.actions;
 export default cartSlice.reducer;

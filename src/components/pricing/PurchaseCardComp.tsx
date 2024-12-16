@@ -30,7 +30,10 @@ const PurchaseCardComp: React.FC<PurchaseCardCompProps> = ({
 
   const handleSignUp = async () => {
     if (user) {
-      await handlePurchase(user.email, planId);
+      await handlePurchase("subscription", {
+        email: user.email,
+        plan_id: planId,
+      });
     } else {
       navigate('/signup');
     }

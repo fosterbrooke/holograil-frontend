@@ -1,3 +1,4 @@
+import { setCartItems } from '../redux/cartSlice';
 import { AppDispatch } from '../redux/store';
 import {
   setSelectedAccountsItem,
@@ -33,6 +34,21 @@ export const initializeLocalStorage = (dispatch: AppDispatch) => {
     );
     if (storedSelectedSettingsSubItem) {
       dispatch(setSelectedSettingsSubItem(storedSelectedSettingsSubItem));
+    }
+
+    const cart_items = localStorage.getItem('cart_items');
+    if (cart_items) {
+      try {
+        // Parse the JSON string into a JavaScript array
+        const parsedCartItems = JSON.parse(cart_items);
+        if (Array.isArray(parsedCartItems)) {
+          dispatch(setCartItems(parsedCartItems));
+        } else {
+          console.error("Invalid cart items format in localStorage.");
+        }
+      } catch (error) {
+        console.error("Failed to parse cart items from localStorage:", error);
+      }
     }
 
     updateCurrentSelection(dispatch, currentPath);
