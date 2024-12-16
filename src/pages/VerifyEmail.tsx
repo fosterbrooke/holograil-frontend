@@ -18,7 +18,7 @@ const VerifyEmail: React.FC = () => {
         await verifyEmail(token);
         setStatus('success');
         // Redirect to login after successful verification
-        setTimeout(() => navigate('/login'), 3000);
+        setTimeout(() => navigate('/accounts/overview'), 3000);
       } catch (error) {
         setStatus('error');
         console.error('Email verification failed:', error);
@@ -45,7 +45,7 @@ const VerifyEmail: React.FC = () => {
             </h2>
             <p>Your email has been successfully verified.</p>
             <p className="text-sm text-gray-500 mt-2">
-              Redirecting to login page...
+              Redirecting to dashboard page...
             </p>
           </div>
         )}

@@ -125,7 +125,7 @@ const LoginPage: React.FC = () => {
           );
         } else {
           if (!user.is_email_verified) {
-            alert('Please verify your email');
+            navigate(`/verify-sent?email=${user.email}`);
           } else {
             const storedSelectedAccountsItem = localStorage.getItem(
               'selectedAccountsItem'
